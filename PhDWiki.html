@@ -155,6 +155,8 @@ Error message and password prompt
 
 <li>$:/state/toc/Issues-Open--81657105</li>
 
+<li>$:/state/toc/Projects-Electron Lifetime--81657105</li>
+
 <li>$:/state/toc/TableOfContents-Hardware--81657105</li>
 
 <li>$:/state/toc/TableOfContents-Issues--81657105</li>
@@ -168,6 +170,8 @@ Error message and password prompt
 <li>$:/state/toc/TableOfContents-Paper Notes--81657105</li>
 
 <li>$:/state/toc/TableOfContents-PaperNotes--81657105</li>
+
+<li>$:/state/toc/TableOfContents-Projects--81657105</li>
 
 <li>$:/state/toc/TableOfContents-Software--81657105</li>
 
@@ -319,6 +323,8 @@ Error message and password prompt
 
 <li>22nd September 2016</li>
 
+<li>23rd September 2016</li>
+
 <li>8th September 2016</li>
 
 <li>9th September 2016</li>
@@ -376,6 +382,8 @@ Error message and password prompt
 <li>Paper Notes</li>
 
 <li>Physics of Neutrino Cross Sections</li>
+
+<li>Plan</li>
 
 <li>Projects</li>
 
@@ -8270,7 +8278,7 @@ Error message and password prompt
 <div created="20160906162255665" modified="20160907090215495" title="$:/SiteTitle">
 <pre>PhD Notebook</pre>
 </div>
-<div created="20160906162422050" modified="20160922173614407" title="$:/state/sidebar">
+<div created="20160906162422050" modified="20160923093408676" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div created="20160908153008198" modified="20160908153009590" title="$:/state/tab--1498284803">
@@ -8294,6 +8302,9 @@ Error message and password prompt
 <div created="20160916162147859" modified="20160920092759262" title="$:/state/toc/Issues-Open--81657105">
 <pre>close</pre>
 </div>
+<div created="20160923135925845" modified="20160923135925845" title="$:/state/toc/Projects-Electron Lifetime--81657105">
+<pre>open</pre>
+</div>
 <div created="20160907132258617" modified="20160907132308416" title="$:/state/toc/TableOfContents-Hardware--81657105">
 <pre>open</pre>
 </div>
@@ -8306,8 +8317,8 @@ Error message and password prompt
 <div created="20160908094350083" modified="20160914150836879" title="$:/state/toc/TableOfContents-My Journal--81657105">
 <pre>open</pre>
 </div>
-<div created="20160921163853106" modified="20160921163854618" title="$:/state/toc/TableOfContents-Notes--81657105">
-<pre>open</pre>
+<div created="20160921163853106" modified="20160923092505302" title="$:/state/toc/TableOfContents-Notes--81657105">
+<pre>close</pre>
 </div>
 <div created="20160907134106914" modified="20160921163852281" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
 <pre>close</pre>
@@ -8315,10 +8326,13 @@ Error message and password prompt
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160907090743836" modified="20160920092754262" title="$:/state/toc/TableOfContents-Software--81657105">
+<div created="20160923133217804" modified="20160923133217804" title="$:/state/toc/TableOfContents-Projects--81657105">
+<pre>open</pre>
+</div>
+<div created="20160907090743836" modified="20160923133216485" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[22nd September 2016]] [[LArSoft Excercises]] Welcome" title="$:/StoryList">
+<div list="[[23rd September 2016]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -8925,6 +8939,21 @@ backup
 **GEANT4 fcl file is not working, it did work on cvmfs before, maybe try to compare the set up between cvmfs and grid to see what the problem is
 
 //Stopped working at 17:00//</pre>
+</div>
+<div created="20160923161543011" modified="20160923164653353" tags="Journal" title="23rd September 2016">
+<pre>Bike didn't show up yesterday so have to stay home again...
+
+//Started working at 9:30//
+
+*Had to register with the university and health service
+**Need to get my card set up for out of hours work
+*Going to try and find out why reconstruction isn't working on the sbnd nodes by comparing with the sheffield cluster
+*Finish doing the exercises, polish them up and publish them on the sbnd redmine
+*Write a step by step plan for the lifetime measurement and the calorimetry including all of the things that need to be in place to do the measurement (geometry, etc)
+*Got a good idea of what to do now
+*Will look at simulations and simulate 100 events on sunday so I can get straight into the coding on Monday
+
+//Finished work at 17:30//</pre>
 </div>
 <div created="20160909100005746" modified="20160909100011704" tags="[[My Journal]] Journal" title="8th September 2016">
 <pre>//Arrived at 9:10//
@@ -9666,7 +9695,7 @@ http://lss.fnal.gov/archive/2015/conf/fermilab-conf-15-565-nd.pdf
 *Michel electrons standard candle
 *Can probe $$\mu^-$$ nuclear capture rate</pre>
 </div>
-<div created="20160922104250739" modified="20160922173602268" tags="Notes Software" title="LArSoft Excercises">
+<div created="20160922104250739" modified="20160923133150248" tags="Notes Software" title="LArSoft Excercises">
 <pre>!Getting Started
 
 *Log on to sbndgpvm0X.fnal.gov (X=1,2,3)
@@ -9682,11 +9711,6 @@ source /grid/fermiapp/products/sbnd/setup_sbnd.sh
 ```bash
 cd /sbnd/app/users/&lt; username &gt;
 ```
-*Set up sbndcode (setting up old build so we can do an extra step)
-```bash
-ups list -aK+ sbndcode #List all sbndcode releases#
-setup sbndcode v05_12_01 -q e9:prof
-```
 *Make a new directory for LArSoft build
 ```bash
 mkdir larDev
@@ -9694,7 +9718,7 @@ cd larDev
 ```
 *Make a new development with multi-repository build
 ```bash
-mrb newDev
+mrb newDev -v v05_12_01 -q e9:prof
 ```
 *Source the new localProducts
 ```bash
@@ -9703,7 +9727,7 @@ source localProducts_*/setup
 *Go to the srcs (sources) directory and checkout sbndcode
 ```bash
 cd $MRB_SOURCE
-mrb g -t v05_12_01 sbndcode
+mrb g sbndcode
 ```
 *Go to the build directory and build
 ```bash
@@ -9793,7 +9817,7 @@ git pull
 git flow feature start &lt; BranchName &gt;
 ```
 *Do some coding
-*Check which files you have created/editied
+*Check which files you have created/edited
 ```bash
 git status #Lists the changed/edited modules#
 git diff #Line by line description of what has been changed#
@@ -9858,24 +9882,63 @@ cd workspace
 ```
 *Generate 10 muon events
 ```bash
-lar -c prodsingle_sbnd.fcl -n 10 -o stage1.root
+lar -c prodsingle_sbnd.fcl -n 10
 ```
-*Run GEANT4 on the output
+*Run GEANT4 on the output (... = &quot;Tab&quot;)
 ```bash
-lar -c standard_g4_sbnd.fcl -s stage1.root -o stage2.root
+lar -c standard_g4_sbnd.fcl -s prodsingle...
 ```
 *Run the detector simulation on the output
 ```bash
-lar -c standard_detsim_sbnd.fcl -s stage2.root -o stage3.root
+lar -c standard_detsim_sbnd.fcl -s prodsingle..._...
 ```
 *Run the reconstruction on the output
 ```bash
-lar -c standard_reco_sbnd.fcl -s stage3.root -o stage4.root
+lar -c standard_reco_sbnd_basic.fcl -s prodsingle..._..._...
 ```
 
 !Viewing events with VNC
 
-!Project python</pre>
+*To configure this we will need two terminals open. ''Terminal 1'' = terminal logged in to one of the sbnd gpvms. ''Terminal 2'' = terminal on your local machine.
+*''Terminal 1'': Start the VNC server (replace X with a number, must be different for everyone working on the same gpvm)
+```bash
+vncserver :X
+```
+*''Terminal 1'': Choose a password
+*''Terminal 1'': Push the output of a remote terminal to the VNC desktop
+```bash
+export DISPLAY=localhost:X
+```
+*''Terminal 2'': Tunnel the VNC through ssh to keep it encrypted (if X&lt;10 add a zero to the front)
+```bash
+ssh -L 59X:localhost:59X -N -f -l &lt; username &gt; &lt; gpvmaddress &gt; # e.g. ssh -L 5908:localhost:5908 -N -f -l tbrooks sbndgpvm01.fnal.gov #
+```
+*''Terminal 2'': Open the window locally (on mac the command is ``open``) 
+**On linux/ubuntu we will use vinagre but you might need to download it first ``sudo apt-get install vinagre``
+```bash
+vinagre vnc://localhost:59X
+```
+*''Terminal 1'': Open the event display
+```bash
+lar -c evd_sbnd.fcl prodsingle..._..._..._...
+```
+
+!Project python (for submitting grid jobs)
+
+*Make a tarball of your local products
+```bash
+mkdir $MRB_TOP/tarballs
+cd $MRB_TOP/tarballs
+make_tarball.sh v05_12_01.tar
+```
+*Make a directory to put xml files (used to do all the preparation for the jobs)
+```bash
+mkdir $MRB_TOP/XML
+cd $MRB_TOP/XML
+```
+*make_xml_mcc1.0.sh doesn't seem to work at the moment (will complete tutorial later)
+
+</pre>
 </div>
 <div created="20160907084749231" modified="20160907131929080" tags="Software" title="Latex Referencing">
 <pre>Using biblatex in TexStudio for references:
@@ -10334,6 +10397,44 @@ http://arxiv.org/pdf/1403.2673v2.pdf
 *Most data falls in poorly understood region of resonance excitation
 *Good summary of the discrepancies between theory and data
 *Crucial that up to date theoretical models are implemented in the generators</pre>
+</div>
+<div created="20160923133221124" modified="20160923161740068" tags="[[Electron Lifetime]]" title="Plan">
+<pre>!Plan to measure the free electron lifetime in SBND
+
+*Generate large sample of (cosmic) through-going muon events
+**Could be either cosmic or from neutrino interactions up-stream (would be good to apply method to both), maybe start with just particle gun
+**Need to see what simulations are actually available
+**Need to calculate expected number of cosmic events per day (per run cycle) and use this number to do the calculations, simulate different lifetimes between 1.5 and 20ms
+**To start with just simulate 100 events to work out the kinks in the simulation and develop the code
+**Check to see if large samples of events already exist
+*Run through GEANT4, detector simulatation, reco
+**Need track and shower reconstruction
+**Not sure if reco_basic will be acceptable, need to look at the fcl file to see what it does
+*Make selection cuts
+**Will have to modify these so that they are appropriate for the detector
+**Track &gt; 100 wires &amp;&amp; &gt; 600 $$\mu$$s
+**Remove tracks with showers or delta rays near them
+**Remove tracks interrupted by noisy wires (probably not simulated but good to have in the code)
+**Remove events with multiple tracks (not sure if feasible in detector this size, will have to look at number of events before and after each cut)
+**If done correctly, should end up with ~20% of events remaining
+**Treat each TPC separately for the cuts, are they in the same volume of LAr
+**Create a LArSoft module for just performing the cuts?
+*Plot the peak amplitude vs the drift time
+**Get peak amplitude from the hit data product
+**Treat collection and induction planes separately, or only use collection plane
+**Get drift time from PMT data?
+*Break up scatter plot into time slices
+**Work out the smallest time slice possible based on event rates post cut, need reasonable statistics in each slice
+*Put the amplitudes into 1D histograms and fit with a convoluted Landau and Gaussian
+**Does LArSoft support roofit?
+**Get the most probable value for charge out
+**Is there any need to convert between amplitude and charge, if transformation is linear it shouldn't affect the fit
+*Plot most probable charge vs drift time and fit exponential to extract lifetime
+**The exact form of the exponential is in one of the papers
+**Not sure how modular this code should be, will probably put it all into one file at first and can then break it up later if needed
+*Work out statistical and systematic erros
+**Statistical errors probably poissonian, but check
+**Use the papers for help when working out the systematics</pre>
 </div>
 <div created="20160921155402168" modified="20160921155555435" tags="TableOfContents" title="Projects">
 <pre>Organise different wikis by the projects they apply to:
