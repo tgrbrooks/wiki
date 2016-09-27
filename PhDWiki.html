@@ -325,6 +325,8 @@ Error message and password prompt
 
 <li>23rd September 2016</li>
 
+<li>26th September 2016</li>
+
 <li>8th September 2016</li>
 
 <li>9th September 2016</li>
@@ -363,7 +365,7 @@ Error message and password prompt
 
 <li>LArIAT Michel Electron Reconstruction</li>
 
-<li>LArSoft Excercises</li>
+<li>LArSoft Exercises</li>
 
 <li>Latex Referencing</li>
 
@@ -402,6 +404,8 @@ Error message and password prompt
 <li>TableOfContents</li>
 
 <li>Useful Documents</li>
+
+<li>Useful SBND Numbers</li>
 
 <li>Useful VIM Commands</li>
 
@@ -8329,10 +8333,10 @@ Error message and password prompt
 <div created="20160923133217804" modified="20160923133217804" title="$:/state/toc/TableOfContents-Projects--81657105">
 <pre>open</pre>
 </div>
-<div created="20160907090743836" modified="20160923133216485" title="$:/state/toc/TableOfContents-Software--81657105">
-<pre>close</pre>
+<div created="20160907090743836" modified="20160926092948792" title="$:/state/toc/TableOfContents-Software--81657105">
+<pre>open</pre>
 </div>
-<div list="[[23rd September 2016]]" title="$:/StoryList">
+<div list="[[26th September 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -8685,8 +8689,8 @@ This plugin contains tools to help slice up long texts into individual tiddlers.
 <div author="JeremyRuston" core-version="&gt;=5.0.0" created="20160907132902254" dependents="" description="Basic theme" modified="20160907132902254" name="Vanilla" original-plugin-type="theme" original-tags="" original-title="$:/themes/tiddlywiki/vanilla" original-type="application/json" server-url="http://tiddlywiki.com/library/v5.1.13/index.html" tags="$:/tags/RemoteAssetInfo" title="$:/temp/RemoteAssetInfo/http://tiddlywiki.com/library/v5.1.13/index.html/$:/themes/tiddlywiki/vanilla" type="text/vnd.tiddlywiki" version="5.1.13">
 <pre></pre>
 </div>
-<div created="20160908082036184" modified="20160908153027630" title="$:/temp/search">
-<pre></pre>
+<div created="20160908082036184" modified="20160926165354659" title="$:/temp/search">
+<pre>birk</pre>
 </div>
 <div created="20160907132902060" modified="20160907132902060" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
 <pre>loaded</pre>
@@ -8954,6 +8958,50 @@ backup
 *Will look at simulations and simulate 100 events on sunday so I can get straight into the coding on Monday
 
 //Finished work at 17:30//</pre>
+</div>
+<div created="20160926083724278" modified="20160927095408031" tags="Journal" title="26th September 2016">
+<pre>//Arrived at 9:30//
+
+*Need to look in to the first stage simulation fcl files to find out:
+**Do any cosmic simulations work
+***prodcosmics_corsica_sbnd.fcl fails, issue with proxy certificate and can't find files. Have looked at that file path and there are files there with the difference that the last : should be a /. I'm assuming this can't be an error and it must be to do with the proxy certificate, will have to look at the other fcl files to work out the issue.
+***prodcosmics_cry_sbnd.fcl seems to work but will need to check in the event display
+***prodgenie_bnb_nu_cosmic.fcl doesn't work, uses corsika files, but it's probably bnb events with cosmic overlays which isn't what we want
+***prodgenie_common_cosmic has the same problem as above, in fact the above fcl file includes this one (FIND corsika_sbnd.fcl)
+***corsika_sbnd.fcl specifies the file path in away that should work, could try copying the files to my app directory
+***prodsingle_sbnd.fcl works, I think it simulates a single muon but need to check (it does)
+***I think the cosmic simulations are in very early stages as they didn't exist in the tagged v05_12_01 version, this could be why there are so many problems
+***Might be sensible to just used prodsingle for now jut to practice getting modules to work in LArSoft
+
+*Focus on prodsingle_sbnd.fcl for now
+**What particles are being generated
+***Single muons (singles.fcl: PDG: [13])
+**What direction are they being generated in 
+***(x0,y0,z0) = (100cm,100cm,10cm) (X0: [100], Y0: [100], Z0: [100])
+***(dx,dy,dz) = (0cm,0cm,0cm) (SigmaX: [0.], SigmaY: [0.], SigmaZ: [0.])
+***Angle in xz plane = 10deg (Theta0XZ: [10])
+***Change in xz angle = 0deg (SigmaThetaXZ: [0.])
+***Angle in yz plane = -3.3deg (Theta0YZ: [-3.3])
+***Change in yz anlge = 0deg (SigmaThetaYZ: [0.])
+**What energies are they being generated at
+***Central value of momentum = 6 GeV (P0: [6.])
+***Change in momentum = 0 GeV (SigmaP: [0.])
+**What purity/electron lifetime is simulated
+***probably need to look in the geant4 fcl files.
+***standard_g4_sbnd.fcl: nothing useful
+***largeantmodules_sbnd.fcl: nothing useful
+***largeantmodules.fcl: nothing useful
+***Probably in one of the LArG4 code files
+***G4ThermalElectron.cxx: there is a place to specify lifetime (-1 by default = infinite?) but I don't think thermal electrons are the right type
+***ISCalculationSeparate.cxx: something about recombination coefficient
+
+*Calculate the expected rate of cosmic muons for the detector volume
+**In a 5.12ms window (check) should see 9.8 cosmic muons in each TPC
+*Simulate 1 DAQ runs worth of through going muons
+**Will use prodcosmics_cry_sbnd.fcl for now
+**Need to check if G4 stage simulated any electronegative impurities
+
+//Left at 19:00//</pre>
 </div>
 <div created="20160909100005746" modified="20160909100011704" tags="[[My Journal]] Journal" title="8th September 2016">
 <pre>//Arrived at 9:10//
@@ -9695,7 +9743,7 @@ http://lss.fnal.gov/archive/2015/conf/fermilab-conf-15-565-nd.pdf
 *Michel electrons standard candle
 *Can probe $$\mu^-$$ nuclear capture rate</pre>
 </div>
-<div created="20160922104250739" modified="20160923133150248" tags="Notes Software" title="LArSoft Excercises">
+<div created="20160922104250739" modified="20160926105406984" tags="Notes Software" title="LArSoft Exercises">
 <pre>!Getting Started
 
 *Log on to sbndgpvm0X.fnal.gov (X=1,2,3)
@@ -10613,6 +10661,26 @@ https://cdcvs.fnal.gov/redmine/projects/larsoft/wiki/Writing_LArSoft_algorithms
 
 *Services guidelines
 https://cdcvs.fnal.gov/redmine/projects/larsoft/wiki/Writing_LArSoft_service</pre>
+</div>
+<div created="20160926094510635" modified="20160926145159991" tags="Hardware" title="Useful SBND Numbers">
+<pre>!TPC Dimensions
+*[[Source|https://indico.cern.ch/event/446818/contributions/1106590/attachments/1170559/1690568/SBND_Cryostat_Requirements_Rev._2_Oct_13_2015.pdf]]
+*Think this includes the field cage as well so AV might be smaller
+*Width = 4.312m
+*Height = 4.294m
+*Length = 2 * 2.656m = 5.312m (2 TPCs)
+*Top surface area = 2 * 11.453m^2 = 22.905m^2
+
+!Coordinate System
+*[[Source|https://sbn-docdb.fnal.gov:440/cgi-bin/RetrieveFile?docid=590&amp;filename=Coordinate_system_info.pdf&amp;version=4]]
+[img[sbndGeo.png]]
+
+*y direction: vertical, 0 is in the middle of the frames
+*x direction: horizontal, along the drift direction (so different for each TPC, left for the left one and right for the right one from the perspective of the beam), 0 is at the cathode (in the middle)
+*z direction: along the beam line, 0 at the beginning of the TPC from the beams perspective
+
+!Fluxes
+*Cosmic muon flux ~ 1 cm^-2min^-1 (http://pdg.lbl.gov/2011/reviews/rpp2011-rev-cosmic-rays.pdf)</pre>
 </div>
 <div created="20160907091435765" modified="20160907092832926" tags="Software" title="Useful VIM Commands" type="text/vnd.tiddlywiki">
 <pre>NORMAL mode (``Esc``):
