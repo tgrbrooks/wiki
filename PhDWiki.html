@@ -327,6 +327,8 @@ Error message and password prompt
 
 <li>26th September 2016</li>
 
+<li>27th September 2016</li>
+
 <li>8th September 2016</li>
 
 <li>9th September 2016</li>
@@ -347,6 +349,8 @@ Error message and password prompt
 
 <li>Electron Lifetime</li>
 
+<li>Generating CORSIKA events</li>
+
 <li>Generating LArSoft Events</li>
 
 <li>Hardware</li>
@@ -364,6 +368,8 @@ Error message and password prompt
 <li>Journal</li>
 
 <li>LArIAT Michel Electron Reconstruction</li>
+
+<li>LArIAT Purity Code</li>
 
 <li>LArSoft Exercises</li>
 
@@ -8309,8 +8315,8 @@ Error message and password prompt
 <div created="20160923135925845" modified="20160923135925845" title="$:/state/toc/Projects-Electron Lifetime--81657105">
 <pre>open</pre>
 </div>
-<div created="20160907132258617" modified="20160907132308416" title="$:/state/toc/TableOfContents-Hardware--81657105">
-<pre>open</pre>
+<div created="20160907132258617" modified="20160927135532843" title="$:/state/toc/TableOfContents-Hardware--81657105">
+<pre>close</pre>
 </div>
 <div created="20160916161721992" modified="20160920092800275" title="$:/state/toc/TableOfContents-Issues--81657105">
 <pre>close</pre>
@@ -8330,13 +8336,13 @@ Error message and password prompt
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160923133217804" modified="20160923133217804" title="$:/state/toc/TableOfContents-Projects--81657105">
-<pre>open</pre>
+<div created="20160923133217804" modified="20160927135530946" title="$:/state/toc/TableOfContents-Projects--81657105">
+<pre>close</pre>
 </div>
-<div created="20160907090743836" modified="20160926092948792" title="$:/state/toc/TableOfContents-Software--81657105">
-<pre>open</pre>
+<div created="20160907090743836" modified="20160927135529576" title="$:/state/toc/TableOfContents-Software--81657105">
+<pre>close</pre>
 </div>
-<div list="[[26th September 2016]] Welcome" title="$:/StoryList">
+<div list="[[27th September 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -8689,8 +8695,8 @@ This plugin contains tools to help slice up long texts into individual tiddlers.
 <div author="JeremyRuston" core-version="&gt;=5.0.0" created="20160907132902254" dependents="" description="Basic theme" modified="20160907132902254" name="Vanilla" original-plugin-type="theme" original-tags="" original-title="$:/themes/tiddlywiki/vanilla" original-type="application/json" server-url="http://tiddlywiki.com/library/v5.1.13/index.html" tags="$:/tags/RemoteAssetInfo" title="$:/temp/RemoteAssetInfo/http://tiddlywiki.com/library/v5.1.13/index.html/$:/themes/tiddlywiki/vanilla" type="text/vnd.tiddlywiki" version="5.1.13">
 <pre></pre>
 </div>
-<div created="20160908082036184" modified="20160926165354659" title="$:/temp/search">
-<pre>birk</pre>
+<div created="20160908082036184" modified="20160927135537213" title="$:/temp/search">
+<pre></pre>
 </div>
 <div created="20160907132902060" modified="20160907132902060" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
 <pre>loaded</pre>
@@ -9002,6 +9008,37 @@ backup
 **Need to check if G4 stage simulated any electronegative impurities
 
 //Left at 19:00//</pre>
+</div>
+<div created="20160927095525907" modified="20160928083805667" tags="Journal" title="27th September 2016">
+<pre>//Arrived at 9:30//
+
+*Had an introduction to the Doctoral Academy until 11:00
+*Emailed Michelle about uploading to the sbnd wiki
+**I should just do what makes the most sense in terms of adding info
+**Added pages for working on a feature branch and using VNC
+**Should probably break up the tiddlywiki LArSoft Exercises page
+*Emailed Gianluca about the cosmics not working
+**For corsika, I need a proxy, he told me to follow the instructions here (https://cdcvs.fnal.gov/redmine/projects/sbndcode/wiki/Get_a_certificate_proxy)
+**For cry he told me to submit a ticket on redmine which is done now
+**Can now generate corsika events but the same thing happens as with the cry events
+*Looking through the ArgoNeuT code to try and find the electron lifetime stuff
+**Found ``services.user.DetectorPropertiesService.Electronlifetime: 500.0`` which could be useful for changing the electron lifetime but this is in the reco fcl file so probably too late to change the simulated lifetime and just a number used for reconstruction purposes
+*Found something in LArIAT at lariatsoft/LArIATAnaModule/PurityOnlineT1034_module.cc
+**Will make notes on how it works
+*It's definitely what I'm looking for, I've read over it and made a number of notes.
+**Questions I need to answer:
+***Is the temporary file deleted after each event?
+***Why is likelihood a negative sum?
+***Why minimize the likelihood?
+***Do art::Ptr clean themselves up?
+***Why is charge divided by track pitch?
+***Why the cut value for charge/pitch?
+***Why is only the first track in the event used?
+***Does doing two fits to time and wire no have any effect?
+***Why are there cuts on the gradient of the fit?
+***Is tau definitely lifetime?
+
+//Left at 18:15//</pre>
 </div>
 <div created="20160909100005746" modified="20160909100011704" tags="[[My Journal]] Journal" title="8th September 2016">
 <pre>//Arrived at 9:10//
@@ -9465,6 +9502,27 @@ set clipboard=unnamedplus
 <div created="20160921155519902" modified="20160921155627752" tags="Projects" title="Electron Lifetime">
 <pre>&lt;&lt;list-links &quot;[tag[Electron Lifetime]]&quot;&gt;&gt;</pre>
 </div>
+<div created="20160927112550847" modified="20160927113238992" tags="Software" title="Generating CORSIKA events">
+<pre>Need to have a proxy so that CORSIKAGen can access dCache.
+
+*To do this, make sure you are registered in the virtual organisation (https://voms.fnal.gov:8443/voms/fermilab/user/home.action)
+*Get your Kerberos authentication 
+```bash
+kinit &quot;${USER}@FNAL.GOV&quot;
+```
+*Ask Kerberos for a x509 certificate
+```bash
+kx509
+```
+*Create a proxy from the certificate
+```bash
+voms-proxy-init -noregen -rfc -voms 'fermilab:/fermilab/lar1nd/Role=Analysis'
+```
+*Generate corsika events as normal
+```bash
+lar -c prodcosmics_corsika_sbnd.fcl -n 10
+```</pre>
+</div>
 <div created="20160908114948074" modified="20160908120244880" tags="Software" title="Generating LArSoft Events">
 <pre>Once LArSoft is set up (see [[Running LArSoft (production)]] or ) you can start generating MC events.
 
@@ -9743,7 +9801,69 @@ http://lss.fnal.gov/archive/2015/conf/fermilab-conf-15-565-nd.pdf
 *Michel electrons standard candle
 *Can probe $$\mu^-$$ nuclear capture rate</pre>
 </div>
-<div created="20160922104250739" modified="20160926105406984" tags="Notes Software" title="LArSoft Exercises">
+<div created="20160927135539990" modified="20160927145934391" tags="Notes" title="LArIAT Purity Code">
+<pre>(Realized it makes a lot more sense just to copy the file and annotate it in a text editor rather than make notes here, might come back to this later)
+
+[[Source|https://cdcvs.fnal.gov/redmine/projects/lardbt/repository/revisions/master/entry/LArIATAnaModule/PurityOnlineT1034_module.cc]]
+
+Just a .cc file (no header)
+
+Contains: non-member function ``likely()``, class ``PurityOnlineT1034``, constructor, destructor, member function ``reconfigure()``, member function ``analyze()``, member function ``beginJob()``, member function ``endJob()``, member function ``ResetVars()``
+
+Referenced by lariatanamodules.fcl but nothing else
+
+!Class PurityOnlineT1034
+
+*Inherits from EDAnalyzer
+*All data members are private
+*Contains lots of numbers and vectors, a few histograms and strings, and a minimizer from root
+
+!Constructor
+
+*Takes in the fhicl parameter set and calls the reconfigure function with that as the argument
+*Also initializes EDAnalyser with the same parameter set
+
+!Destructor
+
+*Doesn't do anything, I don't think there's any dynamic memory/ naked pointers used
+
+!reconfigure
+
+*Takes fhicl parameter set as argument
+*Sets a few of the private data members from the parameter set
+
+!beginJob
+
+*Creates histograms
+*Clears vectors
+*Set tolerances and max number of calls for minimizer
+
+!likely
+
+*Takes in a pointer to a const double (an array)
+*Sets some values from the input array
+*Opens a temporary text file
+*Reads in time and charge form the file and fills vectors, then makes sure the vectors are the same size
+
+!analyze
+
+*Takes an art::Event, so only acts on a single event at one time
+*Calls ResetVars to reset all of the event/run counters
+*Creates a functor used to wrap the multi-dimensional function likely()
+
+!endJob
+
+*Removes temporary text file
+*Prints number of tracks selected
+*Sets some numbers to zero
+*Loops over the number of selected tracks
+*
+
+!ResetVars
+
+*</pre>
+</div>
+<div created="20160922104250739" modified="20160927112338680" tags="Notes Software" title="LArSoft Exercises">
 <pre>!Getting Started
 
 *Log on to sbndgpvm0X.fnal.gov (X=1,2,3)
