@@ -329,6 +329,8 @@ Error message and password prompt
 
 <li>27th September 2016</li>
 
+<li>3rd October 2016</li>
+
 <li>8th September 2016</li>
 
 <li>9th September 2016</li>
@@ -366,6 +368,8 @@ Error message and password prompt
 <li>Issues</li>
 
 <li>Journal</li>
+
+<li>LArIAT Code Modifications</li>
 
 <li>LArIAT Michel Electron Reconstruction</li>
 
@@ -8315,8 +8319,8 @@ Error message and password prompt
 <div created="20160923135925845" modified="20160923135925845" title="$:/state/toc/Projects-Electron Lifetime--81657105">
 <pre>open</pre>
 </div>
-<div created="20160907132258617" modified="20160927135532843" title="$:/state/toc/TableOfContents-Hardware--81657105">
-<pre>close</pre>
+<div created="20160907132258617" modified="20161003152851777" title="$:/state/toc/TableOfContents-Hardware--81657105">
+<pre>open</pre>
 </div>
 <div created="20160916161721992" modified="20160920092800275" title="$:/state/toc/TableOfContents-Issues--81657105">
 <pre>close</pre>
@@ -8336,13 +8340,13 @@ Error message and password prompt
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160923133217804" modified="20160927135530946" title="$:/state/toc/TableOfContents-Projects--81657105">
+<div created="20160923133217804" modified="20161003153831443" title="$:/state/toc/TableOfContents-Projects--81657105">
+<pre>open</pre>
+</div>
+<div created="20160907090743836" modified="20161003152850702" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div created="20160907090743836" modified="20160927135529576" title="$:/state/toc/TableOfContents-Software--81657105">
-<pre>close</pre>
-</div>
-<div list="[[27th September 2016]] Welcome" title="$:/StoryList">
+<div list="[[LArIAT Code Modifications]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9040,6 +9044,28 @@ backup
 
 //Left at 18:15//</pre>
 </div>
+<div created="20161003165503788" modified="20161003170721563" tags="Journal" title="3rd October 2016">
+<pre>//Arrived at 9:30//
+
+*Computer shut down before I saved the wiki and I lost the journal entry for the 28th before I could save it.
+**It contained answers to the questions I posed at the end of the 27th
+**It detailed some of the work I was doing trying to convert the LArIAT electron lifetime code to sbndups
+*Having some issues with lar::util::TrackPitchInView
+**Getting errors saying that there is an undefined reference, pulling lardata and building it alongside sbndcode
+**Undefined reference could mean that the definition of the function ip=n the cxx file does not match the header file
+**It's been fixed, was an issue with not having the right list in the cmakefile so the linking was failing
+*The program now compiles, On running there is an art error for the association between hits and raw digits
+**Pretty sure this is because the module used to find hits was different, changed the name and generated 10 corsika events with the fixed fcl files and now it runs without errors
+*Still don't have a lifetime but I can start editing the code to see where the calculations are messing up
+*It will now work all of the way through, will document the improvements made in a separate wiki page
+*Had a meeting with Niel, we discussed:
+**Doing a bit of noise analysis for the 35ton in order to prepare for noisy data in SBND
+**Getting a new laptop from the departmental fund
+**Matthew (PhD student) is doing work on electron lifetime/calorimetry for 35ton, setting up a meeting to discuss work
+*Have set out a list of questions/plots to produce in another wiki, will answer them first thing tomorrow.
+
+//Left at 18:15//</pre>
+</div>
 <div created="20160909100005746" modified="20160909100011704" tags="[[My Journal]] Journal" title="8th September 2016">
 <pre>//Arrived at 9:10//
 
@@ -9729,6 +9755,47 @@ git merge develop
 </div>
 <div created="20160908082813344" modified="20160916161809320" tags="TableOfContents" title="Journal" type="text/vnd.tiddlywiki">
 <pre>&lt;&lt;list-links &quot;[tag[Journal]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20161003155110051" modified="20161003170726125" tags="[[Electron Lifetime]]" title="LArIAT Code Modifications">
+<pre>First off, here's a step by step guide to what the code does (just the physics):
+
+*For the first track on the V plane
+*Remove all hits with the (hit charge)/(track pitch) &lt; 6000
+*Perform a linear fit between hit time and wire number
+*Remove any hits outside of a tolerance to the fit
+*Do the fit again with the hits that passed and again remove any fits that fall outside the tolerance
+*Do one last fit and calculate the chisqr/ndof and gradient
+*Count up all the hits that make it through all of these stages
+*Cut any tracks with fewer than 80 hits
+*Cut any tracks with a chisqr/ndof less than 2
+*Cut any tracks with a gradient that corresponds to being too close to either parallel or perpendicular to the wire plane (0.3&lt;grad&lt;2.1 or -2.1&lt;grad&lt;-0.3)
+*Cut any tracks that are shorter than 94cm (was 37) in the drift (x) direction
+*Fit the time against the charge with an exponential to get dq/dx0
+*Fit a Landau function to a histogram of the observed charge - charge from fit
+*Use the width of the Landau function to set limits on another exponential fit
+*Remove all hits with charges outside of the first exponential fit +/- 4*landau width
+*Perform a maximum likelihood estimate (minimize negative log likelihood) with a (fixed?) dq/dx0
+**Expected charge is calculated from $$\frac{dQ}{dx}=\frac{dQ_0}{dx}e^{-t/\tau}$$ where t is the recorded time, dQ/dx0 is the charge at time 0 from the first exponential fit and I think the tau is put in by the minimization
+**The most probable charge is calculated from $$MPC = \frac{dQ}{dx}-mp_{shift}*\sigma$$ where the mpshift is something to do with Landau maximum (look up) and sigma is another value put in by minimization
+**The probability that a value of charge is observed is a landau function where the most probable value is MPC and the width is the sigma from before
+*Calculate the errors at the 1 sigma level
+*If any of the values from minimization are outside of set limits the track is rejected
+*Average the electron lifetimes and errors over all of the tracks used
+
+Questions, improvements and things to plot:
+
+*What are the units for the electron lifetime?
+*Is the charge fixed in the minimization?
+*Loop over all tracks in the event
+*Are all the cuts appropriate for SBND?
+*How is the other TPC accessed?
+*Why is the most probable charge shifted, where does the shift number come from?
+*Is the error averaging done right?
+*Are all of the array limits ok?
+*Are the planes the right way round, is the collection plane 2?
+*Plot the first time vs wire fit
+*Plot the first time vs charge fit
+*Plot the Landau histogram</pre>
 </div>
 <div created="20160915155221400" modified="20160916145526177" tags="[[Paper Notes]]" title="LArIAT Michel Electron Reconstruction">
 <pre>!Source
