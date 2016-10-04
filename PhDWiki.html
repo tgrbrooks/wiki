@@ -331,6 +331,8 @@ Error message and password prompt
 
 <li>3rd October 2016</li>
 
+<li>4th October 2016</li>
+
 <li>8th September 2016</li>
 
 <li>9th September 2016</li>
@@ -8346,7 +8348,7 @@ Error message and password prompt
 <div created="20160907090743836" modified="20161003152850702" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[LArIAT Code Modifications]] Welcome" title="$:/StoryList">
+<div list="[[4th October 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9066,6 +9068,18 @@ backup
 
 //Left at 18:15//</pre>
 </div>
+<div created="20161004083117449" modified="20161004171812929" tags="Journal" title="4th October 2016">
+<pre>//Arrived at 9:30//
+
+*Will start by answering questions, producing plots and improving the LArIAT code
+*This will be documented [[here||LArIAT Code Modifications]]
+*The code now works and separates the results by TPC
+*Still need to work out how to change the simulated electron lifetime/argon purity
+*Need to look up some numbers to do with LArIAT and SBND
+*Generate more events to test the code on
+
+//Left at 18:30//</pre>
+</div>
 <div created="20160909100005746" modified="20160909100011704" tags="[[My Journal]] Journal" title="8th September 2016">
 <pre>//Arrived at 9:10//
 
@@ -9756,7 +9770,7 @@ git merge develop
 <div created="20160908082813344" modified="20160916161809320" tags="TableOfContents" title="Journal" type="text/vnd.tiddlywiki">
 <pre>&lt;&lt;list-links &quot;[tag[Journal]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20161003155110051" modified="20161003170726125" tags="[[Electron Lifetime]]" title="LArIAT Code Modifications">
+<div created="20161003155110051" modified="20161004171604946" tags="[[Electron Lifetime]]" title="LArIAT Code Modifications">
 <pre>First off, here's a step by step guide to what the code does (just the physics):
 
 *For the first track on the V plane
@@ -9782,20 +9796,48 @@ git merge develop
 *If any of the values from minimization are outside of set limits the track is rejected
 *Average the electron lifetimes and errors over all of the tracks used
 
+Should make a note of event generator and all the modules used to do the simulations
+
 Questions, improvements and things to plot:
 
 *What are the units for the electron lifetime?
+**Same as the units of time
+**According to the output it is microseconds
+**The LArSoft standard is ns and I can't see a conversion anywhere
+**us makes the most sense in terms of results, if a little low
+**Need to find the simulated sampling rate and pre-sampling time
 *Is the charge fixed in the minimization?
-*Loop over all tracks in the event
+**Pretty sure just the initial value is set https://root.cern.ch/root/html/ROOT__Math__Minimizer.html#ROOT__Math__Minimizer:SetVariableValue
 *Are all the cuts appropriate for SBND?
+**There is nothing glaringly wrong with the cuts, but could probably still be optimised
+**Need to find out the gain of lariat and sbnd
+**Need to work out if wire pitch affects the cuts
 *How is the other TPC accessed?
+**wireid.TPC gets the tpc number
+**Printing out the TPC numbers, tracks are not counted individually for each TPC
 *Why is the most probable charge shifted, where does the shift number come from?
+**Shifting from the average value to the most probable value http://ac.els-cdn.com/0010465584900857/1-s2.0-0010465584900857-main.pdf?_tid=b41cae80-8a33-11e6-8272-00000aab0f01&amp;acdnat=1475586715_2c6a1ec731322d73c9ae6c07cd7cd4d2
 *Is the error averaging done right?
+**Probably
 *Are all of the array limits ok?
+**Most numbers are around 1/10th of the array limits, but would probably still be good to add an automatic check
 *Are the planes the right way round, is the collection plane 2?
+**It would be madness if it wasn't, quite hard to check
+**Printing out the plane number shows just three planes
 *Plot the first time vs wire fit
+**Done this with fit, can be found at .../purityOut/Graphs.root
 *Plot the first time vs charge fit
-*Plot the Landau histogram</pre>
+**Done this with fit, can be found at .../purityOut/Graphs.root
+*Plot the Landau histogram
+**Done this with fit, can be found at .../purityOut/withLandauFit.root
+*Loop over all tracks in each event (then deal with the TPCs)
+**Track loop is simple to implement but need to deal with any return functions
+**Replacing returns with continues should work
+**Seems to work fine now, from the 10 events with the first TPC, get 3 candidate tracks
+**See what happens (especially with the x coord) with the second TPC
+**x coord seems to be the same (negative) for the other TPC which is a little odd, but perhaps it is done this way to avoid confusion &amp; breaking code
+**Only get 1 event from the second TPC
+**The code now works and separates the results by TPC</pre>
 </div>
 <div created="20160915155221400" modified="20160916145526177" tags="[[Paper Notes]]" title="LArIAT Michel Electron Reconstruction">
 <pre>!Source
@@ -10849,7 +10891,7 @@ https://cdcvs.fnal.gov/redmine/projects/larsoft/wiki/Writing_LArSoft_algorithms
 *Services guidelines
 https://cdcvs.fnal.gov/redmine/projects/larsoft/wiki/Writing_LArSoft_service</pre>
 </div>
-<div created="20160926094510635" modified="20160926145159991" tags="Hardware" title="Useful SBND Numbers">
+<div created="20160926094510635" modified="20161004124715995" tags="Hardware" title="Useful SBND Numbers">
 <pre>!TPC Dimensions
 *[[Source|https://indico.cern.ch/event/446818/contributions/1106590/attachments/1170559/1690568/SBND_Cryostat_Requirements_Rev._2_Oct_13_2015.pdf]]
 *Think this includes the field cage as well so AV might be smaller
@@ -10867,7 +10909,22 @@ https://cdcvs.fnal.gov/redmine/projects/larsoft/wiki/Writing_LArSoft_service</pr
 *z direction: along the beam line, 0 at the beginning of the TPC from the beams perspective
 
 !Fluxes
-*Cosmic muon flux ~ 1 cm^-2min^-1 (http://pdg.lbl.gov/2011/reviews/rpp2011-rev-cosmic-rays.pdf)</pre>
+*Cosmic muon flux ~ 1 cm^-2min^-1 (http://pdg.lbl.gov/2011/reviews/rpp2011-rev-cosmic-rays.pdf)
+
+!Geant4 Units
+*Source = art workbook
+*Length = mm
+*Energy = MeV
+*Time = ns
+*Plane Angle =  radian
+*Solid Angle = steradian
+
+!LArSoft Units
+*[[Source|https://cdcvs.fnal.gov/redmine/projects/larsoft/wiki/Package_Documentation]]
+*Length = cm
+*Energy = GeV
+*Time = ns
+*Masses = g</pre>
 </div>
 <div created="20160907091435765" modified="20160907092832926" tags="Software" title="Useful VIM Commands" type="text/vnd.tiddlywiki">
 <pre>NORMAL mode (``Esc``):
