@@ -333,6 +333,8 @@ Error message and password prompt
 
 <li>4th October 2016</li>
 
+<li>5th October 2016</li>
+
 <li>8th September 2016</li>
 
 <li>9th September 2016</li>
@@ -8342,13 +8344,13 @@ Error message and password prompt
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160923133217804" modified="20161003153831443" title="$:/state/toc/TableOfContents-Projects--81657105">
+<div created="20160923133217804" modified="20161005154425513" title="$:/state/toc/TableOfContents-Projects--81657105">
 <pre>open</pre>
 </div>
-<div created="20160907090743836" modified="20161003152850702" title="$:/state/toc/TableOfContents-Software--81657105">
+<div created="20160907090743836" modified="20161005154229042" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[4th October 2016]] Welcome" title="$:/StoryList">
+<div list="[[Useful SBND Numbers]] [[5th October 2016]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9080,6 +9082,39 @@ backup
 
 //Left at 18:30//</pre>
 </div>
+<div created="20161005153031402" modified="20161005171031805" tags="Journal" title="5th October 2016">
+<pre>//Arrived at 9:30//
+
+*Discussed what work needed to be done with Dom
+**Simulating cosmic events with different electron lifetimes (Dom)
+**Writing electron lifetime code that uses the ArgoNeuT/ICARUS method (me)
+**Writing calorimetry code using either MIP Muons or Michel electrons (TBC)
+*Will copy the LArIAT code and use it as a base for the other method
+*Completed most of the TNA, will finish when Matthew gets back from America
+*Should make both lifetime methods fully configurable, no hard coding of cut values
+*Plotting amplitude vs time for all the tracks seems to give separate curves for what I assume are separate tracks
+**This might be why fits are done, but I really don't think it should look like this
+[img[ampvtime_3tracks.png]]
+*Give it a go with the integral rather than amplitude
+[img[intvtime_3tracks.png]]
+*Very similar pattern is seen, it must be the initial deposited energies dq/dx0 are not very similar.
+**Does this mean that the selection cuts are not doing a good job of selecting MIPs?
+*The fact that the hits go into negative time means that there the sampling rate and presampling time are not correct
+**Try to look this up in fcl files
+**sampling rate is conversion between us and ticks so should be 0.5 (I think) unsure of presampling so setting this to zero for now
+**Too low sampling rate explains some of the underestimation of the lifetime
+**Changing this makes some of the cuts stricter (need to identify which)
+
+Tomorrow:
+*Identify which cuts are becoming stricter as a result of changing the time
+*See if changing the pre-sampling time has any affect on the electron lifetime measurement
+*Generate some more events for testing now as only one track passes
+*Try to identify where the extra sources of underestimation are coming from
+*Make the code more configurable, get rid of hardcoding cut values, etc
+*Finish coding the other method
+
+//Left at 18:15//</pre>
+</div>
 <div created="20160909100005746" modified="20160909100011704" tags="[[My Journal]] Journal" title="8th September 2016">
 <pre>//Arrived at 9:10//
 
@@ -9770,7 +9805,7 @@ git merge develop
 <div created="20160908082813344" modified="20160916161809320" tags="TableOfContents" title="Journal" type="text/vnd.tiddlywiki">
 <pre>&lt;&lt;list-links &quot;[tag[Journal]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20161003155110051" modified="20161004171604946" tags="[[Electron Lifetime]]" title="LArIAT Code Modifications">
+<div created="20161003155110051" modified="20161005155332473" tags="[[Electron Lifetime]]" title="LArIAT Code Modifications">
 <pre>First off, here's a step by step guide to what the code does (just the physics):
 
 *For the first track on the V plane
@@ -9779,13 +9814,16 @@ git merge develop
 *Remove any hits outside of a tolerance to the fit
 *Do the fit again with the hits that passed and again remove any fits that fall outside the tolerance
 *Do one last fit and calculate the chisqr/ndof and gradient
+[img[timevwire_1track.png]]
 *Count up all the hits that make it through all of these stages
 *Cut any tracks with fewer than 80 hits
 *Cut any tracks with a chisqr/ndof less than 2
 *Cut any tracks with a gradient that corresponds to being too close to either parallel or perpendicular to the wire plane (0.3&lt;grad&lt;2.1 or -2.1&lt;grad&lt;-0.3)
 *Cut any tracks that are shorter than 94cm (was 37) in the drift (x) direction
 *Fit the time against the charge with an exponential to get dq/dx0
+[img[timevcharge_1track.png]]
 *Fit a Landau function to a histogram of the observed charge - charge from fit
+[img[chargelandau_1track.png]]
 *Use the width of the Landau function to set limits on another exponential fit
 *Remove all hits with charges outside of the first exponential fit +/- 4*landau width
 *Perform a maximum likelihood estimate (minimize negative log likelihood) with a (fixed?) dq/dx0
@@ -10891,7 +10929,7 @@ https://cdcvs.fnal.gov/redmine/projects/larsoft/wiki/Writing_LArSoft_algorithms
 *Services guidelines
 https://cdcvs.fnal.gov/redmine/projects/larsoft/wiki/Writing_LArSoft_service</pre>
 </div>
-<div created="20160926094510635" modified="20161004124715995" tags="Hardware" title="Useful SBND Numbers">
+<div created="20160926094510635" modified="20161005171040101" tags="Hardware" title="Useful SBND Numbers">
 <pre>!TPC Dimensions
 *[[Source|https://indico.cern.ch/event/446818/contributions/1106590/attachments/1170559/1690568/SBND_Cryostat_Requirements_Rev._2_Oct_13_2015.pdf]]
 *Think this includes the field cage as well so AV might be smaller
@@ -10924,7 +10962,13 @@ https://cdcvs.fnal.gov/redmine/projects/larsoft/wiki/Writing_LArSoft_service</pr
 *Length = cm
 *Energy = GeV
 *Time = ns
-*Masses = g</pre>
+*Masses = g
+
+!SBND Simulations
+*Temperature = 88.4K
+*Electrons to ADC 6.89e-3 (1fC=43.008ADC)
+*Number of time samples (ticks?) = 2500
+*Electron lifetime = 750us</pre>
 </div>
 <div created="20160907091435765" modified="20160907092832926" tags="Software" title="Useful VIM Commands" type="text/vnd.tiddlywiki">
 <pre>NORMAL mode (``Esc``):
