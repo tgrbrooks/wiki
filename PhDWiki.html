@@ -335,6 +335,8 @@ Error message and password prompt
 
 <li>5th October 2016</li>
 
+<li>6th October 2016</li>
+
 <li>8th September 2016</li>
 
 <li>9th September 2016</li>
@@ -8323,20 +8325,20 @@ Error message and password prompt
 <div created="20160923135925845" modified="20160923135925845" title="$:/state/toc/Projects-Electron Lifetime--81657105">
 <pre>open</pre>
 </div>
-<div created="20160907132258617" modified="20161003152851777" title="$:/state/toc/TableOfContents-Hardware--81657105">
-<pre>open</pre>
+<div created="20160907132258617" modified="20161006090153368" title="$:/state/toc/TableOfContents-Hardware--81657105">
+<pre>close</pre>
 </div>
 <div created="20160916161721992" modified="20160920092800275" title="$:/state/toc/TableOfContents-Issues--81657105">
 <pre>close</pre>
 </div>
-<div created="20160914150849017" modified="20160921142050946" title="$:/state/toc/TableOfContents-Journal--81657105">
+<div created="20160914150849017" modified="20161006151138143" title="$:/state/toc/TableOfContents-Journal--81657105">
 <pre>close</pre>
 </div>
 <div created="20160908094350083" modified="20160914150836879" title="$:/state/toc/TableOfContents-My Journal--81657105">
 <pre>open</pre>
 </div>
-<div created="20160921163853106" modified="20160923092505302" title="$:/state/toc/TableOfContents-Notes--81657105">
-<pre>close</pre>
+<div created="20160921163853106" modified="20161006151144810" title="$:/state/toc/TableOfContents-Notes--81657105">
+<pre>open</pre>
 </div>
 <div created="20160907134106914" modified="20160921163852281" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
 <pre>close</pre>
@@ -8344,13 +8346,13 @@ Error message and password prompt
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160923133217804" modified="20161005154425513" title="$:/state/toc/TableOfContents-Projects--81657105">
-<pre>open</pre>
-</div>
-<div created="20160907090743836" modified="20161005154229042" title="$:/state/toc/TableOfContents-Software--81657105">
+<div created="20160923133217804" modified="20161006090154908" title="$:/state/toc/TableOfContents-Projects--81657105">
 <pre>close</pre>
 </div>
-<div list="[[Useful SBND Numbers]] [[5th October 2016]]" title="$:/StoryList">
+<div created="20160907090743836" modified="20161006151143240" title="$:/state/toc/TableOfContents-Software--81657105">
+<pre>close</pre>
+</div>
+<div list="[[5th October 2016]] [[6th October 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9082,7 +9084,7 @@ backup
 
 //Left at 18:30//</pre>
 </div>
-<div created="20161005153031402" modified="20161005171031805" tags="Journal" title="5th October 2016">
+<div created="20161005153031402" modified="20161006090247817" tags="Journal" title="5th October 2016">
 <pre>//Arrived at 9:30//
 
 *Discussed what work needed to be done with Dom
@@ -9095,8 +9097,10 @@ backup
 *Plotting amplitude vs time for all the tracks seems to give separate curves for what I assume are separate tracks
 **This might be why fits are done, but I really don't think it should look like this
 [img[ampvtime_3tracks.png]]
+
 *Give it a go with the integral rather than amplitude
 [img[intvtime_3tracks.png]]
+
 *Very similar pattern is seen, it must be the initial deposited energies dq/dx0 are not very similar.
 **Does this mean that the selection cuts are not doing a good job of selecting MIPs?
 *The fact that the hits go into negative time means that there the sampling rate and presampling time are not correct
@@ -9106,6 +9110,7 @@ backup
 **Changing this makes some of the cuts stricter (need to identify which)
 
 Tomorrow:
+
 *Identify which cuts are becoming stricter as a result of changing the time
 *See if changing the pre-sampling time has any affect on the electron lifetime measurement
 *Generate some more events for testing now as only one track passes
@@ -9114,6 +9119,52 @@ Tomorrow:
 *Finish coding the other method
 
 //Left at 18:15//</pre>
+</div>
+<div created="20161006090131069" modified="20161006165241956" tags="Journal" title="6th October 2016">
+<pre>//Arrived at 9:30//
+
+*Which cuts are affected by changing the sampling rate and presampling time
+**``ftime`` is affected
+**The fit between ftime and fwire could be affected, so removing hits outside of a tolerance to the hits could be affected. try to look tothit before and after change
+**The chisq and track angle could be affected, look at before and after
+|!Sampling rate |0.128 |0.500 |
+|!Total hits |410 |410 |
+|!chisq/ndof |0.1437 |0.1540 |
+|!Angle |2.15 |0.552 |
+
+**The ratio between track angles is equivalent to the ratio between sampling rates, the cuts should be scaled accordingly
+**Scaling the cut limits only gets one extra track
+**Event 6 has 3 tracks all with the same start and end point, will plot wire and time
+**Plotting shows the 3 tracks which are not very similar in wire and time coordinate, the number of hits for 2 of the tracks are also lower than expected.
+**Looks like the recursive linear fit is affected by the change in sampling rate before:
+[img[evt6tracks_prelinfit.png]]
+
+**After
+[img[evt6tracks_postlinfit.png]]
+
+**It's possible that the cuts are too strict, but this isn't the problem. The tracks are clearly distinct and yet all three of them have exactly the same start and end x position
+**Just a stupid code issue, had put a 0 instead of an index (this was also an issue in the selection cuts)
+**Now get two tracks from each plane
+**The tracks from the first plane have a nearly identical value for the lifetime, need to go through the code to look for any errors
+***only things that could affect the lifetime measurement are the times, charges and the guess for dq/dx0
+***The minimizer is cleared after each track and other parameters that the minimizer displays are different
+***Can probably chalk this up to coincidence, keep an eye out when running over larger event sample
+**There is a big difference in the results between the first and second tpc, need to generate more events to investigate further
+*pre-sampling time has no effect, just a shift. Pretty sure it is zero for sbnd anyway as I plotted the hit times of all the tracks in the 10 events
+[img[times_alltracks.png]]
+
+*Generated 100 events with a lifetime of 750 us (in corsika/100evts)
+**11 track selected in first tpc, lifetime of 608 us +/- 20 us
+**18 tracks selected in second tpc, lifetime of 626 us +/- 22 us
+**The discrepancy between the two tpcs isn't too bad any more, within errors
+**Still a pretty large discrepancy with the actual lifetime by about 7 sigma, but the estimate has improved
+***will be good to get the other method written for comparison
+**Very wide range of lifetime estimates per track (390-&gt;1050)
+**Don't see repetitions of almost identical results
+
+Tomorrow:
+
+*Finish writing other method</pre>
 </div>
 <div created="20160909100005746" modified="20160909100011704" tags="[[My Journal]] Journal" title="8th September 2016">
 <pre>//Arrived at 9:10//
