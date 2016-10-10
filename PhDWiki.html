@@ -305,6 +305,8 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth</li>
 
+<li>10th October 2016</li>
+
 <li>12th September 2016</li>
 
 <li>13th September 2016</li>
@@ -8339,8 +8341,8 @@ Error message and password prompt
 <div created="20160908094350083" modified="20160914150836879" title="$:/state/toc/TableOfContents-My Journal--81657105">
 <pre>open</pre>
 </div>
-<div created="20160921163853106" modified="20161006151144810" title="$:/state/toc/TableOfContents-Notes--81657105">
-<pre>open</pre>
+<div created="20160921163853106" modified="20161010133444849" title="$:/state/toc/TableOfContents-Notes--81657105">
+<pre>close</pre>
 </div>
 <div created="20160907134106914" modified="20160921163852281" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
 <pre>close</pre>
@@ -8348,13 +8350,13 @@ Error message and password prompt
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160923133217804" modified="20161006090154908" title="$:/state/toc/TableOfContents-Projects--81657105">
-<pre>close</pre>
+<div created="20160923133217804" modified="20161010133144355" title="$:/state/toc/TableOfContents-Projects--81657105">
+<pre>open</pre>
 </div>
 <div created="20160907090743836" modified="20161006151143240" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[7th October 2016]] Welcome" title="$:/StoryList">
+<div list="[[10th October 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -8827,6 +8829,26 @@ This plugin contains tools to help slice up long texts into individual tiddlers.
 </div>
 <div created="20160907132717391" modified="20160907132747263" title="$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth">
 <pre>350px</pre>
+</div>
+<div created="20161010082909727" modified="20161010163444968" tags="Journal" title="10th October 2016">
+<pre>//Arrived at 9:30//
+
+*Need to fix the seg faults I was getting in the code on friday
+**Code for convoluted landau and gaussian without roofit (https://root.cern.ch/root/html/tutorials/fit/langaus.C.html)
+**It was an issue with casting to int for numbers less than one (they would go to 0 rather than 1), fixed by replacing (int) with ceil()
+**The time slices appear to be working correctly, however the shape of some of the distributions do not fit well with a convoluted landau and gaussian, may need to edit some of the cuts to improve this
+**The statistics are still not very good with 100 events, it might be worth combining both tpcs to develop the fitting.
+**The fit without roofit runs but does not produce the desired function, roofit does now seem to be enabled so I will initially try to get that working before going back to the manual fit to try to make that work.
+**It's almost certainly a linker issue, I've tried adding linker flags for roofit in the second to top level CMakeLists.txt
+**Still doesn't work, it must be that the version of root that it was compiled against doesn't have roofit enabled, but then I don't undertand the welcome to roofit message
+**GOT IT TO WORK! Needed both of ${ROOT_ROOFIT} and ${ROOT_ROOFITCORE} in the CMakeLists.txt file in the Purity directory.
+*Had a meeting with Neil, Dom and Matthew (35t PhD)
+**Matthew has done a lot of work on purity measurements
+**Need to find out how t0 is calculated in the reconstruction (PMTs, muon triggers), if it comes from truth will need to use triggers on muons that pass through wire and cathode plane
+**Discussed applying 35ton noise analysis to SBND
+**Look at how noise levels affect electron lifetime and calorimetry measurements
+**Try to simulate more realistic noise (coherent noise, exponential + white noise, taking noise spectrum during SBND build, delta functions (shifting) in frequency spectrum, rms of noise could vary
+*Start working on presentation for thursday</pre>
 </div>
 <div created="20160914150859029" modified="20160915133237411" tags="Journal" title="12th September 2016">
 <pre>(Lost in crash - from memory)
@@ -9871,7 +9893,7 @@ git merge develop
 <div created="20160908082813344" modified="20160916161809320" tags="TableOfContents" title="Journal" type="text/vnd.tiddlywiki">
 <pre>&lt;&lt;list-links &quot;[tag[Journal]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20161003155110051" modified="20161005155332473" tags="[[Electron Lifetime]]" title="LArIAT Code Modifications">
+<div created="20161003155110051" modified="20161010133925170" tags="[[Electron Lifetime]]" title="LArIAT Code Modifications">
 <pre>First off, here's a step by step guide to what the code does (just the physics):
 
 *For the first track on the V plane
@@ -9881,15 +9903,18 @@ git merge develop
 *Do the fit again with the hits that passed and again remove any fits that fall outside the tolerance
 *Do one last fit and calculate the chisqr/ndof and gradient
 [img[timevwire_1track.png]]
+
 *Count up all the hits that make it through all of these stages
 *Cut any tracks with fewer than 80 hits
-*Cut any tracks with a chisqr/ndof less than 2
+*Cut any tracks with a chisqr/ndof greater than 2
 *Cut any tracks with a gradient that corresponds to being too close to either parallel or perpendicular to the wire plane (0.3&lt;grad&lt;2.1 or -2.1&lt;grad&lt;-0.3)
 *Cut any tracks that are shorter than 94cm (was 37) in the drift (x) direction
 *Fit the time against the charge with an exponential to get dq/dx0
 [img[timevcharge_1track.png]]
+
 *Fit a Landau function to a histogram of the observed charge - charge from fit
 [img[chargelandau_1track.png]]
+
 *Use the width of the Landau function to set limits on another exponential fit
 *Remove all hits with charges outside of the first exponential fit +/- 4*landau width
 *Perform a maximum likelihood estimate (minimize negative log likelihood) with a (fixed?) dq/dx0
