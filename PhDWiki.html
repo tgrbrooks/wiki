@@ -307,6 +307,8 @@ Error message and password prompt
 
 <li>10th October 2016</li>
 
+<li>11th October 2016</li>
+
 <li>12th September 2016</li>
 
 <li>13th September 2016</li>
@@ -8302,8 +8304,8 @@ Error message and password prompt
 <div created="20160906162255665" modified="20160907090215495" title="$:/SiteTitle">
 <pre>PhD Notebook</pre>
 </div>
-<div created="20160906162422050" modified="20160923093408676" title="$:/state/sidebar">
-<pre>yes</pre>
+<div created="20160906162422050" modified="20161011152946701" title="$:/state/sidebar">
+<pre>no</pre>
 </div>
 <div created="20160908153008198" modified="20160908153009590" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/Standard</pre>
@@ -8329,20 +8331,20 @@ Error message and password prompt
 <div created="20160923135925845" modified="20160923135925845" title="$:/state/toc/Projects-Electron Lifetime--81657105">
 <pre>open</pre>
 </div>
-<div created="20160907132258617" modified="20161006090153368" title="$:/state/toc/TableOfContents-Hardware--81657105">
-<pre>close</pre>
+<div created="20160907132258617" modified="20161011102024097" title="$:/state/toc/TableOfContents-Hardware--81657105">
+<pre>open</pre>
 </div>
 <div created="20160916161721992" modified="20160920092800275" title="$:/state/toc/TableOfContents-Issues--81657105">
 <pre>close</pre>
 </div>
-<div created="20160914150849017" modified="20161006151138143" title="$:/state/toc/TableOfContents-Journal--81657105">
+<div created="20160914150849017" modified="20161011084224563" title="$:/state/toc/TableOfContents-Journal--81657105">
 <pre>close</pre>
 </div>
 <div created="20160908094350083" modified="20160914150836879" title="$:/state/toc/TableOfContents-My Journal--81657105">
 <pre>open</pre>
 </div>
-<div created="20160921163853106" modified="20161010133444849" title="$:/state/toc/TableOfContents-Notes--81657105">
-<pre>close</pre>
+<div created="20160921163853106" modified="20161011093210941" title="$:/state/toc/TableOfContents-Notes--81657105">
+<pre>open</pre>
 </div>
 <div created="20160907134106914" modified="20160921163852281" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
 <pre>close</pre>
@@ -8350,13 +8352,13 @@ Error message and password prompt
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160923133217804" modified="20161010133144355" title="$:/state/toc/TableOfContents-Projects--81657105">
-<pre>open</pre>
+<div created="20160923133217804" modified="20161010163448251" title="$:/state/toc/TableOfContents-Projects--81657105">
+<pre>close</pre>
 </div>
 <div created="20160907090743836" modified="20161006151143240" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[10th October 2016]] Welcome" title="$:/StoryList">
+<div list="[[Useful SBND Numbers]] [[11th October 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -8830,7 +8832,7 @@ This plugin contains tools to help slice up long texts into individual tiddlers.
 <div created="20160907132717391" modified="20160907132747263" title="$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth">
 <pre>350px</pre>
 </div>
-<div created="20161010082909727" modified="20161010163444968" tags="Journal" title="10th October 2016">
+<div created="20161010082909727" modified="20161010165554761" tags="Journal" title="10th October 2016">
 <pre>//Arrived at 9:30//
 
 *Need to fix the seg faults I was getting in the code on friday
@@ -8848,7 +8850,50 @@ This plugin contains tools to help slice up long texts into individual tiddlers.
 **Discussed applying 35ton noise analysis to SBND
 **Look at how noise levels affect electron lifetime and calorimetry measurements
 **Try to simulate more realistic noise (coherent noise, exponential + white noise, taking noise spectrum during SBND build, delta functions (shifting) in frequency spectrum, rms of noise could vary
-*Start working on presentation for thursday</pre>
+
+Tomorrow
+*Work out how t0 is calculated (if it is) and see if this is a source of the error
+*Make adjustments to the cuts, fits and/or number of time slices so that all of the fits are good
+*Plot the MPC vs time and fit an exponential
+*Email Matthew with a time for meeting on friday
+*Start working on presentation for thursday
+
+//Left at 18:00//</pre>
+</div>
+<div created="20161011084226847" modified="20161011153103822" tags="Journal" title="11th October 2016">
+<pre>//Arrived at 9:30//
+
+*First job is to look at the origin of t0 and if it is calculated (correctly).
+**If, as I suspect it is not, and this is why there isn't a single landXgauss shaped band of charge then I need to work out how often muon pass through the anode and cathode
+**If it is a very small number then I might have to simulate some single muons with the right angle to test the code and then replace with a trigger
+**It looks like I'm just getting the hit time with respect to the start of the event and converting from ticks to seconds
+**This means I end up with a range of hits across the entire event window, I should just have hits spanning the drift length
+**I think the LArIAT code probably ran on pre-triggered through going muon events
+**Need to look in to the Extent() function as that gives the x position, should be able to recover t0 from that, but not sure if I can then associate the t0 with each hit in the track
+**Tracks are reconstructed using pmalgtrackmaker, found at /grid/fermiapp/products/larsoft/larreco/v05_12_01/source/larreco/TrackFinder/PMAlgTrackMaker_module.cc
+**I'll try to convert from x position to time first, then try to understand how the x positions are calculated
+*Plan for converting hit time into drift time
+**Find start and end time of track t=x/vd (need to find simulated vd)
+**Order hits in track in terms of peak time
+**Find first detected hit of track -&gt; work out conversion between peak time and start time ts = tp1- A
+**Find last detected hit of track -&gt; make sure same conversion holds te = tp2 - A
+**Apply conversion to all hits in track, no time should be greater than the maximum drift time in the TPC
+*The drift velocity is calculated to be 1.56562 m/ms which corresponds to a maximum drift time of 1.7ms, this is longer than the event window which means finding tracks that pass through both the anode and cathode would be impossible
+**Maybe bring this up
+**The drift velocity seems to vary significantly, need to look into this
+*Some of the peak times are much shorter than it would take for the start or end to drift to the wires MEETING
+**Lets assume cosmics are simulated before the event window starts recording, this means that cosmics interact with the medium and the electrons start to drift before the event clock is started and data is taken.
+**This would mean that it is possible for charge to arrive from a distant point in the detector at the very start of the simulation and for the correction to give a negative shift
+**This means that time is added on to each point rather than taken away, either way none of the corrected times would ever be negative, so this is fine.
+*Applying the correction in time shift does not seem to make an appreciable effect. Will plot the charge vs time before and after the correction.
+*Before correction (TPC 1 = Blue, TPC 2 = Red)
+[img width=400 [chargevtime_1_precorr.png]] [img width=400 [chargevtime_2_precorr.png]]
+
+*After correction with fixed drift velocity
+[img width=400 [chargevtime_1_fixedvd.png]] [img width=400 [chargevtime_2_fixedvd.png]]
+
+*After correction with calculated drift velocity
+[img width=400 [chargevtime_1_postcorr.png]] [img width=400 [chargevtime_2_postcorr.png]]</pre>
 </div>
 <div created="20160914150859029" modified="20160915133237411" tags="Journal" title="12th September 2016">
 <pre>(Lost in crash - from memory)
