@@ -331,6 +331,8 @@ Error message and password prompt
 
 <li>18th October 2016</li>
 
+<li>19th October 2016</li>
+
 <li>19th September 2016</li>
 
 <li>20th September 2016</li>
@@ -441,6 +443,8 @@ Error message and password prompt
 
 <li>QFT Course</li>
 
+<li>QFT Lecture 1</li>
+
 <li>Reconstruction Overview</li>
 
 <li>Reconstruction Software</li>
@@ -448,6 +452,8 @@ Error message and password prompt
 <li>ROOT Course</li>
 
 <li>ROOT Lecture 1</li>
+
+<li>ROOT Lecture 2</li>
 
 <li>Running LArSoft (Production)</li>
 
@@ -8362,7 +8368,7 @@ Error message and password prompt
 <div created="20160916162147859" modified="20160920092759262" title="$:/state/toc/Issues-Open--81657105">
 <pre>close</pre>
 </div>
-<div created="20161013103635470" modified="20161013103637484" title="$:/state/toc/Lectures-ROOT Course--81657105">
+<div created="20161013103635470" modified="20161019170432253" title="$:/state/toc/Lectures-ROOT Course--81657105">
 <pre>close</pre>
 </div>
 <div created="20160923135925845" modified="20160923135925845" title="$:/state/toc/Projects-Electron Lifetime--81657105">
@@ -8377,8 +8383,8 @@ Error message and password prompt
 <div created="20160914150849017" modified="20161018093249461" title="$:/state/toc/TableOfContents-Journal--81657105">
 <pre>close</pre>
 </div>
-<div created="20161013103609184" modified="20161014094109547" title="$:/state/toc/TableOfContents-Lectures--81657105">
-<pre>close</pre>
+<div created="20161013103609184" modified="20161019115516122" title="$:/state/toc/TableOfContents-Lectures--81657105">
+<pre>open</pre>
 </div>
 <div created="20160908094350083" modified="20160914150836879" title="$:/state/toc/TableOfContents-My Journal--81657105">
 <pre>open</pre>
@@ -8398,7 +8404,7 @@ Error message and password prompt
 <div created="20160907090743836" modified="20161006151143240" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[18th October 2016]] Welcome" title="$:/StoryList">
+<div list="[[QFT Lecture 1]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9083,6 +9089,24 @@ backup
 **Look up the slow mac internet thing DONE, don't think it's a problem anymore
 **Set up VNC
 *Finish off writing the third method ready for events</pre>
+</div>
+<div created="20161019160043531" modified="20161019164735033" tags="Journal" title="19th October 2016">
+<pre>//Arrived at 9:30//
+
+*For the events that I have I think it would be worth looking at the dQ/dx from the track reconstruction
+**Can see if it corrects for electron lifetime or if you see an exponential
+**Can see if the selected muons have a fairly constant dQ/dx
+**Check that the number of points in the track is equal to the number of hits
+**For the 10 events, plot the dQ/dx at each point in the track for event 6 track 0
+**For the 100 events plot all the selected dQ/dx
+**For each selected track in the 100 events calculate the mean dQ/dx and the standard deviation
+*QFT lecture at 14:00
+*ROOT lecture at 15:00
+*Writing up notes and doing examples after
+
+!Tomorrow:
+*Create a presentation for friday explaing the three methods, what's been done and the samples being generated
+*Go through all of the methods and write down all the points that need further investigation/optimisation (e.g all the fits, all the cuts, event selection, etc)</pre>
 </div>
 <div created="20160919165528251" modified="20160921142041700" tags="Journal" title="19th September 2016">
 <pre>//Arrived at 9:30//
@@ -11112,6 +11136,32 @@ http://arxiv.org/pdf/1403.2673v2.pdf
 
 &lt;&lt;list-links &quot;[tag[QFT Course]]&quot;&gt;&gt;</pre>
 </div>
+<div created="20161019170632094" modified="20161019173357284" tags="[[QFT Course]]" title="QFT Lecture 1">
+<pre>Notes are available at (either handout or link when I get it)
+
+!Notes
+Simple Harmonic oscillator $$\frac{d^2x(t)}{dt^2}=-\omega^2x(t)$$
+
+Has solution $$x(t)=Acos(\omega t)+Bsin(\omega t)$$
+
+Momentum is $$p=m\frac{dx}{dt}=-\omega Asin(\omega t)$$
+
+The Hamiltonian is $$H(p,x)=\frac{1}{2}mv^2+\frac{1}{2}kx^2=\frac{p^2}{2m}+\frac{1}{2}m\omega^2x^2$$
+
+!!Quantization
+$$[\hat{x},\hat{p}]=i\hbar$$
+
+$$\hat{a}=\sqrt{\frac{m\omega}{2\hbar}}(\hat{x}+\frac{i\hat{p}}{m\omega}$$
+
+$$\hat{a}=\sqrt{\frac{m\omega}{2\hbar}}(\hat{x}-\frac{i\hat{p}}{m\omega}$$
+
+$$\hat{a}^{\dagger}\hat{a} = \frac{1}{\hbar \omega}\hat{H} - \frac{1}{2}$$
+
+$$\Rightarrow \hat{H}=\hbar \omega(\hat{a}^{\dagger}\hat{a}+\frac{1}{2})$$
+
+Assume there exists a state $$\ket{\alpha}$$ such that $$\hat{H}\ket{\alpha}=E_{\alpha}\ket{\alpha}$$
+</pre>
+</div>
 <div created="20160920092614827" modified="20160921155820363" tags="Notes" title="Reconstruction Overview">
 <pre>!Source:
 https://indico.fnal.gov/getFile.py/access?contribId=35&amp;sessionId=7&amp;resId=0&amp;materialId=slides&amp;confId=6395
@@ -11282,6 +11332,53 @@ root -q /usr/local/root/5.34-34/share/doc/tutorials/tree/tree2.C
 ```c
 t2-&gt;Draw(&quot;vect[0]:vect[1]:vect[2]&quot;,&quot;pid=2&quot;)
 ```</pre>
+</div>
+<div created="20161019140036756" modified="20161019165359441" tags="[[ROOT Course]]" title="ROOT Lecture 2">
+<pre>Slides available at http://www.hep.sheffield.ac.uk/teaching/rootTutorialWeek2_markhod_2016.pdf
+
+!Topics
+*File I/O
+*Memory and object ownership
+*Fitting, peak finding and simple Fourier analysis
+
+!Useful Points
+!!File I/O
+*gDirectory is global pointer to current directory
+*gFile is global pointer to current root file
+*gPad is global pointer to the current pad/canvas
+
+!!Ownership
+*ROOT owns some objects, attempting to delete these after ROOT will cause a double delete -&gt; seg fault
+**gDirectory owns hists, trees and event lists (closing current directory deletes these)
+**Objects created by another object (e.g. a histogram) are owned by that object
+**Object created by DrawCopy methods are owned by the pads they are drawn in
+*Not deleting objects that you own will cause memory leaks
+*if you are unsure about ownership do ``if f {delete f;}``
+
+!!hadding
+*Merge several TFiles, generic merge of all TObjects in all directories in the files
+*Can be very slow if files are large
+*Faster method that ignores directories at /home/hodgkinson/scripts/mergePhysValFiles.py
+*hadd just adds contents of files, does not add histograms together
+
+!!Chaining
+*For TTrees with exactly the same branches
+*Does not merge files
+*Trees must have the same name
+
+!!Fitting, Peak finding and FFT
+*Can draw errors from DrawPanel or apply to individual bins with ``TH1F::SetBinError(bin,error)``
+*Can define user functions with ``TF1``
+*Add histograms with ``Add()`` (hists must have the same ranges and number of bins)
+*``ShowPeaks(sigma,&quot;&quot;,threshold)`` can be used to find peaks
+*Can then extract the peak coordinates using 
+```bash
+pm = (TPolyMarker*)summed-&gt;GetListOfFunctions()-&gt;FindObject(&quot;TPolyMarker&quot;);
+pm-&gt;GetX()[0];
+pm-&gt;GetY()[0];
+```
+*TSpectrum has more advanced peak finding, background subtraction and fourier analysis
+*``FFT(histout,&quot;mag&quot;)`` can be used to plot the magnitude of the fourier transform, can also do real component &quot;RE&quot;, imaginary &quot;IM&quot; and phase &quot;PH&quot;</pre>
 </div>
 <div created="20160908102147553" modified="20160908114759902" tags="Software" title="Running LArSoft (Production)">
 <pre>How to run the existing LArSoft code quickly and easily:
