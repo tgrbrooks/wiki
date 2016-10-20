@@ -335,6 +335,8 @@ Error message and password prompt
 
 <li>19th September 2016</li>
 
+<li>20th October 2016</li>
+
 <li>20th September 2016</li>
 
 <li>21st September 2016</li>
@@ -367,6 +369,8 @@ Error message and password prompt
 
 <li>ArgoNeuT Electron Lifetime</li>
 
+<li>ArgoNeuT Muons</li>
+
 <li>ArgoNeuT NC pi0 Cross Section</li>
 
 <li>art Workbook Chapter 10</li>
@@ -394,6 +398,8 @@ Error message and password prompt
 <li>ICARUS Design</li>
 
 <li>ICARUS Electron Lifetime</li>
+
+<li>ICARUS Performance</li>
 
 <li>Intro to running LArSoft</li>
 
@@ -8380,31 +8386,31 @@ Error message and password prompt
 <div created="20160916161721992" modified="20160920092800275" title="$:/state/toc/TableOfContents-Issues--81657105">
 <pre>close</pre>
 </div>
-<div created="20160914150849017" modified="20161018093249461" title="$:/state/toc/TableOfContents-Journal--81657105">
+<div created="20160914150849017" modified="20161020091628862" title="$:/state/toc/TableOfContents-Journal--81657105">
 <pre>close</pre>
 </div>
-<div created="20161013103609184" modified="20161019115516122" title="$:/state/toc/TableOfContents-Lectures--81657105">
-<pre>open</pre>
+<div created="20161013103609184" modified="20161020085625264" title="$:/state/toc/TableOfContents-Lectures--81657105">
+<pre>close</pre>
 </div>
 <div created="20160908094350083" modified="20160914150836879" title="$:/state/toc/TableOfContents-My Journal--81657105">
 <pre>open</pre>
 </div>
-<div created="20160921163853106" modified="20161017152755552" title="$:/state/toc/TableOfContents-Notes--81657105">
+<div created="20160921163853106" modified="20161020094542278" title="$:/state/toc/TableOfContents-Notes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160907134106914" modified="20161017152649242" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
+<div created="20160907134106914" modified="20161020093614273" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
 <pre>close</pre>
 </div>
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160923133217804" modified="20161018093253029" title="$:/state/toc/TableOfContents-Projects--81657105">
+<div created="20160923133217804" modified="20161020093728478" title="$:/state/toc/TableOfContents-Projects--81657105">
 <pre>open</pre>
 </div>
 <div created="20160907090743836" modified="20161006151143240" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[QFT Lecture 1]] Welcome" title="$:/StoryList">
+<div list="[[20th October 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9090,7 +9096,7 @@ backup
 **Set up VNC
 *Finish off writing the third method ready for events</pre>
 </div>
-<div created="20161019160043531" modified="20161019164735033" tags="Journal" title="19th October 2016">
+<div created="20161019160043531" modified="20161020091858501" tags="Journal" title="19th October 2016">
 <pre>//Arrived at 9:30//
 
 *For the events that I have I think it would be worth looking at the dQ/dx from the track reconstruction
@@ -9105,8 +9111,10 @@ backup
 *Writing up notes and doing examples after
 
 !Tomorrow:
-*Create a presentation for friday explaing the three methods, what's been done and the samples being generated
-*Go through all of the methods and write down all the points that need further investigation/optimisation (e.g all the fits, all the cuts, event selection, etc)</pre>
+*Create a presentation for friday explaining the three methods, what's been done and the samples being generated
+*Go through all of the methods and write down all the points that need further investigation/optimisation (e.g all the fits, all the cuts, event selection, etc)
+
+//Left at 19:00//</pre>
 </div>
 <div created="20160919165528251" modified="20160921142041700" tags="Journal" title="19th September 2016">
 <pre>//Arrived at 9:30//
@@ -9138,6 +9146,56 @@ backup
 **[[Getting started exercises|https://mail.google.com/mail/u/0/#inbox/15742ec503fa5899]]
 
 //Left at 18:30//</pre>
+</div>
+<div created="20161020085630938" modified="20161020164652609" tags="Journal" title="20th October 2016">
+<pre>//Arrived at 9:45//
+
+*Create an updated presentation detailing the tree methods
+**LArIAT Method
+***Trigger on cosmic muons which cross both the anode and cathode plane (Don't need to worry about accuracy of timing)
+***Event rate should be high enough to get a good prediction of the lifetime
+***Dom is in the process of generating events
+***Use only hits on the collection plane
+***Remove hits with too large or too small charge, simple cut, then outside a tolerance to an exponential fit
+***Do three linear fits to remove any points that deviate from a straight line
+***Cut on the chi2/ndof from the last linear fit &lt;2 (need to test this cut limit)
+***Track must span at least 100 collection plane wires (need to test this cut)
+***Fit time v charge to estimate dQ0/dx
+***Use maximum likelihood estimate to retrieve value for lifetime
+***Average lifetime over all selected tracks in given time period
+**ArgoNeuT Method
+***Same sample as the previous method with same cuts
+***For all tracks in a given time period plot the charge v time and split into time slices, small enough for there to be a negligible effect from charge attenuation but large enough for sufficient statistics (try to calculate dynamically)
+***Fit a convoluted Landau and gaussian function to each time slice (need to test the behavior of the fit) could substitute with a cat of the bottom 1% of charges and the top 30% and then do a Gaussian fit (will test both methods)
+***Get the most probable charge from each fit and plot against the time
+***Do an exponential fit to get the lifetime
+**Michelle's Method
+***Trigger on cosmic or dirt muons that cross parallel to the wire plane (do this using CRT matching)
+***CRT matching is still being implemented so Dom is generating a sample using a particle gun
+***Muons separated by which parallel pair of CRT strips they pass through
+***Will eventually use CRT matching for the timing analysis, for now muons all generated at the same time with respect to the event window and the distance from the center of the CRT pairs is used to calculate the drift time
+***For each pair fill a histogram of the hit charge (integral) / track pitch
+***Retrieve most probable charge from either Landau X Gaussian fit or Landau cut + Gaussian fit
+***Plot Drift time v dQdx and fit to obtain lifetime
+*Couple more useful papers to read and make notes on [[ICARUS|http://ac.els-cdn.com/S0168900202019897/1-s2.0-S0168900202019897-main.pdf?_tid=bde504b0-96a6-11e6-93c1-00000aacb35e&amp;acdnat=1476955537_1396390e602f61baf754e7773531ce9c]] and [[ArgoNeuT|https://arxiv.org/pdf/1205.6702v3.pdf]]
+*Go over each method in detail and write down absolutely everything that needs verifying, plotting and testing
+**Momentum distributions of muons (should all be the same for particle gun, important for triggered cosmics) before and after cuts
+**Angular distributions of muons before and after cuts
+**How is track pitch calculated, how well does it perform
+**What hit finder is used, how does it perform especially with respect to the integral and time
+**How does linear fitter perform, can errors on the timing be included, how to get errors on time
+**How does the cut value on the recursive linear fit affect the results, optimize
+**How does the cut on the chi2 affect the results, optimize
+**Is it necessary to cut tracks perpendicular to the wire plane
+**How does the exponential fit perform, affect of including errors on charge and time
+**How does Landau fit perform, include statistical errors
+**Why are the cuts to the hit charges done from the widths of the Landau, why is there a cut off at 1200, how does changing this value affect results
+**How does the minimiser perform, how does changing the limits/starting values/number of iterations affect the results
+**How are the errors from minimization calculated
+**How are the averages calculated, can a weighted average be done with asymmetric errors, how should the errors be combined for these averages
+**How should the number of time slices be calculated, even widths or even stats, what difference does each of these methods make
+**How does the Land X Gauss fit perform, what difference does doing a Landau-like cut + a Gaussian fit make to the results, can errors be included
+**For tracks parallel to wires, how much do small differences in track angle affect results</pre>
 </div>
 <div created="20160921083822101" modified="20160921083959156" tags="Journal" title="20th September 2016">
 <pre>//Arrived at 9:30//
@@ -9570,6 +9628,43 @@ http://arxiv.org/pdf/1205.6747v2.pdf
 **Fit has 4 parameters: most probable value (MP) in Landau, Gaussian spread $$\sigma_G$$
 **Plot of MP charge vs drift time fitted with exponential to extract electron lifetime
 **Minimal dependence on time slice width</pre>
+</div>
+<div created="20161020121913545" modified="20161020145553142" tags="[[Electron Lifetime]] [[Paper Notes]]" title="ArgoNeuT Muons">
+<pre>!Source
+https://arxiv.org/pdf/1205.6702v3.pdf
+
+!Bibtex
+```latex
+@article{Anderson:2012mra,
+      author         = &quot;Anderson, C. and others&quot;,
+      title          = &quot;{Analysis of a Large Sample of Neutrino-Induced Muons
+                        with the ArgoNeuT Detector}&quot;,
+      collaboration  = &quot;ArgoNeuT&quot;,
+      journal        = &quot;JINST&quot;,
+      volume         = &quot;7&quot;,
+      year           = &quot;2012&quot;,
+      pages          = &quot;P10020&quot;,
+      doi            = &quot;10.1088/1748-0221/7/10/P10020&quot;,
+      eprint         = &quot;1205.6702&quot;,
+      archivePrefix  = &quot;arXiv&quot;,
+      primaryClass   = &quot;physics.ins-det&quot;,
+      SLACcitation   = &quot;%%CITATION = ARXIV:1205.6702;%%&quot;
+}
+```
+
+!Notes
+*Muons from upstream NUMI neutrino interactions
+*Hit amplitude converted to charge in units of electrons and normalized by track pitch
+*Average track pitch length ~0.5cm as most of the muons are nearly parallel to the wire planes
+*Use electronic calibration factor to convert between ADC counts and charge
+*Muon tracks can be accompanied by knock on electrons (delta rays)
+*Algorithm needed to identify and account for delta rays
+*Low energy delta rays tend to be parallel to muon direction, overlapping with track, charge seen is approx double
+*energetic delta rays span over a few wires, most energetic ones will produce a spatially resolved nearby hit on the same wire
+*After idenitification the charge of the hit subtracted by the average contribution corresponding to a muon in case of overlapping hits is assigned to the first hit where the origin of the delta ray is located
+*After taking the delta rays into account the dQ/dx dist is a good fit with a Land X Gauss
+*Use Birks to go from dQ/dx to dE/dx
+*Expect mean dE/dx ~2.3 MeV/cm (7 GeV muons)</pre>
 </div>
 <div created="20160907140230134" modified="20160908094109471" tags="[[Paper Notes]]" title="ArgoNeuT NC pi0 Cross Section">
 <pre>! Source
@@ -10091,6 +10186,53 @@ https://arxiv.org/pdf/1409.5592v3.pdf
 **Tested in 1.5-20ms lifetime range
 **2000 tracks retained as candidates
 **Higher underestimation (~1.5%) of attenuation at low purity ==&gt; less than 1% effect on charge signal correction</pre>
+</div>
+<div created="20161020121412105" modified="20161020140850420" tags="[[Electron Lifetime]] [[Paper Notes]]" title="ICARUS Performance">
+<pre>!Source
+http://ac.els-cdn.com/S0168900202019897/1-s2.0-S0168900202019897-main.pdf?_tid=bde504b0-96a6-11e6-93c1-00000aacb35e&amp;acdnat=1476955537_1396390e602f61baf754e7773531ce9c
+
+!Bibtex
+```latex
+@article{Arneodo2003292,
+  title = &quot;Performance of the 10 m3 \{ICARUS\} liquid argon prototype &quot;,
+  journal = &quot;Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment &quot;,
+  volume = &quot;498&quot;,
+  number = &quot;1–3&quot;,
+  pages = &quot;292 - 311&quot;,
+  year = &quot;2003&quot;,
+  note = &quot;&quot;,
+  issn = &quot;0168-9002&quot;,
+  doi = &quot;http://dx.doi.org/10.1016/S0168-9002(02)01989-7&quot;,
+  url = &quot;http://www.sciencedirect.com/science/article/pii/S0168900202019897&quot;,
+  author = &quot;F Arneodo and A Badertscher and B Baiboussinov and G Battistoni and P Benetti and E Bernardini and M Bischofberger and A.Borio di Tigliole and R Brunetti and A Bueno and E Calligarich and M Campanelli and C Carpanese and D Cavalli and F Cavanna and P Cennini and S Centro and A Cesana and C Chen and D Chen and Y Chen and D Cline and C.De Vecchi and A.Di Credico and R Dolfini and A Ferrari and F Ferri and A.Gigli Berzolari and I Gil-Botella and L Grandi and A Grillo and A Haag and K He and X Huang and A Kruse and M Laffranchi and Z Li and M Lisowski and F Lu and J Ma and C Matthey and F Mauri and D Mazza and G Meng and C Montanari and S Muraro and S Navas-Concha and M Nicoletto and G Nurzia and S Otwinowski and Q Ouyang and O Palamara and D Pascoli and L Periale and S Petrera and G.Piano Mortari and A Piazzoli and P Picchi and F Pietropaolo and T Rancati and A Rappoldi and G.L Raselli and J Rico and B Romualdi and M Rossella and A Rotilio and A Rubbia and C Rubbia and P Sala and D Scannicchio and E Scapparone and E Segreto and F Sergiampietri and N Sinanis and E Tatananni and M Terrani and S Ventura and C Vignoli and H Wang and J Woo and G Xu and Z Xu and C Zhang and Q Zhang and S Zhen&quot;,
+  keywords = &quot;Liquid argon&quot;,
+  keywords = &quot;TPC&quot;,
+  keywords = &quot;Track reconstruction &quot;
+}
+```
+
+!Notes
+!!Electron drift velocity
+*All selected muons cross both cathode and wire plane
+*For each track calculate the time interval between the peak time of the waveform corresponding to when the track crossed the cathode and anode
+*Drift velocity measured by relating the time interval to the drift path
+
+!!Calorimetric reconstruction
+*hit amplitude divided by track pitch length to get dQ/dx (should be charge from integral?)
+*Good diagram for track pitch
+*Hits are grouped according to their drift coordinate in 2.5cm slices (14 slices in total)
+*Histograms of hit charges for each time slice fit with Land X Gauss
+**Landau = fluctuations in energy loss of charged particle in matter due to statistical nature of ionization
+**Gaussian = fluctuations in measured charge due to various sources (e.g.electronic noise)
+*Average rms from Gaussian is 6500 electrons per cm $$\Rightarrow$$ 1950 electrons in spread of single wire signal (Agrees with design specs)
+*Value of most probable charge per unit track length as a function of centre of the drift slice fitted with and exponential to get the electron mean free path
+*Use drift velocity to get the lifetime
+*Use electron lifetime values to correct for charge attenuation and reconstruct distributions of the corrected charge released per unit length of muon track
+*Also need to account for quenching (Birks) $$\frac{dQ_{corr}}{dx}=A\frac{(dE/dx)}{1+K_B(dQ/dx)}$$
+*Can get the average energy released per cm
+*Get the most probable value of energy loss from a LandXGauss fit 
+*Systematic uncertainties from errors in calibration factor, Birk's parameters and lifetime
+*Data and MC agree</pre>
 </div>
 <div created="20160921160554237" modified="20160921163829651" tags="Notes" title="Intro to running LArSoft">
 <pre>!Source:
@@ -11136,7 +11278,7 @@ http://arxiv.org/pdf/1403.2673v2.pdf
 
 &lt;&lt;list-links &quot;[tag[QFT Course]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20161019170632094" modified="20161019173357284" tags="[[QFT Course]]" title="QFT Lecture 1">
+<div created="20161019170632094" modified="20161019175344047" tags="[[QFT Course]]" title="QFT Lecture 1">
 <pre>Notes are available at (either handout or link when I get it)
 
 !Notes
@@ -11159,8 +11301,19 @@ $$\hat{a}^{\dagger}\hat{a} = \frac{1}{\hbar \omega}\hat{H} - \frac{1}{2}$$
 
 $$\Rightarrow \hat{H}=\hbar \omega(\hat{a}^{\dagger}\hat{a}+\frac{1}{2})$$
 
-Assume there exists a state $$\ket{\alpha}$$ such that $$\hat{H}\ket{\alpha}=E_{\alpha}\ket{\alpha}$$
-</pre>
+Assume there exists a state $$|\alpha\rangle$$ such that $$\hat{H}|\alpha\rangle=E_{\alpha}|\alpha\rangle$$
+
+$$\hat{H}\hat{a}|\alpha\rangle=\hbar\omega(\hat{a}^{\dagger}\hat{a}+\frac{1}{2})\hat{a}|\alpha\rangle$$
+
+$$[\hat{a},\hat{a}^{\dagger}]=(\frac{\hat{H}}{\hbar\omega}+\frac{1}{2})-(\frac{\hat{H}}{\hbar\omega}-\frac{1}{2})=1$$
+
+$$\Rightarrow \hat{H}\hat{a}|\alpha\rangle=\hbar\omega\hat{a}(\frac{1}{2}+\hat{a}^{\dagger}\hat{a})|\alpha\rangle-\hbar\omega\hat{a}|\alpha\rangle=(E_{\alpha}-\hbar\omega)\hat{a}|\alpha\rangle$$
+
+$$\hat{H}|0\rangle=\frac{\hbar\omega}{2}|0\rangle$$
+
+$$\Rightarrow \hat{a}^{\dagger}\hat{a}|0\rangle=0$$
+
+$$\Rightarrow \hat{H}|n\rangle=\hbar\omega(n+\frac{1}{2})|n\rangle$$</pre>
 </div>
 <div created="20160920092614827" modified="20160921155820363" tags="Notes" title="Reconstruction Overview">
 <pre>!Source:
