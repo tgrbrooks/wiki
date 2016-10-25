@@ -349,6 +349,8 @@ Error message and password prompt
 
 <li>24th October 2016</li>
 
+<li>25th October 2016</li>
+
 <li>26th September 2016</li>
 
 <li>27th September 2016</li>
@@ -8390,7 +8392,7 @@ Error message and password prompt
 <div created="20160916161721992" modified="20160920092800275" title="$:/state/toc/TableOfContents-Issues--81657105">
 <pre>close</pre>
 </div>
-<div created="20160914150849017" modified="20161020091628862" title="$:/state/toc/TableOfContents-Journal--81657105">
+<div created="20160914150849017" modified="20161025132952971" title="$:/state/toc/TableOfContents-Journal--81657105">
 <pre>close</pre>
 </div>
 <div created="20161013103609184" modified="20161020085625264" title="$:/state/toc/TableOfContents-Lectures--81657105">
@@ -8399,8 +8401,8 @@ Error message and password prompt
 <div created="20160908094350083" modified="20160914150836879" title="$:/state/toc/TableOfContents-My Journal--81657105">
 <pre>open</pre>
 </div>
-<div created="20160921163853106" modified="20161020094542278" title="$:/state/toc/TableOfContents-Notes--81657105">
-<pre>close</pre>
+<div created="20160921163853106" modified="20161025132957352" title="$:/state/toc/TableOfContents-Notes--81657105">
+<pre>open</pre>
 </div>
 <div created="20160907134106914" modified="20161020093614273" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
 <pre>close</pre>
@@ -8408,13 +8410,13 @@ Error message and password prompt
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160923133217804" modified="20161020093728478" title="$:/state/toc/TableOfContents-Projects--81657105">
-<pre>open</pre>
+<div created="20160923133217804" modified="20161025132955042" title="$:/state/toc/TableOfContents-Projects--81657105">
+<pre>close</pre>
 </div>
 <div created="20160907090743836" modified="20161006151143240" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[Useful SBND Numbers]] [[24th October 2016]] Welcome" title="$:/StoryList">
+<div list="[[24th October 2016]] [[25th October 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9310,6 +9312,38 @@ backup
 **Make separate plots for both the TPCs
 **Fit the time histograms with a Gaussian
 **Fit the cut charge histograms
+
+//Left at 19:30//</pre>
+</div>
+<div created="20161025094104055" modified="20161025183115187" tags="Journal" title="25th October 2016">
+<pre>//Arrived at 9:30//
+
+*Realized that there isn't an issue with the event window size as the simulated TPC drift length is 2m rather than 2.656m
+*This means that a time window of 2500 ticks is just enough at a drift velocity of 1.6m/ms
+*Also got the geometry the wrong way around in my head, the cathode plane is in the middle at x=0 so x=205 and x=-205 are past the wire planes
+*Remove x=205 and x=-205 and restore 155 and 180 to original
+*I was still only seeing 7 rather than 8 peaks for time, lots of tracks at 5cm from the cathode must get absorbed
+*Without 205 I only see 6 peaks, this means that x=55 is a lot smaller than the other and no tracks are identified for x=30 or x=5
+**Would probably be worth generating events at 195cm
+**Run the module on x=55, x=30 and x=5 to make sure I am thinking correctly
+***These are definitely the problem
+**Try to see the affect of increasing the event window on 55, 30 and 5
+***The issue is not to do with the time window, the tracks are clearly there, they are just not being identified, needs further investigation
+***Maybe I could try to get the cluster in 2D and try to calculate the track pitch
+***Could try increasing the electron lifetime to see if this has an effect, problem is I have no way of telling if the electron lifetime has been changed. Changing it in both detectorproperties_sbnd.fcl and prodsingle and rebuilding but it is only mentioned in detectorproperties.fcl
+***Got a big ol' error when trying to generate events with detectorproperties_sbnd.fcl changed
+***PROGRESS: its ``Electronlifetime`` rather than ``ElectronLiftime`` which I changed to 10000 us in detectorproperties_sbnd.fcl
+***This does make a difference, so the massive reduction in efficiency of track finding is due to charge attenuation, I do feel that there should be enough hits to reconstruct tracks, but can bring this up in the meeting
+*Generate a sample with a lifetime of 100000 mus to study the shape of the hit charge plots without any affect from charge attenuation
+*Save the time and charge histograms to a root file so they can be plotted in a separate file
+*I've created a separate, local, plotting macro to deal with the histogram outputs which are not saved to a root file
+*The 1e5 us sample has been created
+
+!Tomorrow
+*Analyse the long lifetime sample, particularly the shape of the charge distributions (look at track pitch)
+*Try to fit the time and charge distributions
+*Could try to cheat and just work out the mean and do a landau shift to get the most probable value
+*Start writing presentation for thursday
 
 //Left at 19:30//</pre>
 </div>
