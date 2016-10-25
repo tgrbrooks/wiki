@@ -339,11 +339,15 @@ Error message and password prompt
 
 <li>20th September 2016</li>
 
+<li>21st October 2016</li>
+
 <li>21st September 2016</li>
 
 <li>22nd September 2016</li>
 
 <li>23rd September 2016</li>
+
+<li>24th October 2016</li>
 
 <li>26th September 2016</li>
 
@@ -8380,8 +8384,8 @@ Error message and password prompt
 <div created="20160923135925845" modified="20160923135925845" title="$:/state/toc/Projects-Electron Lifetime--81657105">
 <pre>open</pre>
 </div>
-<div created="20160907132258617" modified="20161014094106122" title="$:/state/toc/TableOfContents-Hardware--81657105">
-<pre>close</pre>
+<div created="20160907132258617" modified="20161024130408889" title="$:/state/toc/TableOfContents-Hardware--81657105">
+<pre>open</pre>
 </div>
 <div created="20160916161721992" modified="20160920092800275" title="$:/state/toc/TableOfContents-Issues--81657105">
 <pre>close</pre>
@@ -8410,7 +8414,7 @@ Error message and password prompt
 <div created="20160907090743836" modified="20161006151143240" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[20th October 2016]] Welcome" title="$:/StoryList">
+<div list="[[Useful SBND Numbers]] [[24th October 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9147,7 +9151,7 @@ backup
 
 //Left at 18:30//</pre>
 </div>
-<div created="20161020085630938" modified="20161020164652609" tags="Journal" title="20th October 2016">
+<div created="20161020085630938" modified="20161021084521603" tags="Journal" title="20th October 2016">
 <pre>//Arrived at 9:45//
 
 *Create an updated presentation detailing the tree methods
@@ -9195,7 +9199,9 @@ backup
 **How are the averages calculated, can a weighted average be done with asymmetric errors, how should the errors be combined for these averages
 **How should the number of time slices be calculated, even widths or even stats, what difference does each of these methods make
 **How does the Land X Gauss fit perform, what difference does doing a Landau-like cut + a Gaussian fit make to the results, can errors be included
-**For tracks parallel to wires, how much do small differences in track angle affect results</pre>
+**For tracks parallel to wires, how much do small differences in track angle affect results
+
+//Left at 18:15//</pre>
 </div>
 <div created="20160921083822101" modified="20160921083959156" tags="Journal" title="20th September 2016">
 <pre>//Arrived at 9:30//
@@ -9206,6 +9212,24 @@ backup
 **I sent another email to try and reopen it
 
 //Left at 18:40//</pre>
+</div>
+<div created="20161021084538050" modified="20161024090233070" tags="Journal" title="21st October 2016">
+<pre>//Arrived at 9:30//
+
+*While Dom is still simulating try to find a way of associating reconstructed tracks with MCTruth
+**Needed to use largeant rather than generator as the module label to get MCParticle
+**Keeps saying there are no dictionaries between MCParticle and tracks/hits etc
+**I don't think it is possible to associate the information between MCTruth and reconstruction
+*Had a sheffield SBND software meeting
+**Spoke about the possibility of going to Bern for 4 weeks to build CRTs, will happen if it can be pushed back from November to January, likely they will need to be build before then
+**Briefly discussed LTAs, will apply for two years from October 2017, can always leave early
+**Lots of discussion on transfer of knowledge, 35ton phds don't think it's a good idea to look at data. Some knowledge of the techniques of classifying detector properties could be shared
+**There will likely be a Bi-Weekly SBND software meeting, probably more formal with presentations etc
+**Need to work out what to get the undergrads doing, is it worth them doing anything to do with electron lifetime, any more than two people on it seems a bit much (2 is pushing it)
+*One of the projects that needs doing is noise studies, which would be perfect for us given that we have the 35 ton guys, I think it's relevant too because it will be needed in the analysis if SBND is very noisy
+**I'll bring this up with Matthew when I meet with him next week
+
+//Left at 18:30//</pre>
 </div>
 <div created="20160921155929056" modified="20160922092200248" tags="Journal" title="21st September 2016">
 <pre>//Arrived at 9:30//
@@ -9248,6 +9272,46 @@ backup
 *Will look at simulations and simulate 100 events on sunday so I can get straight into the coding on Monday
 
 //Finished work at 17:30//</pre>
+</div>
+<div created="20161024090248107" modified="20161024182250220" tags="Journal" title="24th October 2016">
+<pre>//Arrived at 10:00//
+
+*Dom has finished the parallel sample over the weekend so I can start testing Michelle's method
+**Dom has simulated parallel muons at 9 drift distances, 5, 30, 55, 80, 105, 130, 155, 180, 195 cm
+**A lot of the muons at 5cm pass in to the wire plane so we will ignore this sample
+**There is a separate file for each TPC
+**The information about each event is in the file name, need to parse this if possible or use the fact that the subrun number will go from 20 -&gt; 1 with each new file
+**Will test everything is OK on one file, was getting something about needing 2 track from PMAlgTracker, but no error
+**Currently no tracks are passing the event selection, I suspect the linear fits are removing too many hits, I think that being parallel with the wire planes are casing too much bend in the tracks
+**The bend in the tracks due to the electric field means that most would not be triggered by the CRTs
+***Generate a muon that is going in the z direction with no angle and measure the bend
+***Much better, the track bends back and fourth though, which is very odd
+***Generating 20 of these to see how the track finding algorithms perform
+***All but one track is identified by PMAlgTrackMaker, will generate a new sample with no variation in the xz angle
+***I have written a shell script that changes the value of X0 and runs both larsoft commands
+*A combination of a relatively low energy and a long time perpendicular to the electric field causes a significant bend to the track, I think this prevents the reconstruction algorithms correctly identifying the tracks and when they are correctly identified the multiple linear fits and chi2 cuts prevent them from passing selection. The options are:
+**Remove or heavily relax the linear fits and cuts so that the few tracks that are identified pass selection
+**Generate another sample with higher energy (say 6 GeV)
+***The booster neutrino beam peaks at around 1GeV and the average cosmic muon energy is about 4GeV so I think any higher than that would be pushing it
+***Upping the energy does not help tracks to be identified
+**Try to use a different reconstruction algorithm to see if it identifies tracks any better 
+***pmalgtrack finder finds 10/20 for 80cm in tpc2
+***Would have to use an older version of sbndcode to use the different algorithm and that kept breaking anyway so probably not much point
+**Use all of the hits and try to write a rough reconstruction algorithm to remove outliers
+*Notes on the new sample:
+**It looks like the tracks through theCRT pairs (2-6) all get identified at about the same rate
+**CRT pair 1 does not get identified anywhere near as much, could be the tracks passing through the wires due to a strong field
+**CRT pair 7 gets identified about as much as 1 and 8 and 9 do not get identified at all, this is likely due to the event window not being changed
+**Not an obvious separation in charges when all plotted together, and the canvas isn't clear as the smallest histogram was plotted first
+**Need to redo 205 cm, 180 cm and 155 cm with an extended time window for both TPCs
+
+!Tomorrow
+**Change order of histogram plotting or find a way to set range manually
+**Make separate plots for both the TPCs
+**Fit the time histograms with a Gaussian
+**Fit the cut charge histograms
+
+//Left at 19:30//</pre>
 </div>
 <div created="20160926083724278" modified="20160927095408031" tags="Journal" title="26th September 2016">
 <pre>//Arrived at 9:30//
