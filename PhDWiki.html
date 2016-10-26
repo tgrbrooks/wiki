@@ -351,6 +351,8 @@ Error message and password prompt
 
 <li>25th October 2016</li>
 
+<li>26th October 2016</li>
+
 <li>26th September 2016</li>
 
 <li>27th September 2016</li>
@@ -8392,8 +8394,8 @@ Error message and password prompt
 <div created="20160916161721992" modified="20160920092800275" title="$:/state/toc/TableOfContents-Issues--81657105">
 <pre>close</pre>
 </div>
-<div created="20160914150849017" modified="20161025132952971" title="$:/state/toc/TableOfContents-Journal--81657105">
-<pre>close</pre>
+<div created="20160914150849017" modified="20161026085034669" title="$:/state/toc/TableOfContents-Journal--81657105">
+<pre>open</pre>
 </div>
 <div created="20161013103609184" modified="20161020085625264" title="$:/state/toc/TableOfContents-Lectures--81657105">
 <pre>close</pre>
@@ -8401,8 +8403,8 @@ Error message and password prompt
 <div created="20160908094350083" modified="20160914150836879" title="$:/state/toc/TableOfContents-My Journal--81657105">
 <pre>open</pre>
 </div>
-<div created="20160921163853106" modified="20161025132957352" title="$:/state/toc/TableOfContents-Notes--81657105">
-<pre>open</pre>
+<div created="20160921163853106" modified="20161026085033665" title="$:/state/toc/TableOfContents-Notes--81657105">
+<pre>close</pre>
 </div>
 <div created="20160907134106914" modified="20161020093614273" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
 <pre>close</pre>
@@ -8416,7 +8418,7 @@ Error message and password prompt
 <div created="20160907090743836" modified="20161006151143240" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[24th October 2016]] [[25th October 2016]] Welcome" title="$:/StoryList">
+<div list="[[25th October 2016]] [[26th October 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9346,6 +9348,37 @@ backup
 *Start writing presentation for thursday
 
 //Left at 19:30//</pre>
+</div>
+<div created="20161026084353531" modified="20161026180508678" tags="Journal" title="26th October 2016">
+<pre>//Arrived at 9:45//
+
+*I made quite a big mistake, I was using just the track pitch from the first track to do the cuts and the track pitch from the first track and the V plane when calculating charge. It's fixed now and everything looks much better.
+*It might be worth running the single track method again to see if things are better, but there would still be the issue with the timing.
+*I'll Work on the fitting first and try to get Michelle's method fleshed out before I switch focus
+*There's still something wrong with the lower lifetime events, can see two peaks in most of them
+*Finish analysis for the long lifetime events and then try to see what the problem is
+*The Landau X Gaussian fits with RooFit did not behave very well but a Landau-Like cut followed by a Gaussian fit does
+*Fitting the times with a Gaussian seems to work pretty well
+*Had ROOT lecture at 15:00 today
+**Got quite a lot to do before the meeting tomorrow so will do the tasks either Thursday evening or Friday
+*Testing the effect of including errors in the fits, without the &quot;E&quot; option
+**TPC1: $$\tau_e=406576 \pm 247581 \mu s$$
+**TPC2: $$\tau_e=62182 \pm 5753 \mu s$$
+*With the &quot;E&quot;option in all the fits (But not getting the errors back properly)
+**TPC1: $$\tau_e=406869 \pm 247919 \mu s$$
+**TPC2: $$\tau_e=62200 \pm 5756 \mu s$$
+*Basically no difference but the errors in the charges and times seem way too small
+*I think errors are set a sqrt(bin content) when fitting histograms, I think that the statistical errors would dominate over any errors in determining the charge and this is sufficient.
+
+!Tomorrow
+*Finish writing presentation
+**Try to do as much 750 us analysis as possible (figure out charge dist shapes or bring up)
+**Get Dom to write a couple of slides
+**Get Matthew to check over it
+**Work out who should say what
+*Do ROOT tasks after giving talk
+
+//Left at 19:00//</pre>
 </div>
 <div created="20160926083724278" modified="20160927095408031" tags="Journal" title="26th September 2016">
 <pre>//Arrived at 9:30//
