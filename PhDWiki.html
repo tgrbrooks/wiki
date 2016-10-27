@@ -355,6 +355,8 @@ Error message and password prompt
 
 <li>26th September 2016</li>
 
+<li>27th October 2016</li>
+
 <li>27th September 2016</li>
 
 <li>35 ton method</li>
@@ -468,6 +470,8 @@ Error message and password prompt
 <li>ROOT Lecture 1</li>
 
 <li>ROOT Lecture 2</li>
+
+<li>ROOT Lecture 3</li>
 
 <li>Running LArSoft (Production)</li>
 
@@ -8382,8 +8386,8 @@ Error message and password prompt
 <div created="20160916162147859" modified="20160920092759262" title="$:/state/toc/Issues-Open--81657105">
 <pre>close</pre>
 </div>
-<div created="20161013103635470" modified="20161019170432253" title="$:/state/toc/Lectures-ROOT Course--81657105">
-<pre>close</pre>
+<div created="20161013103635470" modified="20161027150940635" title="$:/state/toc/Lectures-ROOT Course--81657105">
+<pre>open</pre>
 </div>
 <div created="20160923135925845" modified="20160923135925845" title="$:/state/toc/Projects-Electron Lifetime--81657105">
 <pre>open</pre>
@@ -8394,11 +8398,11 @@ Error message and password prompt
 <div created="20160916161721992" modified="20160920092800275" title="$:/state/toc/TableOfContents-Issues--81657105">
 <pre>close</pre>
 </div>
-<div created="20160914150849017" modified="20161026085034669" title="$:/state/toc/TableOfContents-Journal--81657105">
-<pre>open</pre>
-</div>
-<div created="20161013103609184" modified="20161020085625264" title="$:/state/toc/TableOfContents-Lectures--81657105">
+<div created="20160914150849017" modified="20161027091153639" title="$:/state/toc/TableOfContents-Journal--81657105">
 <pre>close</pre>
+</div>
+<div created="20161013103609184" modified="20161027150939062" title="$:/state/toc/TableOfContents-Lectures--81657105">
+<pre>open</pre>
 </div>
 <div created="20160908094350083" modified="20160914150836879" title="$:/state/toc/TableOfContents-My Journal--81657105">
 <pre>open</pre>
@@ -8418,7 +8422,7 @@ Error message and password prompt
 <div created="20160907090743836" modified="20161006151143240" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[25th October 2016]] [[26th October 2016]] Welcome" title="$:/StoryList">
+<div list="[[ROOT Lecture 2]] [[ROOT Lecture 3]] [[27th October 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9423,6 +9427,23 @@ backup
 **Need to check if G4 stage simulated any electronegative impurities
 
 //Left at 19:00//</pre>
+</div>
+<div created="20161027091155590" modified="20161027172236455" tags="Journal" title="27th October 2016">
+<pre>//Arrived at 9:30//
+
+*Finishing of the presentation
+*Looking at the lower lifetime sample
+*See the behaviour in the hit amplitude as well as the integral
+*Missing hits all in the same place
+*It's possible that I could write a fit function that includes a missing chunk but I would have to get the convolution fit to work first as I don't think dong a Landau cut will work
+*I'll try to generate a sample with a lifetime of 1000 us to see if the effect is still present and if it is if the missing hits are in the same place.
+*Had SBND software meeting at 15:00
+**New simulations will be ready soon and these might fix the missing charge issue
+**Will generate a sample with a 1000mus lifetime to see if it is still present
+**If it is I will wait until the new sample is ready
+*Doing the ROOT tasks
+
+//Left at 18:30//</pre>
 </div>
 <div created="20160927095525907" modified="20160928083805667" tags="Journal" title="27th September 2016">
 <pre>//Arrived at 9:30//
@@ -11663,6 +11684,25 @@ pm-&gt;GetY()[0];
 ```
 *TSpectrum has more advanced peak finding, background subtraction and fourier analysis
 *``FFT(histout,&quot;mag&quot;)`` can be used to plot the magnitude of the fourier transform, can also do real component &quot;RE&quot;, imaginary &quot;IM&quot; and phase &quot;PH&quot;</pre>
+</div>
+<div created="20161027150918117" modified="20161027172203087" tags="[[ROOT Course]]" title="ROOT Lecture 3">
+<pre>Slides available at http://www.hep.sheffield.ac.uk/teaching/rootTutorialWeek3_markhod_2016.pdf
+
+!Topics
+*Maths and physics libraries
+**Vectors and their operators
+**Modelling with RooFit
+*Geometries
+**TGeo classes and interfaces with other platforms
+
+!Useful Points
+*4-vector class ``TLorentzVector``
+**Assumes beam along the z-axis, derives transverse variables accordingly (e.g. energy, angle)
+*Don't hardcode in fundamental constants, use databases for consistency
+```bash
+TDatabasePDG db
+db.GetParticle(211).Mass()
+```</pre>
 </div>
 <div created="20160908102147553" modified="20160908114759902" tags="Software" title="Running LArSoft (Production)">
 <pre>How to run the existing LArSoft code quickly and easily:
