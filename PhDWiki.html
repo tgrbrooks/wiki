@@ -359,6 +359,10 @@ Error message and password prompt
 
 <li>27th September 2016</li>
 
+<li>28th October 2016</li>
+
+<li>31st October 2016</li>
+
 <li>35 ton method</li>
 
 <li>3rd October 2016</li>
@@ -386,6 +390,8 @@ Error message and password prompt
 <li>art Workbook Chapter 10</li>
 
 <li>Building sbndcode (cvmfs)</li>
+
+<li>Comprehensive Study Plan</li>
 
 <li>Configuring bash</li>
 
@@ -8401,13 +8407,13 @@ Error message and password prompt
 <div created="20160914150849017" modified="20161027091153639" title="$:/state/toc/TableOfContents-Journal--81657105">
 <pre>close</pre>
 </div>
-<div created="20161013103609184" modified="20161027150939062" title="$:/state/toc/TableOfContents-Lectures--81657105">
-<pre>open</pre>
+<div created="20161013103609184" modified="20161028124301246" title="$:/state/toc/TableOfContents-Lectures--81657105">
+<pre>close</pre>
 </div>
 <div created="20160908094350083" modified="20160914150836879" title="$:/state/toc/TableOfContents-My Journal--81657105">
 <pre>open</pre>
 </div>
-<div created="20160921163853106" modified="20161026085033665" title="$:/state/toc/TableOfContents-Notes--81657105">
+<div created="20160921163853106" modified="20161028124521853" title="$:/state/toc/TableOfContents-Notes--81657105">
 <pre>close</pre>
 </div>
 <div created="20160907134106914" modified="20161020093614273" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
@@ -8419,10 +8425,10 @@ Error message and password prompt
 <div created="20160923133217804" modified="20161025132955042" title="$:/state/toc/TableOfContents-Projects--81657105">
 <pre>close</pre>
 </div>
-<div created="20160907090743836" modified="20161006151143240" title="$:/state/toc/TableOfContents-Software--81657105">
-<pre>close</pre>
+<div created="20160907090743836" modified="20161028124520247" title="$:/state/toc/TableOfContents-Software--81657105">
+<pre>open</pre>
 </div>
-<div list="[[ROOT Lecture 2]] [[ROOT Lecture 3]] [[27th October 2016]] Welcome" title="$:/StoryList">
+<div list="[[Comprehensive Study Plan]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9428,7 +9434,7 @@ backup
 
 //Left at 19:00//</pre>
 </div>
-<div created="20161027091155590" modified="20161027172236455" tags="Journal" title="27th October 2016">
+<div created="20161028092822138" modified="20161028092825053" tags="Journal" title="27th October 2016">
 <pre>//Arrived at 9:30//
 
 *Finishing of the presentation
@@ -9475,6 +9481,56 @@ backup
 ***Is tau definitely lifetime?
 
 //Left at 18:15//</pre>
+</div>
+<div created="20161028092830409" modified="20161028160911776" tags="Journal" title="28th October 2016">
+<pre>//Arrived at 9:30//
+
+*Finishing ROOT tasks
+*SBN analysis meeting at 15:30
+**Talk on upgrade to BNB
+**Talk on on oscillation analysis and systematics fits with VALOR
+*Yesterday Michelle spoke about doing a comprehensive study of electron lifetime measurement techniques in LArTPCs
+**I think it would be good to dedicate some time today to write out a list/timescale of what would need to be done to get a poster ready for NuPhys in a month and delegate jobs to Dom.
+
+//Left at 17:15//</pre>
+</div>
+<div created="20161031092607199" modified="20161031182713645" tags="Journal" title="31st October 2016">
+<pre>//Arrived at 9:15//
+
+*Saw on friday that the sample with a lifetime of 1000 mus also has the dip in the charge distribution 
+**Best to wait until the end of this week until the new electronics simulation is ready to go
+*Start today by working out a game plan for a comprehensive study of electron lifetime measurements.
+*Looking at the anode to cathode sample, a lot of the sample are quite low in the detector but this probably isn't an issue
+**Many of the tracks go through both of the TPC's, will need to find out of this corresponds to two tracks in the reconstructed sample
+**Need to find out if the lifetime being 750 mus means the tracks will only be reconstructed up to about 1.2 m.
+*Looks like the track finding algorithms aren't great, but about 1 in 5 are identified
+**Angle cuts appear to be preventing some from being selected
+*Longest tracks seem to start from around 15 us and end at about 1250 us
+**Suggests that algorithms can reconstruct the whole tracks despite charge attenuation but it looks like they might be limited by the event window, should increase this to see the effect
+*Long tracks are consistently just in the first TPC even though many pass through both
+**There are shorter tracks in both
+*Make cut on number of hits much higher (around 500)
+*Cut on first and last hit (first &lt; 20, last &gt; 1240)
+*These cuts mean that only tracks in a single TPC are selected, this is slightly worrying as most of the tracks clearly pass through both TPCs
+*The selection efficiency is also awful, 10 for the first sample and 6 for the second out of 160 tracks in each. This is mostly to do with track finding
+*The dQ0/dx is pretty consistent so tracks are being generated at the same time
+*Need to generate some events with a very long lifetime to see if this affects the selection efficiency
+*Generate some events with a longer event window to see if the tracks go on for longer
+*The dip in charge is still present, it's at about 250 ADCs
+*Could check to see if dip is present in the other two planes
+**It looks like it is there, but not as prominent in the V plane at about 190 in TPC2, even less obvious if it is there in TPC 1
+**Slight reduction in U plane dist at ~180 for TPC1 (also a very strange zigzag distribution) similar for TPC 2
+*Dom generated a new sample with a longer lifetime of 10000 mus
+**The track identification doesn't perform much better, only 38 tracks in TPC1 and 20 tracks in TPC2
+**The charge distribution of the tracks looks pretty much as expected
+*Changing the code to do a Ladau cut per histogram rather than overall
+
+!Tomorrow
+*See what happens when the event window is made larger
+*Do more to identify the source of the missing charge in case it's not an electronics sim issue
+*Try to find out why the hit finding/track finding is so poor
+
+//Left at 18:30//</pre>
 </div>
 <div created="20161014095019862" modified="20161014114547181" tags="[[Electron Lifetime]]" title="35 ton method">
 <pre>Slides are here https://docs.dunescience.org:440/cgi-bin/RetrieveFile?docid=1816&amp;filename=2015-06-03-LAr-Purity-Online.pdf&amp;version=1
@@ -9926,6 +9982,28 @@ mrbsetenv
 mrb i -j4
 mrbslp
 ```</pre>
+</div>
+<div created="20161031093154138" modified="20161031182718726" tags="[[Electron Lifetime]]" title="Comprehensive Study Plan">
+<pre>!Aims
+*Test and compare several different methods for measuring the lifetime of electrons in LAr
+*Generate realistic quantities and distributions of through-going muon tracks that would be used for the methods
+*Look at how the precision of each method changes with the quality and size of the data.
+*Find the best method for monitoring purity, must be quick and able to work with smaller samples while still fairly accurate
+*Find the best method for calorimetry, must be very precise and able to still perform with smaller data samples if the purity is unstable
+
+!Plan
+*Get simple anode to cathode sample from Dom
+*Test and improve the first two methods
+*Look out for the dip in hit charge, could be the result of the track or hit finding algorithms
+*Generate a parallel muon sample with the new electronics simulation
+*Apply the parallel method to the new sample and make sure the dip is no longer present
+*Work out some metrics to compare the different methods
+*Email Matthew and get the other methods he had been testing
+*Generate more realistic samples
+*Re-test the methods
+*Use CRT matching to write trigger code, apply this code on cosmic (and dirt) simulations to generate an as realistic as possible sample
+*Re-test the methods
+*Write up a comparison</pre>
 </div>
 <div created="20160914151000294" modified="20160914162502451" tags="Software" title="Configuring bash">
 <pre>There are three different files for configuring bash (make sure to make backups of the files if they already exist)
