@@ -335,6 +335,8 @@ Error message and password prompt
 
 <li>19th September 2016</li>
 
+<li>1st November 2016</li>
+
 <li>20th October 2016</li>
 
 <li>20th September 2016</li>
@@ -410,6 +412,8 @@ Error message and password prompt
 <li>Generating LArSoft Events</li>
 
 <li>Hardware</li>
+
+<li>Hit Finding and Reconstruction</li>
 
 <li>ICARUS Design</li>
 
@@ -8398,13 +8402,13 @@ Error message and password prompt
 <div created="20160923135925845" modified="20160923135925845" title="$:/state/toc/Projects-Electron Lifetime--81657105">
 <pre>open</pre>
 </div>
-<div created="20160907132258617" modified="20161024130408889" title="$:/state/toc/TableOfContents-Hardware--81657105">
+<div created="20160907132258617" modified="20161101135936633" title="$:/state/toc/TableOfContents-Hardware--81657105">
 <pre>open</pre>
 </div>
 <div created="20160916161721992" modified="20160920092800275" title="$:/state/toc/TableOfContents-Issues--81657105">
 <pre>close</pre>
 </div>
-<div created="20160914150849017" modified="20161027091153639" title="$:/state/toc/TableOfContents-Journal--81657105">
+<div created="20160914150849017" modified="20161101110943977" title="$:/state/toc/TableOfContents-Journal--81657105">
 <pre>close</pre>
 </div>
 <div created="20161013103609184" modified="20161028124301246" title="$:/state/toc/TableOfContents-Lectures--81657105">
@@ -8422,13 +8426,13 @@ Error message and password prompt
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160923133217804" modified="20161025132955042" title="$:/state/toc/TableOfContents-Projects--81657105">
-<pre>close</pre>
-</div>
-<div created="20160907090743836" modified="20161028124520247" title="$:/state/toc/TableOfContents-Software--81657105">
+<div created="20160923133217804" modified="20161101110948533" title="$:/state/toc/TableOfContents-Projects--81657105">
 <pre>open</pre>
 </div>
-<div list="[[Comprehensive Study Plan]] Welcome" title="$:/StoryList">
+<div created="20160907090743836" modified="20161101095311346" title="$:/state/toc/TableOfContents-Software--81657105">
+<pre>close</pre>
+</div>
+<div list="[[Hit Finding and Reconstruction]] [[1st November 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9164,6 +9168,36 @@ backup
 **[[Getting started exercises|https://mail.google.com/mail/u/0/#inbox/15742ec503fa5899]]
 
 //Left at 18:30//</pre>
+</div>
+<div created="20161101110941550" modified="20161101180948109" tags="Journal" title="1st November 2016">
+<pre>//Arrived at 9:30//
+
+*Dom is generating a few events with a larger readout window
+**Hits seem to go up to a time of around 1265 in a 3500 window so there appears to be an ~15 us delay for all the hits that needs to be corrected for
+*I'm going to delve in to the hit finding and track reconstruction algorithms to find out why they perform so badly, I'll make a new page for this
+*I'm fairly confident the issue isn't with hit finding as it's pretty straightforward and lots of hits are found
+*Would probable be worth understanding and changing fcl file parameters before trying to edit the modules themselves
+*Could plot the charges of all of the hits (not just tracks) to see if there is still missing charge
+**Still see a dip in the charge at about 100 when not divided by track pitch, might still only be due to the tracks
+**Plot only hits not associated with tracks, still present ==&gt; not an issue with track finding
+**To test if it was an issue with hit finding I would likely have to write a rudimentary hit finder that uses rawdigits or use a different available module (doesn't look like the rffhitfinder exists)
+**As michelle says, it's probably best to wait until the electronics simulations are ready before I waste loads of time
+*Track reco seems to work best when there is quite a large angle down and across
+**Might have to generate my own events again
+**Reconstruction works a lot better with my events with a very long lifetime, still have issues at 750mus because of lost hits
+**Would be worth seeing how the number of reconstructed tracks changes with lifetime
+*Hardware Meeting at 15:00
+**Nicola spoke to Michelle when she was in America, thought the best time to go to America would be next summer
+**Once there it would be good to take on a small calibration project each, e.g. testing the signal across jumpers or doing noise tests in Faraday cage
+**In terms of Bern, it seems like Neil has promised we would go and wants to get us to overlap with the ArgonCube delivery
+**Also keen on getting us to do odd jobs with the liquid argon rig and winding for argoncube
+
+!Tomorrow
+*Generate a sample of track with a lifetime long enough that most are reconstructed but short enough that the electron lifetime can be measured (also make event window larger)
+*Adjust the width of the time slices accordingly, try to make this an automatic process
+*Look at how the number of reconstructed tracks varies with electron lifetime
+
+//Left at 18:15//</pre>
 </div>
 <div created="20161020085630938" modified="20161021084521603" tags="Journal" title="20th October 2016">
 <pre>//Arrived at 9:45//
@@ -10289,6 +10323,67 @@ The typical simulation stages are (for uboone at the moment, will change to sbnd
 <pre>Place for storing set up instructions, bits of code and notes related to hardware projects:
 
 &lt;&lt;list-links &quot;[tag[Hardware]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20161101104017386" modified="20161101181056772" tags="[[Electron Lifetime]]" title="Hit Finding and Reconstruction">
+<pre>!Modules used
+*Calwire producers: caldata, sbnd_calwire
+*Hit finder producers: gaushit, sbnd_gaushitfinder (/grid/fermiapp/products/larsoft/larreco/v05_12_01/source/larreco/HitFinder/GausHitFinder_module.cc)
+*Cluster finder producer: linecluster, sbnd_linecluster (/grid/fermiapp/products/larsoft/larreco/v05_12_01/source/larreco/ClusterFinder/LineCluster_module.cc)
+*Track-finder producer: pmalgtrackmaker, sbnd_pmalgtrackmaker (/grid/fermiapp/products/larsoft/larreco/v05_12_01/source/larreco/TrackFinder/PMAlgTrackMaker_module.cc)
+*Calorimetry producer: pmatrackcalo
+
+!GausHitFinder
+*Gets hit collection with association to wires and raw digits
+*Gets wire list object
+*Associates rawdigits with wires
+*Loops over wires
+**Gets wire and raw digits
+**Sets signal widths and thresholds
+**Loop over regions of interest
+***Get vector of signals
+***Create iterator of time ticks 
+***If bin averaging option set call function ``doBinAverage`` then find candidate peaks with ``findCandidatePeaks``, if none found skip wire, merge potentially overlapping fits to do multi fit with ``mergeCandidatePeaks``
+***If bin averaging not set just do last two functions
+***Loop over pulses found
+***Get rid of pulses with widths &lt; 5
+***Set the number of gaussians to try
+***If the number of requested gaussiand is not too large
+***Call ``FitGaussians``
+***Skip any that return infinite chi2
+***If the initial fit is bad try with n+1 Gaussians
+***If number of Gaussians is too large or chi2 is too large, just call the whole thing a single Gaussian
+***Loop through returned peaks and make recob hits
+***Get rid of Gaussians where peak amp is below threshold
+***Extract amplitude, mean and width with errors
+***Total charge either extracted using the area method or integral method
+
+!LineCluster
+*Uses CCHitFInderAlg and ClusterCrawlerAlg
+**CCHitFinderAlg appears to be another hifinder very similar to GausHit, not sure which one is used for line cluster
+*Gets recob::Hits from hit finder
+*Calls ``RunCrawler`` to look for clusters in all planes
+**Cluster crawler crawls along string of hits to make line clusters
+**Sort hits by wore number then time then multiplet
+**Get detector properties
+**Make sure clusters are defined within the same plane
+**Work out range of first/last hit on each wire and mark dead wires or wires with no hits
+**Convert dTick/dWire to dX/dU to make kink and merging cuts
+**Can get drift velocity with 
+
+```cpp
+const detinfo::DetectorProperties *detprop = lar::providerFrom&lt; detinfo::DeectorPropertiesService &gt;();
+detprop-&gt;DriftVelocity(detprop-&gt;Efield(),detprop-&gt;Temperature());
+```
+
+**Convert large angle cluster crawling to a slope cut
+**Look for clusters in a single plane
+**Match vertices in 3 planes and split clusters using 3D vertices
+*Gets the endpoints of the clusters
+*Convert 2D vertex vector to unique_ptrs
+*Make 3D vertices with ``GetVertices``
+*Make clusters and associations with hits, end points in 2D and 3D vertexes 
+
+!PMAlgTrackMaker</pre>
 </div>
 <div created="20160920103610908" modified="20160920104311887" tags="[[Paper Notes]]" title="ICARUS Design">
 <pre>!Source
@@ -11858,13 +11953,13 @@ https://cdcvs.fnal.gov/redmine/projects/larsoft/wiki/Writing_LArSoft_algorithms
 *Services guidelines
 https://cdcvs.fnal.gov/redmine/projects/larsoft/wiki/Writing_LArSoft_service</pre>
 </div>
-<div created="20160926094510635" modified="20161005171040101" tags="Hardware" title="Useful SBND Numbers">
+<div created="20160926094510635" modified="20161101163224485" tags="Hardware" title="Useful SBND Numbers">
 <pre>!TPC Dimensions
 *[[Source|https://indico.cern.ch/event/446818/contributions/1106590/attachments/1170559/1690568/SBND_Cryostat_Requirements_Rev._2_Oct_13_2015.pdf]]
 *Think this includes the field cage as well so AV might be smaller
-*Width = 4.312m
+*Width (along drift 2x TPCs)= 4.312m
 *Height = 4.294m
-*Length = 2 * 2.656m = 5.312m (2 TPCs)
+*Length (along beam) = 2 * 2.656m = 5.312m (2 APAs)
 *Top surface area = 2 * 11.453m^2 = 22.905m^2
 
 !Coordinate System
