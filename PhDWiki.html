@@ -363,6 +363,8 @@ Error message and password prompt
 
 <li>28th October 2016</li>
 
+<li>2nd November 2016</li>
+
 <li>31st October 2016</li>
 
 <li>35 ton method</li>
@@ -402,8 +404,6 @@ Error message and password prompt
 <li>Detectors Course</li>
 
 <li>DM Course</li>
-
-<li>Draft of '14th October 2016'</li>
 
 <li>Electron Lifetime</li>
 
@@ -471,6 +471,8 @@ Error message and password prompt
 
 <li>QFT Lecture 1</li>
 
+<li>QFT Lecture 2</li>
+
 <li>Reconstruction Overview</li>
 
 <li>Reconstruction Software</li>
@@ -482,6 +484,8 @@ Error message and password prompt
 <li>ROOT Lecture 2</li>
 
 <li>ROOT Lecture 3</li>
+
+<li>ROOT Lecture 4</li>
 
 <li>Running LArSoft (Production)</li>
 
@@ -498,6 +502,8 @@ Error message and password prompt
 <li>Useful SBND Numbers</li>
 
 <li>Useful VIM Commands</li>
+
+<li>Using FermiGrid</li>
 
 <li>Welcome</li>
 
@@ -8384,10 +8390,10 @@ Error message and password prompt
 <div created="20160907132522626" modified="20160908094319327" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Info</pre>
 </div>
-<div created="20160907093143292" modified="20160907141017426" title="$:/state/tab/moresidebar-401116514">
-<pre>$:/core/ui/MoreSideBar/Orphans</pre>
+<div created="20160907093143292" modified="20161102102313084" title="$:/state/tab/moresidebar-401116514">
+<pre>$:/core/ui/MoreSideBar/All</pre>
 </div>
-<div created="20160906162737931" modified="20160914163409179" title="$:/state/tab/sidebar--1835078512">
+<div created="20160906162737931" modified="20161102102602393" title="$:/state/tab/sidebar--1835078512">
 <pre>TableOfContents</pre>
 </div>
 <div created="20160907132535759" modified="20160907132613311" title="$:/state/tabs/controlpanel/toolbars-1345989671">
@@ -8399,20 +8405,20 @@ Error message and password prompt
 <div created="20161013103635470" modified="20161027150940635" title="$:/state/toc/Lectures-ROOT Course--81657105">
 <pre>open</pre>
 </div>
-<div created="20160923135925845" modified="20160923135925845" title="$:/state/toc/Projects-Electron Lifetime--81657105">
-<pre>open</pre>
+<div created="20160923135925845" modified="20161102102613144" title="$:/state/toc/Projects-Electron Lifetime--81657105">
+<pre>close</pre>
 </div>
-<div created="20160907132258617" modified="20161101135936633" title="$:/state/toc/TableOfContents-Hardware--81657105">
-<pre>open</pre>
+<div created="20160907132258617" modified="20161102111825208" title="$:/state/toc/TableOfContents-Hardware--81657105">
+<pre>close</pre>
 </div>
 <div created="20160916161721992" modified="20160920092800275" title="$:/state/toc/TableOfContents-Issues--81657105">
 <pre>close</pre>
 </div>
-<div created="20160914150849017" modified="20161101110943977" title="$:/state/toc/TableOfContents-Journal--81657105">
+<div created="20160914150849017" modified="20161102102610270" title="$:/state/toc/TableOfContents-Journal--81657105">
 <pre>close</pre>
 </div>
-<div created="20161013103609184" modified="20161028124301246" title="$:/state/toc/TableOfContents-Lectures--81657105">
-<pre>close</pre>
+<div created="20161013103609184" modified="20161102153755798" title="$:/state/toc/TableOfContents-Lectures--81657105">
+<pre>open</pre>
 </div>
 <div created="20160908094350083" modified="20160914150836879" title="$:/state/toc/TableOfContents-My Journal--81657105">
 <pre>open</pre>
@@ -8426,13 +8432,13 @@ Error message and password prompt
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160923133217804" modified="20161101110948533" title="$:/state/toc/TableOfContents-Projects--81657105">
-<pre>open</pre>
+<div created="20160923133217804" modified="20161102102614378" title="$:/state/toc/TableOfContents-Projects--81657105">
+<pre>close</pre>
 </div>
 <div created="20160907090743836" modified="20161101095311346" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[Hit Finding and Reconstruction]] [[1st November 2016]] Welcome" title="$:/StoryList">
+<div list="[[ROOT Lecture 3]] [[ROOT Lecture 4]] [[1st November 2016]] [[2nd November 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9528,6 +9534,23 @@ backup
 
 //Left at 17:15//</pre>
 </div>
+<div created="20161102101619199" modified="20161102183926388" tags="Journal" title="2nd November 2016">
+<pre>//Arrived at 10:00//
+
+*I've begun generating events with a lifetime of 3000 mus to see if the reconstruction efficiency is any good with the sample I generated, have also increased the size of the time window to 3000 to make sure that all the hits are recorded
+**Get a strange pile-up of hits with low charge that is affecting the fitting, have adjusted the fitting range accordingly
+**Lots of the tracks have pretty large chi2, with the chi2 cut at 2 about 40/160 tracks are selected, removing this cut gives about 90/160, there doesn't appear to be much of a change in the distribution of hits with and without the cuts
+*In the code I should record the time of the very first hit and use that as the effective t0
+*While I wait I might as well learn how to use the FermiGrid again
+**Found a bunch of grid scripts that Luke used, (/uboone/data/users/lsimons/SemesterTwo/FermiGrid/) Can use them when required by just changing a few names
+*Also do some reading on QFT in preparation for the lectures
+
+!Tomorrow
+*I have a sample of events with a lifetime of 3ms for all three methods, this lifetime should avoid the dip in charge and have good reconstruction efficiency across the whole detector
+*Use this sample to start optimizing and comparing all three methods
+
+//Left at 18:45//</pre>
+</div>
 <div created="20161031092607199" modified="20161031182713645" tags="Journal" title="31st October 2016">
 <pre>//Arrived at 9:15//
 
@@ -10273,9 +10296,6 @@ set clipboard=unnamedplus
 
 &lt;&lt;list-links &quot;[tag[DM Course]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20161014094117135" draft.of="14th October 2016" draft.title="14th October 2016" modified="20161014094117135" tags="Journal" title="Draft of '14th October 2016'">
-<pre></pre>
-</div>
 <div created="20160921155519902" modified="20160921155627752" tags="Projects" title="Electron Lifetime">
 <pre>&lt;&lt;list-links &quot;[tag[Electron Lifetime]]&quot;&gt;&gt;</pre>
 </div>
@@ -10612,8 +10632,8 @@ git merge develop
 <div created="20160916161615396" modified="20160916161653942" tags="TableOfContents" title="Issues">
 <pre>&lt;&lt;list-links &quot;[tag[Issues]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20160908082813344" modified="20160916161809320" tags="TableOfContents" title="Journal" type="text/vnd.tiddlywiki">
-<pre>&lt;&lt;list-links &quot;[tag[Journal]]&quot;&gt;&gt;</pre>
+<div created="20160908082813344" modified="20161102102616969" tags="TableOfContents" title="Journal" type="text/vnd.tiddlywiki">
+<pre>&lt;&lt;list-links &quot;[tag[Journal]sort[created]]&quot;&gt;&gt;</pre>
 </div>
 <div created="20161003155110051" modified="20161010133925170" tags="[[Electron Lifetime]]" title="LArIAT Code Modifications">
 <pre>First off, here's a step by step guide to what the code does (just the physics):
@@ -11640,6 +11660,10 @@ $$\Rightarrow \hat{a}^{\dagger}\hat{a}|0\rangle=0$$
 
 $$\Rightarrow \hat{H}|n\rangle=\hbar\omega(n+\frac{1}{2})|n\rangle$$</pre>
 </div>
+<div created="20161102153145162" modified="20161102153340494" tags="[[QFT Course]]" title="QFT Lecture 2">
+<pre>*Discussed Lagrangians and waves on a string
+*I have a handout for the first two lectures, I don't think it's a good use of my time to write it up when it can just be scanned in</pre>
+</div>
 <div created="20160920092614827" modified="20160921155820363" tags="Notes" title="Reconstruction Overview">
 <pre>!Source:
 https://indico.fnal.gov/getFile.py/access?contribId=35&amp;sessionId=7&amp;resId=0&amp;materialId=slides&amp;confId=6395
@@ -11877,6 +11901,18 @@ TDatabasePDG db
 db.GetParticle(211).Mass()
 ```</pre>
 </div>
+<div created="20161102153729454" modified="20161102183741615" tags="[[ROOT Course]]" title="ROOT Lecture 4">
+<pre>Slides available at http://www.hep.sheffield.ac.uk/teaching/rootTutorialWeek4_markhod_2016.pdf
+
+!Topics
+*Compiling binaries and libraries
+*Bindings with other languages
+
+!Useful Points
+*Adding a ``+`` after the macro name compiles it
+*Can load the shared object library into CINT with ``gSystem-&gt;Load()``
+*Makefiles are a list of compilation instructions</pre>
+</div>
 <div created="20160908102147553" modified="20160908114759902" tags="Software" title="Running LArSoft (Production)">
 <pre>How to run the existing LArSoft code quickly and easily:
 
@@ -11933,10 +11969,10 @@ ssh -XYAK &lt;username&gt;@lar1ndgpvm01.fnal.gov
 <div created="20160916161724669" modified="20160916161750651" tags="Issues" title="Solved">
 <pre>&lt;&lt;list-links &quot;[tag[Solved]]&quot;&gt;&gt;</pre>
 </div>
-<div caption="Contents" created="20160907090454690" list-after="$:/core/ui/SideBar/Open" modified="20160908094133352" tags="$:/tags/SideBar" title="TableOfContents">
+<div caption="Contents" created="20160907090454690" list-after="$:/core/ui/SideBar/Open" modified="20161102102556616" tags="$:/tags/SideBar" title="TableOfContents">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
 
-&lt;&lt;toc-selective-expandable 'TableOfContents'&gt;&gt;
+&lt;&lt;toc-selective-expandable 'TableOfContents' 'sort[created]'&gt;&gt;
 
 &lt;/div&gt;</pre>
 </div>
@@ -12044,6 +12080,19 @@ VISUAL mode:
 Recovery:
 
 *``vim -r filename``</pre>
+</div>
+<div created="20161102105853074" modified="20161102120625472" tags="Software" title="Using FermiGrid">
+<pre>*Create a user directory on the dCache disk space
+```bash
+mkdir -p &quot;/pnfs/sbnd/scratch/users/${USER}&quot;
+chmod g+w -R &quot;/pnfs/sbnd/scratch/users/${USER}&quot;
+```
+*All input files and executables (unless they are available in CVMFS) should be in this directory as it is visible to the Open Science Grid
+*Setup ``jobsub_client``
+```bash
+source /grid/fermiapp/products/common/etc/setup # already included in setup_sbnd.sh
+setup jobsub_client
+```</pre>
 </div>
 <div created="20160908094145503" modified="20160921170506795" tags="" title="Welcome">
 <pre>This a wiki style notebook for recording pretty much everything PhD related.
