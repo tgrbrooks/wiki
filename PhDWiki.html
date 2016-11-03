@@ -369,6 +369,8 @@ Error message and password prompt
 
 <li>35 ton method</li>
 
+<li>3rd November 2016</li>
+
 <li>3rd October 2016</li>
 
 <li>4th October 2016</li>
@@ -8417,8 +8419,8 @@ Error message and password prompt
 <div created="20160914150849017" modified="20161102102610270" title="$:/state/toc/TableOfContents-Journal--81657105">
 <pre>close</pre>
 </div>
-<div created="20161013103609184" modified="20161102153755798" title="$:/state/toc/TableOfContents-Lectures--81657105">
-<pre>open</pre>
+<div created="20161013103609184" modified="20161103100419207" title="$:/state/toc/TableOfContents-Lectures--81657105">
+<pre>close</pre>
 </div>
 <div created="20160908094350083" modified="20160914150836879" title="$:/state/toc/TableOfContents-My Journal--81657105">
 <pre>open</pre>
@@ -8438,7 +8440,7 @@ Error message and password prompt
 <div created="20160907090743836" modified="20161101095311346" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[ROOT Lecture 3]] [[ROOT Lecture 4]] [[1st November 2016]] [[2nd November 2016]] Welcome" title="$:/StoryList">
+<div list="[[3rd November 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9638,6 +9640,65 @@ backup
 *Slide 19 plot:
 **Do a linear fir of the log of average charge (or an exponential fit) to extract lifetime
 **Quite significant underestimation of lifetime and huge errors</pre>
+</div>
+<div created="20161103100422203" modified="20161103192856118" tags="Journal" title="3rd November 2016">
+<pre>//Arrived at 9:45//
+
+*Testing and optimizing all three methods for a sample with 3ms lifetimes
+*For each method I need to optimize the selection cuts to give results that are as close as possible to 3ms
+*Start by making sure all of the methods are fully written and commented
+*Single track method
+**See what happens if I remove the traj_point bit, nothing, everything seems fine without it
+**Starting to see tracks that cross multiple tpc's which are labelled as the same track number in both, Issue is that the hits in TPC 0 always come first so there are very few track labelled as being in tpc 1
+***Changing the code to separate out the two TPCs in a better way has massively increased the selection efficiency to over 90%
+**The CRTs at the bottom of the detector can be used to trigger muons that just pass through one TPC
+**Want to use either the lowest time of any hit or the lowest time of the hit in a long track to adjust any offset in t0
+***The tracks should all be generated at t=0 so would expect to see the first hit at 0, but this is not the case
+***Results without time subtraction: 1829 &amp; 1904
+***Results with lowest time of any hit subtracted: 1803 &amp; 1846 also get an error which causes the script to fail, shouldn't use this method
+***Results with lowest time of track hit subtracted: 1818 &amp; 1904
+***Seems like there is very little effect of this adjustment, I should probably just believe the code and leave it out
+**Look at hits before and after linear fit, it seems that the tracks are very straight now, only seen none or very few hits removed, try to reduce the cut value back down to 0.02
+***153 and 158 tracks beforehand
+***The fitter fails with the cut value at 0.02, wrapping the fitter in a try catch, same number of tracks selected, marginally better results, not significant
+**Add a cut to ensure the track spans at least 100 wires, get quite a big improvement on the lifetime, still about 1 ms off
+**Double the cut to 200, the number of tracks selected is approximately halved but the value gets even closer
+**The improvement seems to stall at about 300
+**Would be worth plotting the value of lifetime, the standard deviation and tracks selected against the value of this cut
+**I suspect that there may be something a little deeper to this result, possibly an issue with calculating the track pitch and the tracks that are closer to parallel with the wires are less affected by this
+**Change fits to tgrapherrors and use Minos for errors, the fits to wire number and time remove very few hits, I don't think using errors would change this
+***The exponential fit is used to give a guess for the value of dq/dx0, which then changes so any slight benefit gained from using errors would be lost
+***The Landau fits would only really be affected if a significant number of hits have very large errors, should print out some histograms
+***Errors on peak time and charge take a Landau-dist peaking at about 0.5, I don't think adding them to the fits will do anything
+**The chi2/ndf for the exponential fits are all pretty huge, this might be expected as the distributions only follow a general exponential and there will be lots of points away from the curve
+**Want to try plotting the chi2 against value of tau, this could be a good way of identifying cuts
+***No apparent correlation between extent of event in time and calculated lifetime
+***There is some correlation between wire extent and calculated lifetime, but beyond about 230 it is hard to see much of a difference
+***No clear correlation in the chi2/ndf for the linear fit, or the exponential fit
+***It looks like there is a correlation between the number of hits and the lifetime, but the distribution looks almost identical to that of the number of wires hit, a cut at about 230 would be optimal
+***No correlation with initial dq0/dx guess
+**I think these are all the parameters used to make cuts, now need to deal with the input to the minimizer and the minimization itself
+**I'm still not really sure of the point of the landau cut to charges, will remove and see what happens, minimization fails sometimes
+**Removing the landau cut and applying cuts of 230 to both wire extent and number of hits gives better results but also large variations, so it is likely a fluke
+**With these unscientific cut values there is a good chance I will end up over-optimizing for this specific sample, will try with different multiples (4 at the moment)
+***At 4: 2317 &amp; 2479
+***At 5: 2311 &amp; 2430
+***At 6: 2282 &amp; 2379
+***At 3: 2403 &amp; 2599
+***At 2: 2468 &amp; 2729
+***At 1: 2550 &amp; 2745
+***At 0.5: 2598 &amp; 2881
+**There appears to be a definite trend with the strictness of the cut, but as I am not entirely sure of the motivations behind it (other than to make the minimization not fail) I'll leave it as is for now and just do a comparison with the different methods.
+**Change the final result to a weighted average (this is not trivial for asymmetric errors https://arxiv.org/pdf/physics/0306138.pdf, https://www.slac.stanford.edu/econf/C030908/papers/WEMT002.pdf)
+**The weighted average comes in as lower than the normal average
+
+!Tomorrow
+*Apply the same cuts to the multiple track method and look at the results
+*Adjust the time slices
+*Compare conv fits and landau cuts
+*See if the cuts can be re-optimised
+
+//Left at 19:30//</pre>
 </div>
 <div created="20161003165503788" modified="20161003170721563" tags="Journal" title="3rd October 2016">
 <pre>//Arrived at 9:30//
