@@ -327,7 +327,11 @@ Error message and password prompt
 
 <li>13th September 2016</li>
 
+<li>14th November 2016</li>
+
 <li>14th September 2016</li>
+
+<li>15th November 2016</li>
 
 <li>15th September 2016</li>
 
@@ -422,6 +426,8 @@ Error message and password prompt
 <li>Detectors Course</li>
 
 <li>DM Course</li>
+
+<li>Downloading Fonts in TeXstudio</li>
 
 <li>Electron Lifetime</li>
 
@@ -8431,7 +8437,7 @@ Error message and password prompt
 <div created="20160923135925845" modified="20161108100124831" title="$:/state/toc/Projects-Electron Lifetime--81657105">
 <pre>open</pre>
 </div>
-<div created="20160907132258617" modified="20161102111825208" title="$:/state/toc/TableOfContents-Hardware--81657105">
+<div created="20160907132258617" modified="20161114132625488" title="$:/state/toc/TableOfContents-Hardware--81657105">
 <pre>close</pre>
 </div>
 <div created="20160916161721992" modified="20160920092800275" title="$:/state/toc/TableOfContents-Issues--81657105">
@@ -8446,11 +8452,11 @@ Error message and password prompt
 <div created="20160908094350083" modified="20160914150836879" title="$:/state/toc/TableOfContents-My Journal--81657105">
 <pre>open</pre>
 </div>
-<div created="20160921163853106" modified="20161028124521853" title="$:/state/toc/TableOfContents-Notes--81657105">
-<pre>close</pre>
-</div>
-<div created="20160907134106914" modified="20161110130346129" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
+<div created="20160921163853106" modified="20161114132628396" title="$:/state/toc/TableOfContents-Notes--81657105">
 <pre>open</pre>
+</div>
+<div created="20160907134106914" modified="20161114132622433" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
+<pre>close</pre>
 </div>
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
@@ -8458,10 +8464,10 @@ Error message and password prompt
 <div created="20160923133217804" modified="20161110114204292" title="$:/state/toc/TableOfContents-Projects--81657105">
 <pre>close</pre>
 </div>
-<div created="20160907090743836" modified="20161101095311346" title="$:/state/toc/TableOfContents-Software--81657105">
-<pre>close</pre>
+<div created="20160907090743836" modified="20161114132610436" title="$:/state/toc/TableOfContents-Software--81657105">
+<pre>open</pre>
 </div>
-<div list="[[11th November 2016]] Welcome" title="$:/StoryList">
+<div list="[[15th November 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9071,6 +9077,16 @@ This plugin contains tools to help slice up long texts into individual tiddlers.
 
 //Left at about 18:30//</pre>
 </div>
+<div created="20161114095834443" modified="20161114194942750" tags="Journal" title="14th November 2016">
+<pre>//Arrived at 9:45//
+
+*Start by finishing backlog of other work
+**Read PICASSO paper - done
+**Do root tutorial questions - done
+**Do Detector properties questions - done
+
+//Left at 19:45//</pre>
+</div>
 <div created="20160914172536779" modified="20160915133406777" tags="Journal" title="14th September 2016">
 <pre>//Arrived at 9:20//
 
@@ -9093,6 +9109,38 @@ backup
 *will recursively copy all of the subdirectories over to my uboone data area (look in to gdrive to store on google drive)
 
 //Left at 21:00//</pre>
+</div>
+<div created="20161115095813140" modified="20161115204035979" tags="Journal" title="15th November 2016">
+<pre>//Arrived at 9:45//
+
+!To do today
+*Test Michelle's new simulations with a lifetime of 3ms to see if tracks can be reconstructed and to look for any differences
+*Look into the deconvolution/hit finding algorithms to find a way of improving the track reconstruction at lower lifetimes
+*Generate a larger sample with michelle's method and see if the behaviour of the algorithms is the same, if not alter the cuts to improve them
+
+!Notes
+*Could use the width of the hits to remove areas where a single Gaussian has been used to fit multiple hits, or GoodnessOfFit() or Multiplicity()
+*Hit finder still struggles to locate hits in the U and V plane
+*The issues are due to me not using the jyoti_sim branch, everything works well on the new branch apart for the track finding
+**I'll have to find a way to use pmalgtrackmaker in the new branch
+**Make backups of the files I need to change and make changes to copies of them
+*I've created a new feature branch (Purity_jyoti_sim) from Purity_sbnd and merged it with jyoti_sim
+**Where there were conflicts I used the files from jyoti_sim
+*Everything looks like it is working much batter now
+*Looks like the time cut should be reduced to 1230
+**Will regenerate the events from scratch and try again
+**Had an issue with the event generation, the services_sbnd.fcl files did not match for some reason so LArSeedService wasn't getting set up
+**Generating from scratch fixed it, must not have changed the window size
+*Generate 750 mus to see if the charge is still missing
+**It looks like it isn't yayyy
+*Let's generate large samples at 3ms so I can do a comparison
+*Need to test with Dom's events, might let him do that
+
+!Tomorrow
+*Make some instructions for Andrew
+*Test the new electronic simulations
+
+//Left at 20:45//</pre>
 </div>
 <div created="20160915132845990" modified="20160915133012459" tags="Journal" title="15th September 2016">
 <pre>//Arrived at 9:20//
@@ -10560,6 +10608,21 @@ Documents/Reports/Long Vac Project - Additions.pdf
 
 &lt;&lt;list-links &quot;[tag[DM Course]]&quot;&gt;&gt;</pre>
 </div>
+<div created="20161115165548775" modified="20161115201256960" tags="Software" title="Downloading Fonts in TeXstudio">
+<pre>*Find a font you like on a site like http://www.dafont.com/
+*Download the .ttf file and put it somewhere like ~/Library/Fonts/
+*Need to use the package ``fontspec`` and define a new font family
+```latex
+\usepackage{fontspec}
+\newfontfamily\headingfont[Path=/Users/tbrooks/Library/Fonts/]{FFFTusj.ttf}
+```
+*Everywhere that you want to use this font you must do
+```latex
+{\headingfont\selectfont Tikz Poster Example}
+```
+*There are other options for changing all the fonts
+*To compile you will need to go to Tools-&gt;Commands-&gt;XeLaTeX</pre>
+</div>
 <div created="20160921155519902" modified="20160921155627752" tags="Projects" title="Electron Lifetime">
 <pre>&lt;&lt;list-links &quot;[tag[Electron Lifetime]]&quot;&gt;&gt;</pre>
 </div>
@@ -11829,7 +11892,7 @@ http://arxiv.org/pdf/1403.2673v2.pdf
 *Good summary of the discrepancies between theory and data
 *Crucial that up to date theoretical models are implemented in the generators</pre>
 </div>
-<div created="20161107155152162" modified="20161107185951409" tags="[[Paper Notes]]" title="PICASSO Dark Matter Search">
+<div created="20161107155152162" modified="20161114113045468" tags="[[Paper Notes]]" title="PICASSO Dark Matter Search">
 <pre>For the HEP Journal Club on 10/11/2016
 
 !Source
@@ -11844,7 +11907,29 @@ https://arxiv.org/pdf/1611.01499v1.pdf
 *No signal found, some limits set
 *Detection principle like bubble chamber, superheated liquid held in metastable state, energy within critical radius causes droplet to change from liquid to gas
 *Threshold controlled by setting temp and pressure
-*Bubble nucleation followed by sound -&gt; can get info on event</pre>
+*Bubble nucleation followed by sound -&gt; can get info on event
+*Temperature corresponds to recoil energy threshold, can reconstruct energy depositions by varying the temp
+*At normal operating threshold, photons and electrons do not deposit enough energy
+*Alpha particles and neutrons are background
+*Acoustic signal observed by piezo electric transducers, use triangulation
+*Water used for neutron shielding, background rate 10x smaller than sensitivities of best dector in setup
+*selection cuts used to discriminate particle induced events from non-particle background events
+**values determined by setting the cuts to retain 95% of neutrons
+*Acoustic variables used for discrimination: acoustic energy, signal rise time, event shape, event time, wavelet based freq and time, event localization
+*Mystery background in some detectors at high temperature, removed with fiducial cut
+*Good runs were selected, preselection cuts used to remove noise, temp and efficiency extracted using MC
+*Background consistent with alphas
+*To combine results from different detectors, count rate over temp range was averaged, data from each detector combined into weighted average, temperatures converted to threshold energies
+*Errors dominated by statistics
+*Maximum sensitivity in WIMP mass region of 10 GeV, cross section found to be 0.083
+*Assuming scattering of dark matter is dominated by spin dependent interactions with the unpaired proton in F
+*Combined with 2012 data best limit for cross section is 1.32e-2
+*In the spin independent sector the maximum sensitivity is 20 GeV, cross section limit is 2.8e-5
+
+!Questions
+*Do they actually use the visual bubble chamber information, or is it all audio?
+*Figure 6: which direction is the CMS curve excluding?
+*Is this experiment probing an area of parameter space that hasn't been covered before and has theoretical motivations?</pre>
 </div>
 <div created="20160923133221124" modified="20160923161740068" tags="[[Electron Lifetime]]" title="Plan">
 <pre>!Plan to measure the free electron lifetime in SBND
@@ -12257,7 +12342,7 @@ ssh -XYAK &lt;username&gt;@lar1ndgpvm01.fnal.gov
 
 &lt;/div&gt;</pre>
 </div>
-<div created="20160919101336298" modified="20160921155805978" tags="Notes" title="Useful Documents">
+<div created="20160919101336298" modified="20161114132655985" tags="Notes" title="Useful Documents">
 <pre>*Description of LArSoft simulation and reconstruction stages (with info about data products)
 https://indico.fnal.gov/getFile.py/access?sessionId=8&amp;resId=0&amp;materialId=2&amp;confId=9928
 
@@ -12268,7 +12353,10 @@ https://indico.fnal.gov/getFile.py/access?sessionId=9&amp;resId=0&amp;materialId
 https://cdcvs.fnal.gov/redmine/projects/larsoft/wiki/Writing_LArSoft_algorithms
 
 *Services guidelines
-https://cdcvs.fnal.gov/redmine/projects/larsoft/wiki/Writing_LArSoft_service</pre>
+https://cdcvs.fnal.gov/redmine/projects/larsoft/wiki/Writing_LArSoft_service
+
+*Worked ROOT examples
+https://twiki.ppe.gla.ac.uk/pub/ATLAS/WebHome/RootManual.pdf</pre>
 </div>
 <div created="20160926094510635" modified="20161101163224485" tags="Hardware" title="Useful SBND Numbers">
 <pre>!TPC Dimensions
