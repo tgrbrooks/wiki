@@ -343,6 +343,8 @@ Error message and password prompt
 
 <li>17th October 2016</li>
 
+<li>18th November 2016</li>
+
 <li>18th October 2016</li>
 
 <li>19th October 2016</li>
@@ -8410,8 +8412,8 @@ Error message and password prompt
 <div created="20160906162255665" modified="20160907090215495" title="$:/SiteTitle">
 <pre>PhD Notebook</pre>
 </div>
-<div created="20160906162422050" modified="20161117183316858" title="$:/state/sidebar">
-<pre>yes</pre>
+<div created="20160906162422050" modified="20161118125619547" title="$:/state/sidebar">
+<pre>no</pre>
 </div>
 <div created="20160908153008198" modified="20160908153009590" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/Standard</pre>
@@ -8440,8 +8442,8 @@ Error message and password prompt
 <div created="20161013103635470" modified="20161109134020555" title="$:/state/toc/Lectures-ROOT Course--81657105">
 <pre>close</pre>
 </div>
-<div created="20160923135925845" modified="20161117172721532" title="$:/state/toc/Projects-Electron Lifetime--81657105">
-<pre>close</pre>
+<div created="20160923135925845" modified="20161118100849323" title="$:/state/toc/Projects-Electron Lifetime--81657105">
+<pre>open</pre>
 </div>
 <div created="20160907132258617" modified="20161117172700686" title="$:/state/toc/TableOfContents-Hardware--81657105">
 <pre>open</pre>
@@ -8461,19 +8463,19 @@ Error message and password prompt
 <div created="20160921163853106" modified="20161116103457382" title="$:/state/toc/TableOfContents-Notes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160907134106914" modified="20161117140435274" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
-<pre>close</pre>
+<div created="20160907134106914" modified="20161118123245867" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
+<pre>open</pre>
 </div>
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160923133217804" modified="20161117172723152" title="$:/state/toc/TableOfContents-Projects--81657105">
+<div created="20160923133217804" modified="20161118123244743" title="$:/state/toc/TableOfContents-Projects--81657105">
 <pre>close</pre>
 </div>
 <div created="20160907090743836" modified="20161117120042846" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[17th November 2016]] Welcome" title="$:/StoryList">
+<div list="[[ICARUS Electron Lifetime]] [[18th November 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9249,6 +9251,14 @@ backup
 **I've written the base of it but I really need events to actually start writing it properly
 
 *Will spend the evening copying all relevant files over to the macbook, dual booting ubuntu and installing all of the useful programs
+
+//Left at 17:45//</pre>
+</div>
+<div created="20161118100738724" modified="20161118174526938" tags="Journal" title="18th November 2016">
+<pre>//Arrived at 10:00//
+
+*Working on the electronics comparison
+*The new electronics have been merged with develop, I should use this just in case there have been any changes
 
 //Left at 17:45//</pre>
 </div>
@@ -10682,7 +10692,7 @@ Documents/Reports/Long Vac Project - Additions.pdf
 <div created="20160921155519902" modified="20160921155627752" tags="Projects" title="Electron Lifetime">
 <pre>&lt;&lt;list-links &quot;[tag[Electron Lifetime]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20161117100349283" modified="20161117183315229" tags="[[Electron Lifetime]]" title="Electronics simulation comparison - 3ms">
+<div created="20161117100349283" modified="20161118174501067" tags="[[Electron Lifetime]]" title="Electronics simulation comparison - 3ms">
 <pre>!3ms Method Comparison (Let's combine the two TPCs now)
 *Single Track Method:
 **See if the maximum likelihood estimate can be improved
@@ -10715,13 +10725,32 @@ Documents/Reports/Long Vac Project - Additions.pdf
 **Try to optimise the cuts for the new sample, both get worse
 ***Old: 2747 + 64 - 60 mus (88 tracks)
 ***New: 2406 + 64 - 61 mus (114 tracks)
+**could plot a histogram of the calculated lifetimes
 *Multiple Track Method
 **See if Landau-like cut + Gauss fit can be improved at all
+***Look at before and after the landau charge removal
+***It makes the distributions look more Gaussian
+***Try fitting a gaussian over all the hits and look at the results: 2543 &amp; 2434
+***Try then doing a landau shift: 2632 &amp; 2524
+***Try fitting a landau instread: 2528 &amp; 2474
+***Symmetry of the time slice distributions changes, more hits below peak closer to the wires
+***Could come up with some kind of adaptive method to fit the peak
+***See what happens when I use the mean value: 2304 &amp; 2164
 **Plot amplitude vs time for both samples
+plots on  sbnd3
 **Plot MPC vs time for both samples
+plots on sbnd3
 **Plot how the lifetime value changes with time samples for both
-**Record best lifetime for both
+***10: Old = 2805.05 +/- 156.31, new = 2648.91 +/- 147
+***15: Old = 2821.96 +/- 91.24, new = 2615.79 +/- 80.74
+***20: Old = 2821.86 +/- 64.12, new = 2611.86 +/- 55.22
+***25: Old = 2832.59 +/- 52.84, new = 2638.17 +/- 43.79
+***30: Old = 2794.03 +/- 43.31, new = 2627.73 +/- 36.39
+***50: Old = 2813.78 +/- 36.60, new = 2639.48 +/- 25.90
+***100: Old: 2702.39 +/- 33.02, new = 2540.56 +/- 22.34
+***200: Old: 2513.29 +/- 29.15, new = 2354.55 +/- 20.44
 **Record results with maximum lifetime estimate for both
+***Old = 2573.07 +/- 3.52, new = 2222.07 +/- 2.45
 *Parallel track method
 **Try to improve errors on time and mpc (make bigger) (use mean and stdev for time)
 **See if you can come up with any cuts to improve method for the new sample
