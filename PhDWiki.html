@@ -393,6 +393,8 @@ Error message and password prompt
 
 <li>2nd November 2016</li>
 
+<li>30th November 2016</li>
+
 <li>31st October 2016</li>
 
 <li>35 ton method</li>
@@ -474,6 +476,8 @@ Error message and password prompt
 <li>Issues</li>
 
 <li>Journal</li>
+
+<li>langaus.C Notes</li>
 
 <li>LArIAT Code Modifications</li>
 
@@ -8467,7 +8471,7 @@ Error message and password prompt
 <div created="20160916161721992" modified="20160920092800275" title="$:/state/toc/TableOfContents-Issues--81657105">
 <pre>close</pre>
 </div>
-<div created="20160914150849017" modified="20161125133558062" title="$:/state/toc/TableOfContents-Journal--81657105">
+<div created="20160914150849017" modified="20161130114306077" title="$:/state/toc/TableOfContents-Journal--81657105">
 <pre>close</pre>
 </div>
 <div created="20161013103609184" modified="20161109134026996" title="$:/state/toc/TableOfContents-Lectures--81657105">
@@ -8485,13 +8489,13 @@ Error message and password prompt
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160923133217804" modified="20161129165736277" title="$:/state/toc/TableOfContents-Projects--81657105">
-<pre>close</pre>
-</div>
-<div created="20160907090743836" modified="20161129183001344" title="$:/state/toc/TableOfContents-Software--81657105">
+<div created="20160923133217804" modified="20161130114307920" title="$:/state/toc/TableOfContents-Projects--81657105">
 <pre>open</pre>
 </div>
-<div list="[[Poster Plan]] [[29th November 2016]] Welcome" title="$:/StoryList">
+<div created="20160907090743836" modified="20161130114304606" title="$:/state/toc/TableOfContents-Software--81657105">
+<pre>close</pre>
+</div>
+<div list="[[langaus.C Notes]] [[29th November 2016]] [[30th November 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9897,6 +9901,23 @@ backup
 !Tomorrow
 *I have a sample of events with a lifetime of 3ms for all three methods, this lifetime should avoid the dip in charge and have good reconstruction efficiency across the whole detector
 *Use this sample to start optimizing and comparing all three methods
+
+//Left at 18:45//</pre>
+</div>
+<div created="20161130100744167" modified="20161130183310734" tags="Journal" title="30th November 2016">
+<pre>//Arrived at 10:00//
+
+*Both Dave and Ornella have agreed that the abstract can be submitted
+*Submit the abstract
+*Send an email to Diego and Fabio asking when the cold tests are going to take place
+*For the plots I still need to:
+**Figure 3: Entries/(10 ADC)
+**Figure 3: Include chi2
+**Figure 4: Include chi2
+**Figure 5: Entries/(10 ADC)
+**Figure 5: Include chi2
+**Figure 6: Include chi2
+*Lectures from 14:00-15:00
 
 //Left at 18:45//</pre>
 </div>
@@ -11388,6 +11409,42 @@ git merge develop
 <div created="20160908082813344" modified="20161108100523158" tags="TableOfContents" title="Journal" type="text/vnd.tiddlywiki">
 <pre>&lt;&lt;list-links &quot;[tag[Journal]sort[created]]&quot;&gt;&gt;</pre>
 </div>
+<div created="20161130112743497" modified="20161130163641880" tags="[[Electron Lifetime]]" title="langaus.C Notes">
+<pre>!langaus
+*Calls the langaufit function which returns a TF1
+**langaufit takes a histogram, fit range, starting values, lower bounds, upper bounds, empty array of fit parameters, empty array of fit parameter errors, reference to a chi2, reference to ndf
+*langaupro function is then called
+**langaupro takes the array of fit parameters (presumably filled by langaufit), an empty double Peak, an empty double of FWHM
+*Draws the histogram and the returned TF1
+
+!langaufit
+*Deletes any previous fits
+*Creates a new TF1 with langaufun as the fit function, the fit range given before and 4 parameters
+*Sets the starting value of the parameters and their names
+*Sets the parameter fit limits
+*Fit the histogram within specified range, using the limits and not plotting
+*Fills the empty parameter array with the output of the fit
+*Does the same for the fit errors
+*Fills the ChiSquared and the NDF
+* Returns the fit function
+
+!langaufun
+*Number of convolution steps set to 100
+*Convolution extends to +/- 5 sigma
+*MPC is MP-mpshift*width
+*Step size is magnitude of range/100
+*Loop from 1 to 50
+**Set xx as lower bound + a half a step
+**fland is value of landau with xx, MPC and width all /width
+**add fland to a Gaussian with x as x[0] the mean as xx and Gsigma
+**Do the same thing but starting from the top and coming down
+*return area*step*sum*invsq2pi/Gsigma
+
+!langaupro
+*Searches for the x value location of the maximum of the Landau-Gaussian convolution and the FWHM
+*Initialises p at mpc -0.1*width
+*Step of 0.05*width</pre>
+</div>
 <div created="20161003155110051" modified="20161010133925170" tags="[[Electron Lifetime]]" title="LArIAT Code Modifications">
 <pre>First off, here's a step by step guide to what the code does (just the physics):
 
@@ -12395,7 +12452,7 @@ https://arxiv.org/pdf/1611.01499v1.pdf
 **Statistical errors probably poissonian, but check
 **Use the papers for help when working out the systematics</pre>
 </div>
-<div created="20161125124128753" modified="20161129150406097" tags="[[Electron Lifetime]]" title="Poster Plan">
+<div created="20161125124128753" modified="20161130115324684" tags="[[Electron Lifetime]]" title="Poster Plan">
 <pre>!Abstract
 *Introductory sentences
 **Modern LArTPC neutrino experments often have very large ionization electron drift distances.
