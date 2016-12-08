@@ -515,6 +515,8 @@ Error message and password prompt
 
 <li>Neutrino Cross Section Future</li>
 
+<li>Neutrino-Nucleus cross section review</li>
+
 <li>Notes</li>
 
 <li>Open</li>
@@ -8509,7 +8511,7 @@ Error message and password prompt
 <div created="20160907090743836" modified="20161130114304606" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[Low Energy nu_e in ArgoNeuT]] [[7th December 2016]] Welcome" title="$:/StoryList">
+<div list="[[Neutrino-Nucleus cross section review]] [[7th December 2016]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -12110,7 +12112,7 @@ https://arxiv.org/pdf/1504.00398v2.pdf
 **Combine uncertainties and use Bayesian approach to set lower limit on lifetime
 *Trend between greater high voltage stability and greater electronegative contamination</pre>
 </div>
-<div created="20161207113049539" modified="20161207171920337" tags="[[Paper Notes]]" title="Low Energy nu_e in ArgoNeuT">
+<div created="20161207113049539" modified="20161208114437668" tags="[[Paper Notes]]" title="Low Energy nu_e in ArgoNeuT">
 <pre>!Source
 https://arxiv.org/pdf/1610.04102v1.pdf
 
@@ -12152,6 +12154,7 @@ https://arxiv.org/pdf/1610.04102v1.pdf
 *~2% nue beam contamination
 
 !!Event selection
+*DONE MANUALLY
 *EM showers selected using 2D hit clusters
 *Remove empty events and track only events
 *Two main metrics used to separate tracks and showers:
@@ -12184,7 +12187,20 @@ https://arxiv.org/pdf/1610.04102v1.pdf
 *Gamma distribution scaled by 20% and subtracted from electron distribution
 *LGC then fit to this distribution to extract MPV, fit value of 1.74 MeV/cm agrees with expectation for electrons above 100 MeV/c of 1.77 MeV/cm
 
-!!Detection of electron neutrinos </pre>
+!!Detection of electron neutrinos 
+*EM showers are poorly contained and initial electron energy is not measurable
+*Measure deposited energy and compare with simulations
+*Flux is mostly antineutrinos
+*deposited energy and reconstructed angle has ok agreement with data, large errors, low statistics, photon contamination has not been corrected for
+
+!!dE/dx separation
+*Conversion from dQ/dx to dE/dx computed using nonlinear model of recombination
+*for higher dQ/dx it is assumed the model incorrectly inflates the dE/dx when electron and positron
+*MIP scale recombination model used for the start of the showers to prevent overestimation
+*Comparison of data and simulation for dE/dx for electrons and gammas shown, ok agreement for electrons, pretty bad underestimation of peak for gammas
+*Can make a cut to select 76% of electrons with a 7% contamination
+*dE/dx cut will be dependent on the analysis
+*</pre>
 </div>
 <div created="20161017152657443" modified="20161017160612539" tags="[[Electron Lifetime]]" title="Michelle's Method Plan">
 <pre>Using through going muon tracks that are roughly parallel to the wire plane:
@@ -12361,6 +12377,111 @@ https://arxiv.org/pdf/1602.05299v1.pdf
 !!Section 4:
 *SBND will see 30x the neutrino flux compared to uboone
 *Can perform high stats GeV scale $$\nu$$-Ar cross section measurements</pre>
+</div>
+<div created="20161208124606535" modified="20161208173432701" tags="[[Electron Lifetime]]" title="Neutrino-Nucleus cross section review">
+<pre>!Source
+https://arxiv.org/pdf/1611.07770v1.pdf
+
+!Bibtex
+```latex
+@article{Katori:2016yel,
+      author         = &quot;Katori, Teppei and Martini, Marco&quot;,
+      title          = &quot;{Neutrino-Nucleus Cross Sections for Oscillation
+                        Experiments}&quot;,
+      year           = &quot;2016&quot;,
+      eprint         = &quot;1611.07770&quot;,
+      archivePrefix  = &quot;arXiv&quot;,
+      primaryClass   = &quot;hep-ph&quot;,
+      SLACcitation   = &quot;%%CITATION = ARXIV:1611.07770;%%&quot;
+}
+```
+
+!Notes
+!!Introduction
+*$$\theta_{13}$$ has been measured quite precisely
+*Need better determination of the five known oscillation parameters (2 squared mass differences, 3 mixing angles)
+*CP violating phase and mass ordering are unknown
+*Search for sterile neutrinos
+*Need a reduction of systematic errors to level of a few %
+*Rate of neutrino interaction is convolution of flux cross section and detector efficiency
+*Cross sections are most important in hundreds of MeV to few GeV region, not known to more than 20%
+*QE multinucleon emission not included in generators and may be a source of error, hard to implement without approximations
+*Single pion production is largest backgorund for disappearance and appearance experiments, poor data theory agreement
+*Neutrino energy usually determined through CCQE events
+
+!!!Neutrino oscillation physics
+*Neutrino flavour states are superpositions of hamiltonian (mass in vacuum) eigenstates related by a unitary transformation
+*Unitary matrix = PNMS
+*Separated into 3 matrices, one represents rotation between states 1 and 2, one for mixing between states 2 and 3, and one for mixing between states 1 and 3
+*$$\theta_{12}$$ and $$\theta_23$$ are nonzero, if $$\theta_{13}$$ is nonzero this implies  nonzero CP phase
+*Size of elements is very different to CKM matrix
+*Need to determine normal or inverted ordering
+*Oscillation experiments are unable to determine neutrino mass
+*Frame work may need an extension to accommodate short baseline anomalies, could be sterile neutrino
+*Two neutrino oscillation approximation often used
+*L/E dependence on oscillations, long baseline experiments characterized by L/E &gt; 100mMeV^-1, short baseline L/E &lt; 10mMeV^-1
+*CP phase only appears for three neutrinos
+*Two neutrino approx causes degenracy in mixing angle
+*Propagation in matter adds Wolfenstein term to hamiltonian to account for different interactions of electron neutrinos, adds energy dependence to mixing matrix elements and effective neutrino mass terms
+*
+
+!!!Accelerator-based neutrino experiments
+
+!!!Neutrino fluxes
+
+!!Neutrino cross section generalities
+
+!!!Theory
+
+!!!Experiment
+
+!!!Matching theory and experiment
+
+!!Quasielastic
+
+!!!CCQE, CCQE-like, and CC0$$\pi$$
+
+!!!np-nh excitations: theory vs experimental d$$\sigma$$
+
+!!!Hadron information
+
+!!Pion production and inelastic channels
+
+!!!Charged current charged pion production
+
+!!!Charged current neutral pion production
+
+!!!MiniBooNE-MINERvA data comparison
+
+!!!Neutral current neutral pion production
+
+!!!Toward the solution of the pion puzzle
+
+!!!Kaon and strangeness production
+
+!!!Coherent pion productions
+
+!!Charge current inclusive cross sections
+
+!!!$$\nu_{\mu}$$ CC inclusive
+
+!!!$$\nu_e$$ cross sections
+
+!!!$$\nu_e$$ vs $$\nu_{\mu}$$ cross sections
+
+!!Neutrino energy reconstruction and neutrino oscillation analysis
+
+!!Future experiments
+
+!!!Detectors
+
+!!!Higher precision hadron information
+
+!!!Highly controlled neutrino beam
+
+!!!Near future neutrino experiments
+
+!!Conclusions</pre>
 </div>
 <div created="20160921155322087" modified="20160921155415444" tags="TableOfContents" title="Notes">
 <pre>Place for general notes:
