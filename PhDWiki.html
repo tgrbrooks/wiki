@@ -12378,7 +12378,7 @@ https://arxiv.org/pdf/1602.05299v1.pdf
 *SBND will see 30x the neutrino flux compared to uboone
 *Can perform high stats GeV scale $$\nu$$-Ar cross section measurements</pre>
 </div>
-<div created="20161208124606535" modified="20161208173432701" tags="[[Electron Lifetime]]" title="Neutrino-Nucleus cross section review">
+<div created="20161208124606535" modified="20161209173413003" tags="[[Electron Lifetime]]" title="Neutrino-Nucleus cross section review">
 <pre>!Source
 https://arxiv.org/pdf/1611.07770v1.pdf
 
@@ -12423,19 +12423,49 @@ https://arxiv.org/pdf/1611.07770v1.pdf
 *CP phase only appears for three neutrinos
 *Two neutrino approx causes degenracy in mixing angle
 *Propagation in matter adds Wolfenstein term to hamiltonian to account for different interactions of electron neutrinos, adds energy dependence to mixing matrix elements and effective neutrino mass terms
-*
 
 !!!Accelerator-based neutrino experiments
+*Measurements of energy deposits around interaction vertex is useful to select coherent scattering events
+*Overview of most accelerator experiments with which parameters they are looking for
+*Off axis detectors allow for the energy band to be modified to maximize sensitivity
 
 !!!Neutrino fluxes
+*Overview of current and future neutrino beams
+*Common to place detector off axis to make the beam narrower
+*Biggest systematic is simulation of secondary meson kinematics
+*Understanding electron neutrino contamination is very important
+*Often try to measure beam contamination by applying cuts to make a background sample, but these events never actually make it into the signal sample so they aren't really background
+*Common to correct flux predictions using interactions with known cross sections
 
 !!Neutrino cross section generalities
+*Omit treatment of neutrino-nucleon scattering
 
 !!!Theory
+*double differential cross section wrt solid angle and energy transfer depeds on weak coupling constant, cabbibo angle, leptonic and hadronic tensors
+*Leptonic tensor has asymmetry between neutrinos and antineutrinos which follows from weak interaction theory
+*Hadronic tensor can be expressed as sum over 1 particle 1 hole and 2 particle 2 hole excitations plus additional channels
+*Differential cross section can be decomposed into linear combination of 5 response functions
+*Axial factor usually described by a dipole parametrization
+*Value of axial mass parameter attracted attention in connection with miniboone CCQE result
+*Fermi motion broadens quasielastic response
 
 !!!Experiment
+*Experiments measure rate of interactions, convolution of flux, cross section and detector efficiency
+*Flux is a function of energy
+*Cross section is a function of kinematics
+*Efficiency can be a function of any observable
+*Simulate neutrino flux, interaction cross section and detector model and convolute them with MC method
+*Reconstruction of neutrino energy is non-trivial in 1-10GeV region, introduces model dependence when separating flux and cross section
+*unsmearing transforms background subtracted data from the function of observables to the function of true variables
+*Estimated detection efficiency is inversely applied to recover thr true distribution
+*Normailizations are then corrected for to get the double differential cross section
+*This is the point where experimentalists and theorists meet
+*Convoluting the theoretical cross section with detector efficiency and flux may be a favoured method from a statistical point of view
 
 !!!Matching theory and experiment
+*Flux dependence of measured cross sections means that every experiment with different flux measures a differenct cross section
+*Comparisons of data sets are difficult and can only be related through theoretical models
+*Need to be careful which models are used depending on the kinematics in the detector
 
 !!Quasielastic
 
