@@ -347,6 +347,8 @@ Error message and password prompt
 
 <li>18th October 2016</li>
 
+<li>19th December 2016</li>
+
 <li>19th October 2016</li>
 
 <li>19th September 2016</li>
@@ -407,11 +409,15 @@ Error message and password prompt
 
 <li>3rd October 2016</li>
 
+<li>4th January 2017</li>
+
 <li>4th November 2016</li>
 
 <li>4th October 2016</li>
 
 <li>5th December 2016</li>
+
+<li>5th January 2017</li>
 
 <li>5th October 2016</li>
 
@@ -460,6 +466,8 @@ Error message and password prompt
 <li>Downloading Fonts in TeXstudio</li>
 
 <li>Electron Lifetime</li>
+
+<li>Electron Lifetime Systematics Plan</li>
 
 <li>Electronics simulation comparison - 3ms</li>
 
@@ -8481,13 +8489,13 @@ Error message and password prompt
 <div created="20160923135925845" modified="20161123132834125" title="$:/state/toc/Projects-Electron Lifetime--81657105">
 <pre>open</pre>
 </div>
-<div created="20160907132258617" modified="20161123100557550" title="$:/state/toc/TableOfContents-Hardware--81657105">
+<div created="20160907132258617" modified="20170104100621059" title="$:/state/toc/TableOfContents-Hardware--81657105">
 <pre>close</pre>
 </div>
 <div created="20160916161721992" modified="20160920092800275" title="$:/state/toc/TableOfContents-Issues--81657105">
 <pre>close</pre>
 </div>
-<div created="20160914150849017" modified="20161206124533865" title="$:/state/toc/TableOfContents-Journal--81657105">
+<div created="20160914150849017" modified="20170104160553107" title="$:/state/toc/TableOfContents-Journal--81657105">
 <pre>close</pre>
 </div>
 <div created="20161013103609184" modified="20161109134026996" title="$:/state/toc/TableOfContents-Lectures--81657105">
@@ -8499,19 +8507,19 @@ Error message and password prompt
 <div created="20160921163853106" modified="20161116103457382" title="$:/state/toc/TableOfContents-Notes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160907134106914" modified="20161207113019984" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
-<pre>open</pre>
+<div created="20160907134106914" modified="20161219112327734" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
+<pre>close</pre>
 </div>
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160923133217804" modified="20161207113018553" title="$:/state/toc/TableOfContents-Projects--81657105">
-<pre>close</pre>
+<div created="20160923133217804" modified="20161219152617860" title="$:/state/toc/TableOfContents-Projects--81657105">
+<pre>open</pre>
 </div>
 <div created="20160907090743836" modified="20161130114304606" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[Neutrino-Nucleus cross section review]] [[7th December 2016]] Welcome" title="$:/StoryList">
+<div list="[[Electron Lifetime Systematics Plan]] [[5th January 2017]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -8864,8 +8872,8 @@ This plugin contains tools to help slice up long texts into individual tiddlers.
 <div author="JeremyRuston" core-version="&gt;=5.0.0" created="20160907132902254" dependents="" description="Basic theme" modified="20160907132902254" name="Vanilla" original-plugin-type="theme" original-tags="" original-title="$:/themes/tiddlywiki/vanilla" original-type="application/json" server-url="http://tiddlywiki.com/library/v5.1.13/index.html" tags="$:/tags/RemoteAssetInfo" title="$:/temp/RemoteAssetInfo/http://tiddlywiki.com/library/v5.1.13/index.html/$:/themes/tiddlywiki/vanilla" type="text/vnd.tiddlywiki" version="5.1.13">
 <pre></pre>
 </div>
-<div created="20160908082036184" modified="20161124101916555" title="$:/temp/search">
-<pre></pre>
+<div created="20160908082036184" modified="20170105121418741" title="$:/temp/search">
+<pre>pitch</pre>
 </div>
 <div created="20160907132902060" modified="20160907132902060" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
 <pre>loaded</pre>
@@ -9326,6 +9334,50 @@ backup
 **Look up the slow mac internet thing DONE, don't think it's a problem anymore
 **Set up VNC
 *Finish off writing the third method ready for events</pre>
+</div>
+<div created="20161219112331447" modified="20170104100725181" tags="Journal" title="19th December 2016">
+<pre>*Last week I was at the NuPhys conference from mon-wed and away on Friday, so not much analysis work got done
+*Need to come up with a plan for the collaboration meeting
+*Tasks that need to be completed:
+**Verify step size for convolution
+**Deal with bins with less than 20 entries
+**Plot most probable value as a function of the upper fit limit chosen, say 3ms for method 3 (600-1200 ADC units in steps of 50)
+**Integrate raw waveform by hand
+**Check hit finding efficiency at long times
+**Study the effect of longitudinal diffusion
+**Check for systematic dependence on track angle
+
+!Plan
+*MP value vs upper fit limit
+**Use the 3rd method (best shaped distributions), use the plot shown in the poster
+**Can use the local fitcharge.C, copy and make it fit in a loop from 600-1200 ADCs in steps of 50 and record the fit results in a plot
+***Shown in fitdeltarays.C
+[img [deltarays_3ms_95cm.png]]
+
+*Verify fits
+**Now that we're using Michelle's fitter I think this isn't as important
+**Produce some plots to show how the results change with step size (use method 3 for 3ms and use 100, 500, 1000, 2000 and 5000 steps)
+***Makes no difference, can see PlotDiffSteps.cxx for results
+**Change fit limits so the fitter only deals with bins with &gt; 20 entries
+*Check track angle dependence
+**Look at dQ/dx distributions for all selected tracks compared with tracks with a small angular range
+***There's very little difference in the shape of the distributions when tracks with gradients &lt; 0.25 are cut
+**Could generate a sample of tracks with the same angle that cross the anode and cathode, see what the distributions look like
+**See if the next three things have a dependence on track angle
+**If a problem is identified try to correct for it
+*Longitudinal diffusion
+**Turn of diffusion and test everything again
+**This will require regenerating everything from scratch so start with 10ms and just method 3 to see if there is actually any affect
+**Use method one to see if there is a correlation with the track angle
+*Hit finding efficiency
+**Try to get some kind of truth level hit information (look at BackTracker or sim::MCHit
+**Compare it with the number of reconstructed hits
+**Get an efficiency per time slice, exclude time slices with low efficiencies
+**Could also look at the number of hits per time slice, as it should be the height of the hits that changes rather than the number
+*Integrate raw waveform
+**Will need to use reconstruction to identify tracks, get the hits in the tracks and associate them to raw waveform
+**Manually integrate the raw waveform to get the charge
+**Need to check the whole thing about height preserving charge but not area to see if that is important</pre>
 </div>
 <div created="20161019160043531" modified="20161020091858501" tags="Journal" title="19th October 2016">
 <pre>//Arrived at 9:30//
@@ -10150,6 +10202,24 @@ backup
 
 //Left at 18:15//</pre>
 </div>
+<div created="20170104100341185" modified="20170104183330130" tags="Journal" title="4th January 2017">
+<pre>//Arrived at 10:00//
+
+*First day back after Christmas break
+*Got a little slack in terms of journal entries leading up to Christmas because of the conference
+*Spent most of the days after the conference reading papers
+*Need to prepare for the collaboration meeting
+*Generated some anode to cathode crossers with longitudinal diffusion switched off 
+*Notes will be in [[Electron Lifetime Systematics Plan]]
+*Need to book accommodation for the collaboration meeting and plane tickets for the collaboration meeting and CRT work
+*All train and plane tickets are booked
+*I've found that there is a large dependence on track angle and number of wires hit, maximizing the amount of track inside the detector (diagonal) gives much better results
+**There must be some dependence on track pitch or track angle
+**Generate sample of muons at y=100 with no yz angle to check track angle
+**Generate a sample of muons with a larger xz angle so only half the wires are hit to check track pitch
+
+//Left at 18:30//</pre>
+</div>
 <div created="20161104103444393" modified="20161106210936731" tags="Journal" title="4th November 2016">
 <pre>//Working from home//
 
@@ -10188,6 +10258,36 @@ backup
 **Figure 5
 **Figure 6
 **Figure 8</pre>
+</div>
+<div created="20170105100925535" modified="20170105182657950" tags="Journal" title="5th January 2017">
+<pre>//Arrived at 10:00//
+
+*Generated the first stage of testers for pitch and angle
+*Will finish off the simulations now
+*There doesn't seem to be much dependence on the track angle, still get nearly 9ms
+*There appears to be something wrong with the pitch, halving it gives 6.3 ms
+**The time slices still have a much more landau gaussian shape
+*Need to identify how the pitch is calculated and what is going wrong
+*There is a definite shift in the MPC v time plots between the two pitches
+*The pitch is clearly different for the two samples, 0.396 and 0.52, but perhaps there is some conversion that needs to be included
+*Need to look up the track pitch independently of the function and calculate it manually
+*I've checked the pitch calculation by deriving the pitch without any reference and then calculating what would be expected for the two samples, the results are practically identical
+*There is a systematic effect that depends strongly on the pitch of the track, it has nothing to do with the actual calculation of the pitch 
+*Generating a sample with an inbetween value of pitch to try to see if there is a definite pattern
+*If there is it could be due to the shape of the input pulse changing with pitch and the hit finding algorithms not being as good when the pitch is larger
+*Turning diffusion back on reduced the results for the diagonal tracks to 6.55 ms, so diffusion has a pretty big effect
+**dq0/dx isn't really affected but the MPC at larger drift times is
+*When diffusion is switched off there is an increase in lifetime with a decrease in thetaxz
+**This decreases all of the values, but the values at longer drift distances are more stongly affected
+
+!Tomorrow
+*Run the first method on some of the files to see what kind of results you get
+*Run a simulation with diffusion switched on for the larger thetaxz
+*Measure and correct for longitudinal diffusion, it is likely that is is dependent on the angle
+**Might need to correct for the dependence on the thetaxz before correcting for longitudinal diffusion
+**But order shouldn't matter
+
+//Left at 18:30//</pre>
 </div>
 <div created="20161005153031402" modified="20161006090247817" tags="Journal" title="5th October 2016">
 <pre>//Arrived at 9:30//
@@ -10982,6 +11082,53 @@ Documents/Reports/Long Vac Project - Additions.pdf
 </div>
 <div created="20160921155519902" modified="20160921155627752" tags="Projects" title="Electron Lifetime">
 <pre>&lt;&lt;list-links &quot;[tag[Electron Lifetime]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20161213132417914" modified="20170104183334422" tags="[[Electron Lifetime]]" title="Electron Lifetime Systematics Plan">
+<pre>*Possible sources of systematic effects:
+**Longitudinal diffusion
+**Hit finding efficiency
+**Energy smearing from deconvolution
+*How to test:
+**Longitudinal diffusion: change electron lifetime all the way up to around a second, take a very long and straight track that passes from cathode to anode and crosses as many wires as possible, use the first method to estimate the lifetime, turn off diffusion and test again
+**Hit finding efficiency: look at the number of hits per length of track identified at a very long lifetime
+**Energy smearing: manually deconvolute the raw signal
+
+!Plan
+*MP value vs upper fit limit
+**Use the 3rd method (best shaped distributions), use the plot shown in the poster
+**Can use the local fitcharge.C, copy and make it fit in a loop from 600-1200 ADCs in steps of 50 and record the fit results in a plot
+***Shown in fitdeltarays.C
+[img [deltarays_3ms_95cm.png]]
+
+*Verify fits
+**Now that we're using Michelle's fitter I think this isn't as important
+**Produce some plots to show how the results change with step size (use method 3 for 3ms and use 100, 500, 1000, 2000 and 5000 steps)
+***Makes no difference, can see PlotDiffSteps.cxx for results
+**Change fit limits so the fitter only deals with bins with &gt; 20 entries
+*Check track angle dependence
+**Look at dQ/dx distributions for all selected tracks compared with tracks with a small angular range
+***There's very little difference in the shape of the distributions when tracks with gradients &lt; 0.25 are cut
+**Could generate a sample of tracks with the same angle that cross the anode and cathode, see what the distributions look like
+***When all the tracks cross the TPC diagonally, hitting as many wires as possible, the results appear to be greatly improved at about 8.96 ms for 10 ms simulation
+***The distributions are also much more landau gaussian like
+***This means there is some systematic dependence on either number of wires hit, track pitch, or track angle
+**See if the next three things have a dependence on track angle
+**If a problem is identified try to correct for it
+*Longitudinal diffusion
+**Turn of diffusion and test everything again
+**This will require regenerating everything from scratch so start with 10ms and just method 3 to see if there is actually any affect
+***There is too much variation in method 3 to see any effect
+***For method 2 the result without longitudinal diffusion is 6800, with longitudinal diffusion it is 6860, so there is no difference.
+**Use method one to see if there is a correlation with the track angle
+*Hit finding efficiency
+**Try to get some kind of truth level hit information (look at BackTracker or sim::MCHit
+**Compare it with the number of reconstructed hits
+**Get an efficiency per time slice, exclude time slices with low efficiencies
+**Could also look at the number of hits per time slice, as it should be the height of the hits that changes rather than the number
+*Integrate raw waveform
+**Will need to use reconstruction to identify tracks, get the hits in the tracks and associate them to raw waveform
+**Manually integrate the raw waveform to get the charge
+**Need to check the whole thing about height preserving charge but not area to see if that is important</pre>
 </div>
 <div created="20161117100349283" modified="20161121114826258" tags="[[Electron Lifetime]]" title="Electronics simulation comparison - 3ms">
 <pre>!3ms Method Comparison (Let's combine the two TPCs now)
@@ -13251,7 +13398,7 @@ https://cdcvs.fnal.gov/redmine/projects/larsoft/wiki/Writing_LArSoft_service
 *Worked ROOT examples
 https://twiki.ppe.gla.ac.uk/pub/ATLAS/WebHome/RootManual.pdf</pre>
 </div>
-<div created="20160926094510635" modified="20161117172715317" tags="Hardware" title="Useful SBND Numbers">
+<div created="20160926094510635" modified="20161219143648619" tags="Hardware" title="Useful SBND Numbers">
 <pre>!TPC Dimensions
 *[[Source|https://indico.cern.ch/event/446818/contributions/1106590/attachments/1170559/1690568/SBND_Cryostat_Requirements_Rev._2_Oct_13_2015.pdf]]
 *Think this includes the field cage as well so AV might be smaller
