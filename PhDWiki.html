@@ -423,6 +423,8 @@ Error message and password prompt
 
 <li>6th December 2016</li>
 
+<li>6th January 2017</li>
+
 <li>6th October 2016</li>
 
 <li>7th December 2016</li>
@@ -8519,7 +8521,7 @@ Error message and password prompt
 <div created="20160907090743836" modified="20161130114304606" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[Electron Lifetime Systematics Plan]] [[5th January 2017]] Welcome" title="$:/StoryList">
+<div list="[[Electron Lifetime Systematics Plan]] [[6th January 2017]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -10334,6 +10336,42 @@ Tomorrow:
 **Methods would be better if they were bullet pointed
 
 //Left at 20:30//</pre>
+</div>
+<div created="20170106110445239" modified="20170106182853956" tags="Journal" title="6th January 2017">
+<pre>//Arrived at 10:00//
+
+*Generating a sample with high thetaxz and longitudinal diffusion switched on
+*Need to see how few events can be used to get a decent measure of the lifetime
+*Will then plot lifetime against thetaxy=22,32,42,52,62 for diffusion on and off
+*Once this is visualized it will hopefully be easier to draw conclusions and make corrections
+*In parallel I can work on determining the hit finding efficiency
+**For a 10ms lifetime there shouldn't be any decrease in the number of detected hits due to the mean charge dropping below the noise threshold
+**Take the sample with diagonal muons and look at the number of hits in each time slice and plot
+***It looks like the hit finding efficiency is only constant in the first half of the detector
+***At first glance, fitting using only the bins with the highest hit finding efficiency makes little difference, but will plot for no diffusion 
+**If this doesn't give the expected results, look at the number of hits per ~10cm of track
+**If this still doesn't give a pretty flat distribution then it would be worth looking at truth level hit information and comparing with the number of detected hits
+**If the distributions are flat then look at different lifetimes and see if the efficiency changes.
+*The dependence on theta xz could be a result on the width of the time slices not being large enough
+**But the difference in drift time between the first and last hit is the same, there are just fewer hits when the angle is larger and the difference in drift time between subsequent hits is larger
+**Try playing around with number of time slices, but I think it must be to do with hit shape
+**Could also look at the rms of the hits, or look at rawdigit stuff if dom has found a way of associating it
+*It looks like the angular dependence with no diffusion follows some kind of 2nd degree polynomial
+**More data points are needed to confirm this
+[img[ThetaXZ_nolines.png]]
+[img[ThetaXZ_fit.png]]
+
+*Turning on diffusion doesn't seem to give rise to an obvious pattern, it will be worth subtracting the effect of the angular dependence once it is parameterized and then looking at the effect of the diffusion
+[img[ThetaXZ_efficiency.png]]
+
+!Sunday
+*More points without diffusion are running
+*Plot once done and fit a function to the results
+*Try to determine why thetaxz has that effect on the calculated lifetime, width/shape of charge distributions, positions of MPCs
+*Come up with a correction that can be applied to the results and a correction that can be applied per track to remove this effect
+*Apply this correction to the results with longitudinal diffusion switched on and try to characterize it
+
+//Left at 18:30//</pre>
 </div>
 <div created="20161006090131069" modified="20161006165241956" tags="Journal" title="6th October 2016">
 <pre>//Arrived at 9:30//
