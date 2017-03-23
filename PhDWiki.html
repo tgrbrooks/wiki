@@ -377,15 +377,21 @@ Error message and password prompt
 
 <li>1st November 2016</li>
 
+<li>20th March 2017</li>
+
 <li>20th October 2016</li>
 
 <li>20th September 2016</li>
+
+<li>21st March 2017</li>
 
 <li>21st November 2016</li>
 
 <li>21st October 2016</li>
 
 <li>21st September 2016</li>
+
+<li>22nd March 2017</li>
 
 <li>22nd November 2016</li>
 
@@ -500,6 +506,8 @@ Error message and password prompt
 <li>Configuring bash</li>
 
 <li>Configuring vim</li>
+
+<li>Costas meeting</li>
 
 <li>Cross section measurements</li>
 
@@ -642,6 +650,8 @@ Error message and password prompt
 <li>Useful VIM Commands</li>
 
 <li>Using FermiGrid</li>
+
+<li>Weakly supervised classification in HEP</li>
 
 <li>Welcome</li>
 
@@ -8516,7 +8526,7 @@ Error message and password prompt
 <div created="20160906162255665" modified="20160907090215495" title="$:/SiteTitle">
 <pre>PhD Notebook</pre>
 </div>
-<div created="20160906162422050" modified="20170315101800085" title="$:/state/sidebar">
+<div created="20160906162422050" modified="20170319160719131" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div created="20160908153008198" modified="20160908153009590" title="$:/state/tab--1498284803">
@@ -8564,10 +8574,10 @@ Error message and password prompt
 <div created="20160908094350083" modified="20160914150836879" title="$:/state/toc/TableOfContents-My Journal--81657105">
 <pre>open</pre>
 </div>
-<div created="20160921163853106" modified="20170310120148568" title="$:/state/toc/TableOfContents-Notes--81657105">
-<pre>close</pre>
+<div created="20160921163853106" modified="20170321120955956" title="$:/state/toc/TableOfContents-Notes--81657105">
+<pre>open</pre>
 </div>
-<div created="20160907134106914" modified="20170316113554260" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
+<div created="20160907134106914" modified="20170321121841398" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
 <pre>open</pre>
 </div>
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
@@ -8579,7 +8589,7 @@ Error message and password prompt
 <div created="20160907090743836" modified="20170309160841891" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="[[Data Unfolding]] [[16th March 2017]] Welcome" title="$:/StoryList">
+<div list="[[Weakly supervised classification in HEP]] [[22nd March 2017]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -9750,6 +9760,15 @@ tar -tf *.bz2
 
 //Left at 18:15//</pre>
 </div>
+<div created="20170320105233489" modified="20170321104737107" tags="Journal" title="20th March 2017">
+<pre>//Arrived at 9:30//
+
+*Helping out in the lab as the argon rig is about to go on for the first time
+*Looking at the smearing code that Rhiannon sent and converting it from CC0pi to CC inclusive
+*Some useful info on GENIE file variable names http://www.pas.rochester.edu/~ksmcf/GENIE-INSS-2014/GENIE_PhysicsAndUserManual_20130615_GSTexcerpt.pdf
+
+//Left at 18:30//</pre>
+</div>
 <div created="20161020085630938" modified="20161021084521603" tags="Journal" title="20th October 2016">
 <pre>//Arrived at 9:45//
 
@@ -9812,6 +9831,22 @@ tar -tf *.bz2
 
 //Left at 18:40//</pre>
 </div>
+<div created="20170321104742039" modified="20170321190021871" tags="Journal" title="21st March 2017">
+<pre>//Arrived at 10:30//
+
+*Make a list of the things to include in the smearing code:
+**Actual impurities, Rhiannon is sorting that, there was some kind of issue with converting the GENIE output
+**Stacked histogram of signal and background event types
+**Characterize the response matrix
+**Also include NCNpi where only one pion is misidentified
+**Smear dependent on detector region and/or energy/angle?
+*Look up how manual smearing is done
+*Look up pion misidentification as a function of pion energy
+*Maybe include misidentified cosmics (function of electron lifetime and muon energy)
+*What to do with CC events where pion ID as muon (i.e. 2 muons detected)
+
+//Left at 19:00//</pre>
+</div>
 <div created="20161122103750545" modified="20161122103756172" tags="Journal" title="21st November 2016">
 <pre>//Arrived at 9:45//
 
@@ -9866,6 +9901,17 @@ tar -tf *.bz2
 **Make notes on how to do it, changing dune-&gt;sbnd as applicable and make detailed notes in this wiki, shouldn't be too difficult to transfer it to the redmine wiki
 
 //Left at 18:20//</pre>
+</div>
+<div created="20170322102007455" modified="20170323153245336" tags="Journal" title="22nd March 2017">
+<pre>//Arrived at 10:00//
+
+*Need to make some notes for the journal club tomorrow
+*Also need to make some slides for the LAr purity meeting tomorrow at 4pm
+**Will just change the collaboration meeting slides a little bit
+*Things to check/do in smearing code now that it works:
+**Need stacked histograms for smeared and unsmeared data, look at how to adapt the slices function for that
+
+//Left at 18:45//</pre>
 </div>
 <div created="20161122103802416" modified="20161123100453234" tags="Journal" title="22nd November 2016">
 <pre>//Arrived at 10:00//
@@ -11559,6 +11605,46 @@ set title
 set clipboard=unnamedplus 
 ```</pre>
 </div>
+<div created="20170320105313995" modified="20170320175821330" tags="Notes" title="Costas meeting">
+<pre>17/03/2017
+Meeting about cross section work with GENIE and SBND
+
+!Notes
+*For the summer conferences:
+**What SBND will be able to do in terms of cross sections with MCTruth
+**Independent of reconstruction, estimate resolutions etc
+**Physics consequences of reconstruction not working well
+*Pick the most important channels:
+**CC inclusive - me
+**CC0pi, mostly CCQE - Rhiannon
+**CC1pi, mostly resonance
+*Produce a meta-analysis of cross sections with combined measurements, need a common framework for cross section calculations
+*Will help with guidance for reconstruction and simulation
+*Plots to produce:
+**Only want to correct for detector effects, don't want to add any model dependencies
+**Look at CC inclusive or 0pi integrated flux measurements, no specific energy bin
+**Plot in terms of T_mu or cos(theta_mu), can't use hadronic variables for CC inclusive
+**Create a 2D distribution and then look at specific slices by fixing T_mu or cos(theta_mu)
+**Use the same binning as miniboone
+**Introduce smearing and inefficiencies by hand, few % in resolution of T_mu and theta_mu
+**Detector inefficiency should be a function of T_mu
+**Look at MC truth and reconstructed/smeared space
+**Produce plots for diagnostics, want to know inefficiency and impurity, careful how to define
+**Produce stacked plots showing actual reaction modes that are signal and background as a function of T_mu and theta_mu, lots of modes will contribute to CC inclusive
+**To understand smearing, pick a delta function in MC space and see how it spreads out in reco space
+**Balance in how to sub-divide
+**All histograms with numbers of events
+**Efficiencies are fractions
+*Want cross sections out of it
+**Subtract background
+**Remove effect of detector, unfolding (TRooUnfold in root)
+**Divide flux
+**Try to include systematics
+*Define minimal info required to do analysis to reduce file size
+**Full GENIE event record and a handful of reco things
+**Could use Anatree
+*Set up a Github repo for the common framework</pre>
+</div>
 <div created="20170310142058349" modified="20170312121947536" tags="Projects" title="Cross section measurements">
 <pre>!What is a cross section measurement?
 Sources:
@@ -11673,7 +11759,7 @@ Documents/Reports/Long Vac Project - Additions.pdf
 *Allow an hour for warm up after removal of light shield
 *Turn on HV slowly </pre>
 </div>
-<div created="20170316162730472" modified="20170316185917303" tags="Notes" title="Data Unfolding">
+<div created="20170316162730472" modified="20170318132000169" tags="Notes" title="Data Unfolding">
 <pre>!Source
 http://www.desy.de/~blobel/school_march10.pdf
 
@@ -11750,7 +11836,70 @@ $$
 $$
 
 *The least square estimate is unbiased and efficient but the result will often show large, unacceptable fluctuations which are inherent in the problem
-*Decompose symmetric matrix into eigenvectors and eigenvalues, if all the eigenvalues &gt; 0 the inverse exists and the solution is expressed by a vector of Fourier coefficients. The covariance matrix is the unit matrix. The solution can be written in sum form.</pre>
+*Decompose symmetric nxn matrix $$\bold{C}=(\bold{AV_y^{-1}A^T})$$ in the form $$\bold{C}=\bold{U\Lambda U^T}$$, $$\bold{U}$$ is unitary and $$\bold{\Lambda}$$ is a diagonal matrix of eigenvalues $$(\lambda_1,\lambda_2...\lambda_n)$$.
+*The eigenvalues $$\lambda_j\geq0$$ are in decreasing order $$\lambda_1\geq\lambda_2\geq...\lambda_n\geq0$$
+*$$\bold{U}=[\bold{u_1,u_2,...,u_n}]$$ is an array of eigenvectors of $$\bold{C}$$
+*If all $$\lambda_j&gt;0, \bold{C}^{-1}=\bold{U\Lambda^{-1}U^T}$$ exists
+$$
+\bold{x}=\bold{C^{-1}b}=\bold{U\Lambda^{-1/2}(\Lambda^{-1/2}U^T)b}=\bold{U\Lambda^{-1/2}c}, \bold{c}=\bold{\Lambda^{-1/2}U^Tb}
+$$
+
+*The solution is expressed by a vector c of Fourier coefficients 
+*The covariance matrix of the c is the unit matrix
+*Solution in sum form:
+$$
+\bold{x}=\sum^n_{j=1}\frac{1}{\sqrt{\lambda_j}}c_j\bold{u}_j, c_j=\frac{1}{\sqrt{\lambda_j}}(\bold{b^Tu_j}), \bold{V}_x=\sum^n_{j=1}\frac{1}{\lambda_j}\bold{u_ju_j^T}
+$$
+
+*The fourier coefficients $$c_j$$ (insignificant, compatible with zero) should follow a normal distribution N(0,1). Can become significant if the corresponding eigenvalues are small
+*Diagonalization allows to determine the degree of freedom = number of significant coefficients
+*Eigenvalues decrease by approx 8 orders of magnitude due to limited resolution
+*The coefficients are all independent and all have error of 1, only 10 are significant
+*Truncation: Only write solution with first 10 values, removes noisy contributions without introduction of bias but $$\bold{V}_x$$ is singular
+
+!!Regularization methods
+*Incorporate assumptions about size and smoothness of the solution, control the norm of the residuals and the norm of the solution
+**Thikhonov-Phillips: $$F_{\tau}(\bold{x})=||\bold{Ax-y}||^2+\tau||\bold{Lx}||^2=minimium, \tau&gt;0, \bold{L}=1$$
+**Matrix equation: $$(\bold{A^TV_y^{-1}A}+\tau\cdot\bold{1})\bold{x}=\bold{A^TV_y^{-1}y}$$
+**$$(\bold{C}+\tau\cdot\bold{1})\bold{x}=\bold{b}$$
+**Diagonalize $$\bold{C}$$ $$\bold{U}(\bold{\Lambda}+\tau\cdot\bold{1})\bold{U}^T\bold{x}=\bold{b}$$
+**Fourier coefficients $$\bold{c}=\bold{\Lambda^{-1/2}U^Tb}$$
+**Filter factor $$f_j=\frac{\lambda_j}{\lambda_j+\tau}=1...0.5...0$$
+**Solution $$\bold{x}=\sum^n_{j=1}\frac{f_j}{\sqrt{\lambda_j}}c_j\bold{u_j}$$ with $$c_j = \frac{1}{\sqrt{\lambda_j}}(\bold{b^Tu_j} (\pm1)$$
+**The solution is a superposition of eigenvectors, the filter factor reduces the effect of insignificant contributions without introducing bias.
+*Second derivative: control norm of residuals and norm of the second derivative $$\bold{Lx}$$, same TP equation as before but $$\bold{L}$$ more complicated 
+**$$x_i''\propto x_{i-1}-2x_i+x_{i+1}$$, $$\bold{L}$$ is matrix form of this
+**Matrix equation: $$(\bold{A^TV_y^{-1}A}+\tau\cdot\bold{L^TL})\bold{x}=\bold{A^TV_y^{-1}y}$$
+**$$(\bold{C}+\tau\cdot\bold{L^TL})\bold{x}=\bold{b}$$
+**$$\bold{R}(\bold{1}+\tau\cdot\bold{S})\bold{R}^T\bold{x}=\bold{b}$$ with $$\bold{R}=\bold{U_1\Lambda^{1/2}U_2}$$
+**Requires simultaneous diagonalization of two symmetric matrices $$\bold{C}$$ and $$\bold{L^TL}$$ ($$\bold{S}$$ is diagonal)
+**Fourier coefficients $$\bold{c}=\bold{U_2^T\Lambda^{-1/2}U_1^Tb}$$
+**Filter factor $$f_i=\frac{\lambda_j}{\lambda_j+\tau}$$ with $$\lambda=S_{jj}^{-1}$$
+**Often better than standard regularization but depends on order of bins
+*Choosing $$\tau$$
+**Discrepancy principal: choose $$\tau$$ such that $$||\bold{Ax}_{reg}-\bold{y}||^2_2=n_{df}$$
+**L-curve method: plot $$||\bold{Lx}_{reg}||_2$$ vs $$||\bold{Ax}_{reg}-\bold{y}||_2$$ for a set of $$\tau$$-values, dependence has shape of an L with a distinct corner which is the optimal value of $$\tau$$
+**Effective ndof: determine $$n_{df}$$ from spectrum of fourier coefficients and determine $$\tau$$ such that the sum of filter factors $$\sum^n_{j=1}\frac{\lambda_j}{\lambda_j+\tau}=n_{df}$$
+**Minimum mean value of global correlation coefficients $$\rho_j=\sqrt{1-[(\bold{V}_x)_{jj}\cdot(\bold{V}_x^{-1})_{jj}]^{-1}}$$ with $$0\leq\rho_j\leq1$$, measur eof total amount of correlation between element j of x and all other elements
+***arithmetic and geometric mean of all $$\rho$$ calculated for large range of $$\tau$$-values, the one with smallest mean is accepted
+*Unfolding with $$\sigma$$=bin-width leads to small bias at the peaks
+*With $$\sigma$$=1/2xbin-width, reduced bias at peaks
+
+!!Summary
+*Experimental data, measured with limited resolution and acceptance require unfolding to allow a correct interpretation
+*Statistical errors and increased if there are migration effects
+*Number of bins of unfolded distribution is small in general and has to be adjusted to the size of migration effects otherwise correlations between bins will be large
+*Methods based on least squares (for Gaussian errors) and Poisson ML (for counting data) supplemented by regularization terms, using orthogonalization methods (singular values or diagonalization), exist and allow to control a potential bias and to propagate the measurement errors
+
+!!Low pass regularization with 3-&gt;1 averaging
+*Without regularization there are large bin-to-bin fluctuations due to negative correlations between neighbour bins.
+*Can be suppressed in a low-pass filter by averaging 3-to-1 bins
+*$$\bar{x}_j=a_jx_{j-1}+(1-2a_j)x_j+a_jx_{j+1}$$
+*The factor $$a_j$$ can be chosen to minimize the variance of $$\bar{x}_j$$ using the known matrix $$\bold{V}_x$$
+*Fluctuations are suppressed and true dependence is more visible
+*No bias if number of bins large and no strong structure
+*In regions of larger second derivatives a bias is introduced because the filter assumes an almost linear dependence over 3-point regions
+*First and last bins disappear</pre>
 </div>
 <div created="20161013103110839" modified="20161013103222709" tags="Lectures" title="Detectors Course">
 <pre>Course given by Chris Booth
@@ -14811,6 +14960,75 @@ chmod g+w -R &quot;/pnfs/sbnd/scratch/users/${USER}&quot;
 source /grid/fermiapp/products/common/etc/setup # already included in setup_sbnd.sh
 setup jobsub_client
 ```</pre>
+</div>
+<div created="20170319160849951" modified="20170320105209765" tags="[[Paper Notes]]" title="Weakly supervised classification in HEP">
+<pre>!Source
+https://arxiv.org/pdf/1702.00414.pdf
+
+!Bibtex
+```latex
+@article{Dery:2017fap,
+      author         = &quot;Dery, Lucio Mwinmaarong and Nachman, Benjamin and Rubbo,
+                        Francesco and Schwartzman, Ariel&quot;,
+      title          = &quot;{Weakly Supervised Classification in High Energy
+                        Physics}&quot;,
+      year           = &quot;2017&quot;,
+      eprint         = &quot;1702.00414&quot;,
+      archivePrefix  = &quot;arXiv&quot;,
+      primaryClass   = &quot;hep-ph&quot;,
+      SLACcitation   = &quot;%%CITATION = ARXIV:1702.00414;%%&quot;
+}
+```
+
+!Notes
+*ML algorithms have become very dependent on simulations
+*Weakly supervised: only the proportions of each event type are input
+*Quark vs gluon tagging is tricky, good test
+*Insentitive to mismodeling of discriminating features
+*General procedure: many applications
+
+!!Introduction
+*MC simulation used to model pretty much everything in HEP
+*Supervised ML algorithms allow the extraction of even more information than traditional methods, sometimes this comes at a cost of human understandability
+*Trained on simulations with defining featured labeled.
+*When classifying two types of events sometimes the relative proportions are better known than the defining features
+*Can train directly on unlabeled data using weakly supervised classification, very under-constrained
+*non-convex problem: no guarantee that local minima is global minima
+*Removing labels increases difficulty of optimization
+*Multi instance learning (already used in image classification): instead of individually labelled events, get a set of labeled bags containing many events
+*Can optimize algorithms to idenitfy events based only on bag level labels
+*This is extended in this paper so they only know bag labels on average
+*Need the expected fraction of event A in a particular bag
+*Identifying quark induced jets from gluon induced jets is a challenging problem
+*Apparently the standard discriminants are poorly modelled, don't know much about this but I have come across similar problems with detector simulations that aren't very accurate and photon/electron showers
+*Theoretical calculations of event proportions often better known than detector simuations, especially for new technologies
+
+!!Weakly supervised classification
+*Classification: construct a function that uses n classifiers to determine if an event is 0 or 1
+*Traditional: the function that gets the classification right the most times over all the training data
+**Done by minimizing loss function such as squared error
+*Sometimes better to have the function determine the probability from 0 to 1 rather than a strict 0 or 1
+*Likelihood ratio is the ideal classifier, take log to add together multiple event features. It is an approximation because feature distributions are not perfectly known
+*Weak supervision: know proportion, the function that gets closest to the correct proportion of events
+**There are multiple minima, use multiple batches of data with different proportions to get global minima provided that the pdfs of the discriminating features remains the same in each batch
+*Can take histograms containing two types of events and write them in terms of proportions of histograms of just one type of event (discretized pdfs)
+**If there are a large number of features you can use machine learning to optimize the classifier
+*Weakly supervised training combines the steps and doesn't bin the data
+*Problem is over-constrained when there are more than two batches
+*They use a three layer neural network, inspired by biological neurons, the input variables are multiplied by weights and a function is used to determine the ’activation’ of a neuron, multiple neurons are combined to give an output and the weights are varied to optimise the difference in outputs between signal and background
+*Sigmoid output refers to the activation function used
+*They use a different neural network for the traditional classifier, why?
+*The ROC curves for weak and supervised classification but the NNs aren't the same so I don't know if this is a fair comparison
+*They measure the spread of the AUC, and show that the more different the proportions of each event type is over the data sets the better the performance is which could be an issue, hard to control in HEP
+
+!!Quark and gluon jet discrimination
+*fraction of quark jets for particular set of events well known from parton distribution functions and matrix elements
+*Train with simulation but don't let the classifier know the labels
+*They use number of constituents, jet width and fraction of transverse momentum carried by leading subjet
+*Still only 3 features, is this because of increased computation time? or just simplicity of understanding, would be interesting to see it compared with current best classifiers
+*Create different bags by using pseudo rapidity bins
+*pseudo-data: distort pdfs of features, WSNN can be directly trained on this so no bias introduced. FSNN trained on simulation and tested on pseudo data introduces a 10% bias
+*Downside, need more data to do this properly? reduced statistical significance</pre>
 </div>
 <div created="20160908094145503" modified="20161127192545707" tags="" title="Welcome">
 <pre>This a wiki style notebook for recording pretty much everything PhD related.
