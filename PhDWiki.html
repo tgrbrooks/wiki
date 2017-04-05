@@ -443,15 +443,21 @@ Error message and password prompt
 
 <li>35 ton method</li>
 
+<li>3rd April 2017</li>
+
 <li>3rd November 2016</li>
 
 <li>3rd October 2016</li>
+
+<li>4th April 2017</li>
 
 <li>4th January 2017</li>
 
 <li>4th November 2016</li>
 
 <li>4th October 2016</li>
+
+<li>5th April 2017</li>
 
 <li>5th December 2016</li>
 
@@ -632,6 +638,8 @@ Error message and password prompt
 <li>ROOT Lecture 3</li>
 
 <li>ROOT Lecture 4</li>
+
+<li>RooUnfold</li>
 
 <li>Running LArSoft (Production)</li>
 
@@ -8574,22 +8582,22 @@ Error message and password prompt
 <div created="20160908094350083" modified="20160914150836879" title="$:/state/toc/TableOfContents-My Journal--81657105">
 <pre>open</pre>
 </div>
-<div created="20160921163853106" modified="20170321120955956" title="$:/state/toc/TableOfContents-Notes--81657105">
-<pre>open</pre>
+<div created="20160921163853106" modified="20170403142017836" title="$:/state/toc/TableOfContents-Notes--81657105">
+<pre>close</pre>
 </div>
-<div created="20160907134106914" modified="20170321121841398" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
-<pre>open</pre>
+<div created="20160907134106914" modified="20170404103638514" title="$:/state/toc/TableOfContents-Paper Notes--81657105">
+<pre>close</pre>
 </div>
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160923133217804" modified="20170316113213146" title="$:/state/toc/TableOfContents-Projects--81657105">
+<div created="20160923133217804" modified="20170405100544596" title="$:/state/toc/TableOfContents-Projects--81657105">
 <pre>close</pre>
 </div>
-<div created="20160907090743836" modified="20170309160841891" title="$:/state/toc/TableOfContents-Software--81657105">
-<pre>close</pre>
+<div created="20160907090743836" modified="20170405100545868" title="$:/state/toc/TableOfContents-Software--81657105">
+<pre>open</pre>
 </div>
-<div list="[[Weakly supervised classification in HEP]] [[22nd March 2017]] Welcome" title="$:/StoryList">
+<div list="RooUnfold [[5th April 2017]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -10523,6 +10531,21 @@ tar -tf *.bz2
 **Do a linear fir of the log of average charge (or an exponential fit) to extract lifetime
 **Quite significant underestimation of lifetime and huge errors</pre>
 </div>
+<div created="20170403092546400" modified="20170404093603288" tags="Journal" title="3rd April 2017">
+<pre>//Arrived at 9.45//
+
+*Last week was Warwick week hence no updates
+**Some of the lectures were useful, a list of them can be found here https://www2.warwick.ac.uk/fac/sci/physics/staff/academic/boyd/warwick_week/
+**Worked on CCinc cross sections a bit, now pretty much up to date with where Rhiannon is
+**Updated the poster figures and some of the text, sent it to the collaboration for review
+**The electron lifetime methods are more or less up to date and consistent
+**Dom is working on timing the algorithms and working out the precision
+*I need to work out the precision and required statistics for each method
+**For precision the best way to do it would be to choose one lifetime and generate about 10 different samples and look at how they vary with time
+**For statistics I could plot how each method changes with sample size, for methods 1 and 2 just use the -n flag, for method 3 will need to use a random number
+
+//Left at 18:15//</pre>
+</div>
 <div created="20161103100422203" modified="20161103192856118" tags="Journal" title="3rd November 2016">
 <pre>//Arrived at 9:45//
 
@@ -10604,6 +10627,17 @@ tar -tf *.bz2
 
 //Left at 18:15//</pre>
 </div>
+<div created="20170404093626296" modified="20170405095854010" tags="Journal" title="4th April 2017">
+<pre>//Arrived at 10:00//
+
+*Start creating a presentation for the LAr purity meeting that can act as a better plan
+**Include precision of methods, variation with sample size, timing, optimal tracks for each method
+**Include a lot of disclaimers
+*Research RooUnfold
+*Continue looking at the lit review
+
+//Left at 18:45//</pre>
+</div>
 <div created="20170104100341185" modified="20170104183330130" tags="Journal" title="4th January 2017">
 <pre>//Arrived at 10:00//
 
@@ -10649,6 +10683,17 @@ tar -tf *.bz2
 *Still need to work out how to change the simulated electron lifetime/argon purity
 *Need to look up some numbers to do with LArIAT and SBND
 *Generate more events to test the code on
+
+//Left at 18:30//</pre>
+</div>
+<div created="20170405095903714" modified="20170405173000985" tags="Journal" title="5th April 2017">
+<pre>//Arrived at 10:30//
+
+*Downloaded RooUnfold and got it to compile yesterday, had to edit it a little so it would compile with root 5.34 as two functions had a slightly different implementation. This didn't seem to affect the example but might affect the wrapper to TUnfold.
+*Will try to put it into my code
+*It seems to work but because of the large bins there is very little difference between signal and background
+*Probably best to wait and see what Costas wants before I put a lot of time into it
+*It looks like the LAr purity meeting won't be until after easter, so should have some better results with more events by then
 
 //Left at 18:30//</pre>
 </div>
@@ -11605,7 +11650,7 @@ set title
 set clipboard=unnamedplus 
 ```</pre>
 </div>
-<div created="20170320105313995" modified="20170320175821330" tags="Notes" title="Costas meeting">
+<div created="20170320105313995" modified="20170403092019568" tags="Notes" title="Costas meeting">
 <pre>17/03/2017
 Meeting about cross section work with GENIE and SBND
 
@@ -11643,7 +11688,11 @@ Meeting about cross section work with GENIE and SBND
 *Define minimal info required to do analysis to reduce file size
 **Full GENIE event record and a handful of reco things
 **Could use Anatree
-*Set up a Github repo for the common framework</pre>
+*Set up a Github repo for the common framework
+
+!Questions
+*How should the momentum be smeared, what function is most accurate
+*How should the angle be smeared</pre>
 </div>
 <div created="20170310142058349" modified="20170312121947536" tags="Projects" title="Cross section measurements">
 <pre>!What is a cross section measurement?
@@ -13048,8 +13097,29 @@ sudo apt-get install texlive-bibtex-extra biber
 
 &lt;&lt;list-links &quot;[tag[Lectures]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20170127152312726" modified="20170127152342612" tags="Projects" title="Literature Review">
-<pre>Stuff</pre>
+<div created="20170127152312726" modified="20170404093537406" tags="Projects" title="Literature Review">
+<pre>!Title
+Charged current neutrino-nucleus cross sections
+
+!Outline
+*A summary of some of the key measurements and theoretical advances in low energy CC muon neutrino cross sections, focus on accelerator based experiments
+
+!Plan
+*What is a cross section? 
+**equation and explanation of importance
+*Where we were ~20 years ago
+**using models valid for very low energy and naively assuming they scale
+**the issues this caused
+*miniboone CCQE results
+**Very brief description of the detector and how it works
+**Tensions with theoretical models
+*npnh theory
+**Briefly mention some of the more popular models
+*FSIs and hadronic information
+**Experiments quoting final state topology rather than estimated true interactions to avoid model dependence
+**Measure number of protons in final state SBND
+*NOvA and MINERvA data
+**Description of the detectors</pre>
 </div>
 <div created="20160920103336276" modified="20160921155855928" tags="[[Paper Notes]] [[Electron Lifetime]]" title="LongBo Electron Lifetime">
 <pre>!Source
@@ -13414,7 +13484,7 @@ https://arxiv.org/pdf/1602.05299v1.pdf
 *SBND will see 30x the neutrino flux compared to uboone
 *Can perform high stats GeV scale $$\nu$$-Ar cross section measurements</pre>
 </div>
-<div created="20161208124606535" modified="20170315153650264" tags="[[Paper Notes]]" title="Neutrino-Nucleus cross section review">
+<div created="20161208124606535" modified="20170403142228084" tags="[[Paper Notes]]" title="Neutrino-Nucleus cross section review">
 <pre>!Source
 https://arxiv.org/pdf/1611.07770v1.pdf
 
@@ -14776,6 +14846,51 @@ db.GetParticle(211).Mass()
 *Adding a ``+`` after the macro name compiles it
 *Can load the shared object library into CINT with ``gSystem-&gt;Load()``
 *Makefiles are a list of compilation instructions</pre>
+</div>
+<div created="20170404164517019" modified="20170405155941682" tags="Software" title="RooUnfold">
+<pre>*Five methods: iterative/Bayesian, singular value decomposition (SVD), bin by bin, TUnfold, inversion of response matrix without regularisation
+*Parameterise measurement effects using response matrix, determined using MC training sample
+*Iterative and SVD require regularisation parameter, optimise for number of bins and sample size, use MC with same size as data.
+**Can estimate systematics with MC, testing sample
+*Training and testing samples should be statistically and systematically independent, use different generator or re-weight variations within the truth level uncertainties
+*Bin by bin assumes no migration
+*Can initialise response matrix with dimensions of smeared and unsmeared histograms
+**Fill by looping over training sample and recording measured/missed values
+
+From the arxiv document (https://arxiv.org/pdf/1105.1160.pdf)
+
+*Iterative Bayes' theorem
+**Repeated application of Bayes' theorem used to invert the response matrix
+**Regularize by stopping before true (wildly fluctuating) inverse is achieved
+**Takes training truth as prior, shouldn't introduce bias but should increase speed
+**Takes account of errors on data sample but not MC statistical errors
+**Training sample should be much larger than data sample
+**Doesn't smooth by default as this can bias results
+*SVD
+**Interface to TSVDUnfold
+**SVD used to invert response matrix
+**Normalization to number of events retained to minimize training statistical uncertainties
+**Regularization performed using smooth cut-off on small singular value contributions (high frequency fluctuations)
+**Need to tune regularization according to distribution, binning and statistics to minimize bias
+**bias due to choice of training sample dominates at small k
+**Small statisitical fluctuations in the unfolding result grow at large k and need to be retained
+**Includes uncertainties from finite MC sample
+*TUnfold
+**Matrix inversion with 0-2 order polynomial regularization of neighbouring bins
+**Automatically determines optimal regularization parameter by scanning the L-curve
+*Unfolding errors
+**Need to invert covariance matrix to get correct chi2
+**Covariance matrix often poorly conditioned, inversion involves subtracting large, but similar numbers leading to significant effects.
+*Bayes method unfolding errors
+**Uncertainties from error propagation underestimated compared to those given by toy MC
+**Need to consider dependence between iterations
+
+!References
+*http://www.sciencedirect.com/science/article/pii/016890029500274X
+*https://indico.cern.ch/event/107747/contributions/32648/attachments/24322/35006/Unfold.pdf
+*https://arxiv.org/pdf/hep-ph/9509307.pdf
+*https://indico.cern.ch/event/107747/contributions/32647/attachments/24321/35005/kartvelishvili.pdf
+*https://arxiv.org/pdf/1112.2226.pdf</pre>
 </div>
 <div created="20160908102147553" modified="20160908114759902" tags="Software" title="Running LArSoft (Production)">
 <pre>How to run the existing LArSoft code quickly and easily:
