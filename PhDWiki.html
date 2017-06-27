@@ -397,6 +397,8 @@ Error message and password prompt
 
 <li>1st November 2016</li>
 
+<li>20th June 2017</li>
+
 <li>20th March 2017</li>
 
 <li>20th October 2016</li>
@@ -635,11 +637,15 @@ Error message and password prompt
 
 <li>LArSoft Exercises</li>
 
+<li>LArSoft Tools workshop</li>
+
 <li>Latex Referencing</li>
 
 <li>Lectures</li>
 
 <li>Literature Review</li>
+
+<li>Liverpool trip: plan</li>
 
 <li>LongBo Electron Lifetime</li>
 
@@ -720,6 +726,8 @@ Error message and password prompt
 <li>Software</li>
 
 <li>Solved</li>
+
+<li>T2K muon neutrino and anti-neutrino cross section ratio</li>
 
 <li>TableOfContents</li>
 
@@ -8625,8 +8633,8 @@ Error message and password prompt
 <div created="20160907093143292" modified="20161102102313084" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/All</pre>
 </div>
-<div created="20160906162737931" modified="20170615142512520" title="$:/state/tab/sidebar--1835078512">
-<pre>$:/core/ui/SideBar/Recent</pre>
+<div created="20160906162737931" modified="20170620105828572" title="$:/state/tab/sidebar--1835078512">
+<pre>TableOfContents</pre>
 </div>
 <div created="20160907132535759" modified="20160907132613311" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
@@ -8640,8 +8648,8 @@ Error message and password prompt
 <div created="20161013103635470" modified="20161109134020555" title="$:/state/toc/Lectures-ROOT Course--81657105">
 <pre>close</pre>
 </div>
-<div created="20170510133402714" modified="20170614134518192" title="$:/state/toc/Projects-Cross Section Analysis Framework--81657105">
-<pre>close</pre>
+<div created="20170510133402714" modified="20170621110426717" title="$:/state/toc/Projects-Cross Section Analysis Framework--81657105">
+<pre>open</pre>
 </div>
 <div created="20170407102236821" modified="20170614134516409" title="$:/state/toc/Projects-Cross Sections--81657105">
 <pre>close</pre>
@@ -8655,7 +8663,7 @@ Error message and password prompt
 <div created="20160916161721992" modified="20170302174002212" title="$:/state/toc/TableOfContents-Issues--81657105">
 <pre>close</pre>
 </div>
-<div created="20160914150849017" modified="20170606102700097" title="$:/state/toc/TableOfContents-Journal--81657105">
+<div created="20160914150849017" modified="20170620112906924" title="$:/state/toc/TableOfContents-Journal--81657105">
 <pre>close</pre>
 </div>
 <div created="20161013103609184" modified="20170119085713248" title="$:/state/toc/TableOfContents-Lectures--81657105">
@@ -8673,13 +8681,13 @@ Error message and password prompt
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160923133217804" modified="20170614134514399" title="$:/state/toc/TableOfContents-Projects--81657105">
+<div created="20160923133217804" modified="20170621110424199" title="$:/state/toc/TableOfContents-Projects--81657105">
 <pre>open</pre>
 </div>
 <div created="20160907090743836" modified="20170605162618212" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>close</pre>
 </div>
-<div list="PID [[Plan and Reading]] Welcome" title="$:/StoryList">
+<div list="[[Liverpool trip: plan]] [[20th June 2017]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -10155,6 +10163,44 @@ tar -tf *.bz2
 *Look at how the number of reconstructed tracks varies with electron lifetime
 
 //Left at 18:15//</pre>
+</div>
+<div created="20170620095157694" modified="20170621104555043" tags="Journal" title="20th June 2017">
+<pre>//Arrived at 10:45//
+
+*Need to sort some housing things
+*Going to liverpool tomorrow, plan what to work on/questions to ask to maximise effectiveness 
+**What plots is Costas going to show at NuINT?
+***Table of SBND events
+**What smearing should be used for pions?
+***Probably the same as muons as the dE/dx and mass is so similar
+***There are efficiencies for pi+ in CC resonance events that we could use for all pions
+**What level of pion mix-up should be used?
+***There should probably be some kind of energy dependence
+***Pions that stop in the TPC are much less likely to be misidentified
+***I haven't found any useful numbers for this problem
+**Should there be any opposite mix-up?
+***There must be a non-zero probability for CC events to be mis-ID as NC1pi events
+***20% would be way too high as there are so many more CC events
+***Same number of muons to pions as pions to muons
+**How to deal with multiple pion misidentification
+***I currently use the highest energy pion and don't check for misidentification for CC events
+**What other sources of background are there?
+***Cosmics, around 98% are removed by CRTs and most of the remaining 2% could probably be removed by angular and timing cuts, there must still be a non-negligible number as the rate is so high
+***Dirt events, lot's also removed by CRTs, rate isn't so high but angular and timing cuts not very effective, biggest for CC0pi as no vertex
+**Should we try to get other unfolding methods working before nuINT?
+***Probably not
+**Which distributions should be used for the smearing?
+***I think Gaussians as these were used to fit the smearing parameters
+***Log normals might provide a continuous distribution but the shape isn't necessarily physical
+**Should we apply different particle efficiencies when labeling by FSI?
+***Could add a lot of complications
+**Need to use x, y, z and phi coordinates from genie, what coordinate system is used?
+**Ornella mentioned vertexing being one of the biggest issues, how do we accommodate this?
+**We should have consistency with the binnings used, 0.1 bin widths
+**If there's time, start thinking about the analysis framework
+**Are the FSI labels OK? possibly too many
+**Can we optimise the performance of the unfolding method
+*Produce some kind of state of reconstruction thing (with smearing and efficiencies) for MCC 1.0</pre>
 </div>
 <div created="20170320105233489" modified="20170321104737107" tags="Journal" title="20th March 2017">
 <pre>//Arrived at 9:30//
@@ -13982,6 +14028,65 @@ cd $MRB_TOP/XML
 
 </pre>
 </div>
+<div created="20170620135658915" modified="20170620164754892" tags="Software" title="LArSoft Tools workshop">
+<pre>!Notes
+!!Multi threading
+*thread = smallest unit of sequential processing, has own variables, share same memory address space
+*Multi-threading for speed and sharing resources
+**Often limiting factor for speed
+**Doesn't decrease time to process all events
+**CPUs aren't getting faster to save power, number of cores are increasing but cost of memory is prohibative
+**Requires more computers to use single-threading
+**Multi-threaded programs can share memory across many events
+**Batch systems don't like exponential growth of cores
+**Can keep number of jobs constant
+*Difficulties: race condition, one thread reading, one thread writing to same memory
+**No way of understanding what ordering is going to be
+**System writes chunks at the same time as its more efficienct, will overwrite if another thread has changed another part of the same byte (8 bits)
+*Deadlock: two or more threads waiting for other threads in group to finish before continuing
+**Both waiting for each other to finish
+*Never have thread write to memory that another thread will read
+*Use synchronization mechanism, art handles this across modules
+*Thread hostile: not safe for more than one thread to call methods even for diff class instances (e.g. things with static) lot's of ROOT stuff does this
+*Thread friendly: diff class instances can be used by different threads safely but sharing same instance not safe
+*const thread safe: safe to call const methods on same class instance, classes in C++ std are const thread safe
+*Thread safe: multiple threads can call non-const methods on same class instance (e.g. intel's thread building block library)
+*Avoid non-const global memory
+*Avoid mutable data members in event data products
+*Avoid services with mutable states
+*Avoid starting a thread yourself, art will start with maximum number of threads
+*Coming to art soon, prepare code now to support this
+**mutexes make it easy to get into deadlocks and slows down code
+
+!Vectorization
+*SIMD = single instruction multiple data, same operation on multiple data items
+*Useful for linear algebra
+*Reduces floating point operations per second, makes code faster
+*Can test what SIMD capabilities your computer has: ``sysctl -a | grep machdep.cpu.features``
+*Shouldn't use intrinsics, not portable, hard to read
+*Vc is better, C++ class to abstract out SIMD commands
+*vectorclass is another C++ abstraction, better than Vc
+*Most modern compilers can do some automatic vectorization, icc (Intel) is best, gcc not very good
+*Cheat by using library that does it for you (e.g Eigen, Atlas, fftw, IMKL)
+*FLOPS: floating point operations per second
+*Arithmetic intensity = FLOPS/memory access
+*The roofline model: theoretical limit of arithmetic intensity
+
+!CI system
+*code changes immediately tested and reported, provides rapid feedback, find hidden bugs
+*CI phase: single activity
+*CI workflow: collection of CI phases, test experiment code standalone
+*CI build: job that executes workflow
+*Unit test: test one component, fully atomated, independent
+*CI test: extension of unit test, tests combined units
+**Can have regression test, reproducibility test, back-compatibility test, validation test
+*Configure workflow: instructions online
+*Integration test config: INI file, has default, test and suite sections. In ci_tests.cfg file
+*CI validation and grid support instructions online, often requires thousands of events
+*auto trigger when users git push to develop
+*Can run test locally provided code commited to central repo
+*Results from webpage or email</pre>
+</div>
 <div created="20160907084749231" modified="20160907131929080" tags="Software" title="Latex Referencing">
 <pre>Using biblatex in TexStudio for references:
 
@@ -14046,6 +14151,25 @@ Charged current neutrino-nucleus cross sections
 **Measure number of protons in final state SBND
 *NOvA and MINERvA data
 **Description of the detectors</pre>
+</div>
+<div created="20170621104624270" modified="20170621172310890" tags="Notes" title="Liverpool trip: plan">
+<pre>*Apply muon smearing to pions
+**Factor in pion decay time
+*Use CC1pi+ pion efficiencies for all pions
+*For NC events determine if pion is contained in detector, apply different misidentification rates for each case TRY TO FIND SOME NUMBERS
+*Count number of NC pion events mis identified
+*Mis identify same number of CC muons
+*Estimate number of cosmics that pass CRTs with right angles and add (https://dspace.mit.edu/bitstream/handle/1721.1/61208/701107722-MIT.pdf?sequence=2)
+*Estimate number of dirt muons that pass CRTs FIND NUMBERS
+*Check each others code for errors
+*Systematic errors
+*I define the topology as ccinclusive, most important for me
+
+!Costas meeting
+*Not worth pursuing smearing much further, keep as a comparison
+*Different fiducial volume for nue and numu to avoid backgrounds
+*Hand scanning on the 13th of July
+</pre>
 </div>
 <div created="20160920103336276" modified="20160921155855928" tags="[[Paper Notes]] [[Electron Lifetime]]" title="LongBo Electron Lifetime">
 <pre>!Source
@@ -16058,6 +16182,38 @@ ssh -XYAK &lt;username&gt;@lar1ndgpvm01.fnal.gov
 </div>
 <div created="20160916161724669" modified="20160916161750651" tags="Issues" title="Solved">
 <pre>&lt;&lt;list-links &quot;[tag[Solved]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20170620112907999" modified="20170620130706619" tags="[[Paper Notes]]" title="T2K muon neutrino and anti-neutrino cross section ratio">
+<pre>!Source
+https://arxiv.org/abs/1706.04257
+
+!Bibtex
+```latex
+@article{Abe:2017ufe,
+      author         = &quot;Abe, K. and others&quot;,
+      title          = &quot;{Measurement of $\bar{\nu}_{\mu}$ and $\nu_{\mu}$ charged
+                        current inclusive cross sections and their ratio with the
+                        T2K off-axis near detector}&quot;,
+      collaboration  = &quot;T2K&quot;,
+      year           = &quot;2017&quot;,
+      eprint         = &quot;1706.04257&quot;,
+      archivePrefix  = &quot;arXiv&quot;,
+      primaryClass   = &quot;hep-ex&quot;,
+      SLACcitation   = &quot;%%CITATION = ARXIV:1706.04257;%%&quot;
+}
+```
+
+!Notes
+*Target material of carbon, oxygen, hydrogen and copper
+*Lab frame angle &lt; 32 degrees, momentum &gt; 0.5 GeV
+*ND280 used, peak energy ~0.6 GeV
+*CCQE and CCINC already published, using FGDs, different systematics compared to this paper
+*No published CCINC measurements below 1.5 GeV
+*MC used to estimate number of background events
+*Include beam flux, interaction model and detector response uncertainties
+*Cross sections have ~10% systematic errors, ratio has ~4%
+*Good agreement with MC for numbers of events
+*Different MC models were compared to the data, none very good</pre>
 </div>
 <div caption="Contents" created="20160907090454690" list-after="$:/core/ui/SideBar/Open" modified="20161102102556616" tags="$:/tags/SideBar" title="TableOfContents">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;
