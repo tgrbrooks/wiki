@@ -513,6 +513,8 @@ Error message and password prompt
 
 <li>5th January 2017</li>
 
+<li>5th July 2017</li>
+
 <li>5th June 2017</li>
 
 <li>5th October 2016</li>
@@ -522,6 +524,8 @@ Error message and password prompt
 <li>6th December 2016</li>
 
 <li>6th January 2017</li>
+
+<li>6th July 2017</li>
 
 <li>6th June 2017</li>
 
@@ -8706,13 +8710,13 @@ Error message and password prompt
 <div created="20160907132339171" modified="20160907132340240" title="$:/state/toc/TableOfContents-PaperNotes--81657105">
 <pre>close</pre>
 </div>
-<div created="20160923133217804" modified="20170621110424199" title="$:/state/toc/TableOfContents-Projects--81657105">
-<pre>open</pre>
+<div created="20160923133217804" modified="20170706104328204" title="$:/state/toc/TableOfContents-Projects--81657105">
+<pre>close</pre>
 </div>
 <div created="20160907090743836" modified="20170628135629744" title="$:/state/toc/TableOfContents-Software--81657105">
 <pre>open</pre>
 </div>
-<div list="[[4th July 2017]] Welcome" title="$:/StoryList">
+<div list="[[6th July 2017]] Welcome" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20160908153004363" modified="20160908153004364" title="$:/temp/advancedsearch">
@@ -11476,6 +11480,24 @@ tar -tf *.bz2
 
 //Left at 18:30//</pre>
 </div>
+<div created="20170705110812410" modified="20170705183037781" tags="Journal" title="5th July 2017">
+<pre>//Arrived at 10:00//
+
+*Got some very rudimentary efficiencies by just choosing PIDA cuts by eye
+*For the PIDA analyzer I need to work out what's in hPIDAvalues and hPIDAKDE_i
+*hPIDAvalues
+**Set as hist_vals in function SetPIDATree
+**Number of bins as well as min and max bin are set
+
+*hPIDAKDE
+**I think KDE stands for kernel density estimation
+**Also set from vector of hists in same function
+*For the presentation I need total efficiency for everything, PIDA plots for the Y plane and efficiency plots for the Y plane before and after cuts
+
+!Kernel density estimation
+
+//Left at 19:00//</pre>
+</div>
 <div created="20170605084737253" modified="20170607091745739" tags="Journal" title="5th June 2017">
 <pre>//Arrived at 9:30//
 
@@ -11589,6 +11611,25 @@ Tomorrow:
 *Apply this correction to the results with longitudinal diffusion switched on and try to characterize it
 
 //Left at 18:30//</pre>
+</div>
+<div created="20170706110937460" modified="20170706164330139" tags="Journal" title="6th July 2017">
+<pre>//Arrived at 10:00//
+
+*Finished making plots for the presentation
+*Need to read over presentation and make any corrections
+
+!PAT meeting notes
+*Keep the PID stuff in a separate file, but can push to develop
+**Need to talk to Tingjun about issues with the top level fcl file
+*Create a root macro directory for code that runs on anatree output
+**Need to clean up code for that
+*Also create a module that works on reco output
+*Try using chi2 and PIDA stuff together, missed the end of what Dom said, message him
+*MVA stuff is tuned for pandora but works with generic output, can tune for SBND
+*Can just run 10,000 events yourself with LArSoft as it is currently
+*MCC 1.0 could be ready in a month, or maybe 2 or 3, who knows?
+
+//Left at 18:00//</pre>
 </div>
 <div created="20170606102703220" modified="20170607091736301" tags="Journal" title="6th June 2017">
 <pre>//Arrived at 11:00//
@@ -13645,7 +13686,7 @@ git merge develop
 <div created="20160916161615396" modified="20160916161653942" tags="TableOfContents" title="Issues">
 <pre>&lt;&lt;list-links &quot;[tag[Issues]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20170628150515576" modified="20170704090136139" tags="Software" title="jobsub">
+<div created="20170628150515576" modified="20170706105914470" tags="Software" title="jobsub">
 <pre>!Sources
 *https://cdcvs.fnal.gov/redmine/projects/fife/wiki/Getting_Started_on_GPCF
 *https://cdcvs.fnal.gov/redmine/projects/jobsub/wiki/Using_the_Client
@@ -13770,9 +13811,20 @@ setup ifdhc &lt;version&gt; -z /cvmfs/fermilab.opensciencegrid.org/products/comm
 !!Best Practices (https://indico.fnal.gov/getFile.py/access?contribId=3&amp;resId=0&amp;materialId=slides&amp;confId=12120)
 *Use ``--partial`` to only get part of the fetchlog
 *Use ``--disk`` to specify how much disk space you require
-*Use ``--expected_lifetime`` to specify how long you think job will take
-*Use ``--memory`` to specify how much RAM you need
-*Use ``--cpu`` to specify how many cores you need</pre>
+*Use ``--expected_lifetime`` to specify how long you think job will take (up to 4 days)
+*Use ``--memory`` to specify how much RAM you need (up to 16000 MB)
+*Use ``--cpu`` to specify how many cores you need (up to 8)
+*Test scripts locally as much as possible
+*Use Art profiling tools to check how much resources you need
+*Err on the side of generosity when requesting resources, your jobs can get held if they go over
+*Requesting 0 time can speed things up if script can work with glideins of any length (won't get held) script will need to check time remaining in glidein (FIFE_GLIDEIN_ToDie) and exit cleanly if there isn't time to complete the next part
+*Implement timeouts and retry logic when accessing non gird resources
+*Don't copy to and from BlueArc (/sbnd/app or /sbnd/data)
+*Avoid hard coding file paths
+*Check files exist before using them
+*Add exit codes for all major steps and print useful error messages
+*Max single submission is 5k jobs
+*Max number of queued jobs is 100k</pre>
 </div>
 <div created="20170703091430709" modified="20170703100559494" tags="Software" title="jobsub Worked Example">
 <pre>Example of using jobsub to run a pre-existing version of LArSoft on the grid
