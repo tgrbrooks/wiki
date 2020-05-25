@@ -203,6 +203,8 @@ Error message and password prompt
 
 <li>$:/state/toc/TableOfContents-Statistics--118161433</li>
 
+<li>$:/state/toc/TableOfContents/Hardware-Raspberry Pi--118161433</li>
+
 <li>$:/state/toc/TableOfContents/Software-Bash--118161433</li>
 
 <li>$:/state/toc/TableOfContents/Software-Larsoft--118161433</li>
@@ -438,6 +440,8 @@ Error message and password prompt
 <li>Building sbndcode from cvmfs</li>
 
 <li>Commit to an Existing Tag</li>
+
+<li>Connecting an accelerometer</li>
 
 <li>Connecting to the Pi</li>
 
@@ -9779,7 +9783,7 @@ Error message and password prompt
 <div created="20200415145508642" modified="20200415145512009" title="$:/GitHub/Filename">
 <pre>wiki.html</pre>
 </div>
-<div created="20200505131358034" modified="20200505131358034" title="$:/GitHub/Path">
+<div created="20200525100828222" modified="20200525100828222" title="$:/GitHub/Path">
 <pre>/</pre>
 </div>
 <div created="20200415145342168" modified="20200415145457537" title="$:/GitHub/Repo">
@@ -10080,6 +10084,9 @@ Error message and password prompt
 <div created="20200415183006300" modified="20200415183007131" title="$:/state/toc/TableOfContents-Statistics--118161433">
 <pre>close</pre>
 </div>
+<div created="20200525093807441" modified="20200525093807441" title="$:/state/toc/TableOfContents/Hardware-Raspberry Pi--118161433">
+<pre>open</pre>
+</div>
 <div created="20200415172710365" modified="20200415185357975" title="$:/state/toc/TableOfContents/Software-Bash--118161433">
 <pre>close</pre>
 </div>
@@ -10101,7 +10108,7 @@ Error message and password prompt
 <div created="20200415173515224" modified="20200415174052755" title="$:/state/toc/TableOfContents/Software/Version Control-Release Management--118161433">
 <pre>close</pre>
 </div>
-<div created="20200428104644195" list="$:/ControlPanel [[Ideas for interactive CV]] [[Install opencv on the Pi]] [[Connecting to the Pi]] Welcome" modified="20200505130918781" title="$:/StoryList">
+<div created="20200525100822646" list="$:/ControlPanel [[Connecting an accelerometer]] Welcome" modified="20200525100822646" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -11322,6 +11329,65 @@ git tag &lt; tagname &gt;
 git push origin :&lt; tagname &gt; // deletes original remote tag
 git push origin &lt; tagname &gt; // creates new remote tag
 ```</pre>
+</div>
+<div created="20200525093818636" modified="20200525100754553" tags="[[Raspberry Pi]]" title="Connecting an accelerometer">
+<pre>!Equipment
+*5 male to female wires
+*Male headers
+*Breadboard
+*Soldering iron
+*Adafruit LIS3DH (https://learn.adafruit.com/adafruit-lis3dh-triple-axis-accelerometer-breakout/overview)
+
+!Pi Setup
+*Make sure I2C is activated on the pi
+
+```bash
+sudo raspi-config
+```
+
+*Under `5. Interfacing Options` make sure I2C is enabled
+*Make sure the correct modules are included in the module file `/etc/modules`, should have the lines
+
+```
+i2c-bcm2708
+i2c-dev
+```
+
+*Restart the device
+
+!Connections
+*Image of connections can be found here (https://learn.adafruit.com/adafruit-lis3dh-triple-axis-accelerometer-breakout/python-circuitpython)
+*Connect Vin to the 3v3 pin (pin 1)
+*Connect Gnd to any ground pin (pin 6)
+*Connect SCL to the I2C clock (pin 5)
+*Connect SDA to the I2C data (pin 3)
+*Connect INT to any free digital IO pin (pin 31)
+
+!Testing the connection
+*Install the libraries required to talk to I2C devices
+
+```bash
+sudo apt-get install i2c-tools python-smbus
+```
+
+*Look at the connected I2C devices
+
+```bash
+sudo i2cdetect -y 1
+```
+
+*The device should appear in the 0x18 address.
+
+!Visualising acceleration and rotation
+*In your python virtual environment install the required modules
+
+```bash
+pip3 install adafruit-circuitpython-busdevice
+pip3 install adafruit-circuitpython-lis3dh
+```
+
+*Write a python script to visualise the acceleration (https://github.com/tgrbrooks/RoboAI/blob/master/src/movement/acceleration.py) and rotation (https://github.com/tgrbrooks/RoboAI/blob/master/src/movement/orientation.py)
+*Run them to see the accelerometer in action</pre>
 </div>
 <div created="20200428104647719" modified="20200428134627947" tags="[[Raspberry Pi]]" title="Connecting to the Pi">
 <pre>After connecting a screen to do the initial set up the easiest way to connect to the pi is through ssh or a vnc server
