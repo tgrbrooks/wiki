@@ -207,6 +207,12 @@ Error message and password prompt
 
 <li>$:/state/toc/TableOfContents/Software-Bash--118161433</li>
 
+<li>$:/state/toc/TableOfContents/Software-Containers--118161433</li>
+
+<li>$:/state/toc/TableOfContents/Software-GPU Computing--118161433</li>
+
+<li>$:/state/toc/TableOfContents/Software-Grid Computing--118161433</li>
+
 <li>$:/state/toc/TableOfContents/Software-Larsoft--118161433</li>
 
 <li>$:/state/toc/TableOfContents/Software-Latex--118161433</li>
@@ -449,6 +455,8 @@ Error message and password prompt
 
 <li>Creating Singularity Containers</li>
 
+<li>Distributing PyQt applications</li>
+
 <li>Downloading Fonts in TeXStudio</li>
 
 <li>Generating LArSoft Events</li>
@@ -498,6 +506,8 @@ Error message and password prompt
 <li>Physics</li>
 
 <li>project.py Worked Example</li>
+
+<li>Python</li>
 
 <li>Raspberry Pi</li>
 
@@ -9783,7 +9793,7 @@ Error message and password prompt
 <div created="20200415145508642" modified="20200415145512009" title="$:/GitHub/Filename">
 <pre>wiki.html</pre>
 </div>
-<div created="20200525100828222" modified="20200525100828222" title="$:/GitHub/Path">
+<div created="20200531133036761" modified="20200531133036761" title="$:/GitHub/Path">
 <pre>/</pre>
 </div>
 <div created="20200415145342168" modified="20200415145457537" title="$:/GitHub/Repo">
@@ -10066,14 +10076,14 @@ Error message and password prompt
 <div created="20200415145229216" modified="20200505130954949" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Saving</pre>
 </div>
-<div created="20200415145232977" modified="20200505131156200" title="$:/state/tab-2065006209">
+<div created="20200415145232977" modified="20200531133050396" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20200415153844348" modified="20200415172247273" title="$:/state/tab/sidebar--595412856">
-<pre>TableOfContents</pre>
+<div created="20200415153844348" modified="20200531115636819" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div created="20200428104642752" modified="20200428104642752" title="$:/state/toc/TableOfContents-Hardware--118161433">
-<pre>open</pre>
+<div created="20200428104642752" modified="20200529085010580" title="$:/state/toc/TableOfContents-Hardware--118161433">
+<pre>close</pre>
 </div>
 <div created="20200415184116324" modified="20200415185244201" title="$:/state/toc/TableOfContents-Machine Learning--118161433">
 <pre>close</pre>
@@ -10090,7 +10100,16 @@ Error message and password prompt
 <div created="20200415172710365" modified="20200415185357975" title="$:/state/toc/TableOfContents/Software-Bash--118161433">
 <pre>close</pre>
 </div>
-<div created="20200415172409885" modified="20200415172715200" title="$:/state/toc/TableOfContents/Software-Larsoft--118161433">
+<div created="20200529091305288" modified="20200529091305935" title="$:/state/toc/TableOfContents/Software-Containers--118161433">
+<pre>close</pre>
+</div>
+<div created="20200529091306993" modified="20200529091307791" title="$:/state/toc/TableOfContents/Software-GPU Computing--118161433">
+<pre>close</pre>
+</div>
+<div created="20200529091308780" modified="20200529091310026" title="$:/state/toc/TableOfContents/Software-Grid Computing--118161433">
+<pre>close</pre>
+</div>
+<div created="20200415172409885" modified="20200529091313536" title="$:/state/toc/TableOfContents/Software-Larsoft--118161433">
 <pre>close</pre>
 </div>
 <div created="20200415172411422" modified="20200430105432302" title="$:/state/toc/TableOfContents/Software-Latex--118161433">
@@ -10108,7 +10127,7 @@ Error message and password prompt
 <div created="20200415173515224" modified="20200415174052755" title="$:/state/toc/TableOfContents/Software/Version Control-Release Management--118161433">
 <pre>close</pre>
 </div>
-<div created="20200525100822646" list="$:/ControlPanel [[Connecting an accelerometer]] Welcome" modified="20200525100822646" title="$:/StoryList">
+<div created="20200531115638546" list="$:/ControlPanel [[Distributing PyQt applications]] Welcome" modified="20200531133030561" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -11438,6 +11457,40 @@ open vnc://raspberrypi.local
 *%post: Executed after base OS has been installed, i.e. setup script
 *%runscript: Options passed to script at runtime, used for argument processing</pre>
 </div>
+<div created="20200529091358273" modified="20200531133025673" tags="Python" title="Distributing PyQt applications">
+<pre>!Distributing with `fman`
+*Install fman and PyQt in a virtual environment
+
+```bash
+pip3 install fbs PyQt5==5.9.2
+```
+
+*There might also be an issue with setuptools, it needs to be a version less than 45
+
+```bash
+pip install --upgrade 'setuptools&lt;45.0.0'
+```
+
+*Start a new project in an empty directory
+
+```bash
+fbs startproject
+```
+
+*This will create a `src` directory, the main executable needs to be in `src/main/python` so copy over an existing file structure to match this
+*Check that the program works
+
+```bash
+fbs run
+```
+
+*Freeze and then create an installer
+
+```bash
+fbs freeze
+fbs installer
+```</pre>
+</div>
 <div created="20200415172828979" modified="20200428134359978" tags="Latex" title="Downloading Fonts in TeXStudio">
 <pre>*Find a font you like on a site like http://www.dafont.com/
 *Download the .ttf file and put it somewhere like ~/Library/Fonts/
@@ -11907,7 +11960,7 @@ jobsub_submit -G sbnd --role=Analysis --expected-lifetime=2h --disk=30GB --resou
 
 &lt;&lt;list-links &quot;[tag[Larsoft]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20200415165107718" modified="20200415172353866" tags="Software" title="Latex">
+<div created="20200415165107718" modified="20200529091353561" tags="Software" title="Latex">
 <pre>Notes on LaTeX typesetting system:
 
 &lt;&lt;list-links &quot;[tag[Latex]]&quot;&gt;&gt;</pre>
@@ -12363,6 +12416,11 @@ project.py --xml prodsingle_mu_100-1257MeV_fixposcontained_fixangle.xml --stage 
 ```
 
 *Repeat for g4, detsim, reco, pid and anatree</pre>
+</div>
+<div created="20200529091317485" modified="20200529091351830" tags="" title="Python">
+<pre>Notes on Python programming language:
+
+&lt;&lt;list-links &quot;[tag[Python]]&quot;&gt;&gt;</pre>
 </div>
 <div created="20200415171228558" modified="20200415173054768" tags="Hardware" title="Raspberry Pi">
 <pre>Notes on general Raspberry Pi hardware topics:
